@@ -126,7 +126,8 @@
 <div class="selector">
     <h3>Staff</h3>
     <ul class="staff-list clearfix">
-        <li ng-repeat="staff in staffs" ng-click="getMember">
+        <li ng-click="showAll()">显示全部</li>
+        <li ng-repeat="staff in staffs" ng-click="searchMember(staff.name)">
             {{ staff.name }}
             <span>{{ staff.number }}</span>
         </li>
@@ -159,7 +160,7 @@
 </div>
 -->
 
-<!-- For WebSite ::
+<!-- For WebSite :: -->
 
 <div ng-repeat="name in animeName" class="animedetail">
     <h2 id="{{ name[0] }}" class="name">《{{ name[1] }}》</h2>
