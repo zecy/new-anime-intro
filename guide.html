@@ -125,6 +125,7 @@
 
 <div class="selector">
     <h3>Staff</h3>
+    <input type="text" ng-model="staffCountNumber" ui-mask="清空后按确定可还原"/><button ng-click="staffCount()">确定</button><button ng-click="staffCount(2)">恢复</button>
     <ul class="staff-list clearfix">
         <li ng-click="showAll()">显示全部</li>
         <li ng-repeat="staff in staffs" ng-click="searchMember(staff.name)">

@@ -102,7 +102,7 @@ function buildDataList(dataBase, itemHidden) {
     var animeCast = [];
     var animeComment = [];
 
-    var dataItem = dataBase.slice(0);
+    var dataItem = angular.copy(dataBase);
 
     for ( var i = 0; i< dataItem.length; i++) {
 //    for ( var i = 43; i < 66; i++ ) {
@@ -324,7 +324,7 @@ function searchAnime(str, staList, dataBase) {
     return newDataBase;
 }
 
-//var dataList = buildDataList(animeDataBase, 0);
+var dataList = buildDataList(animeDataBase, 0);
 
 /* list all the staff members for the statitcs */
 var staList = staList(animeDataBase);
@@ -347,7 +347,7 @@ function animeBox($scope) {
         $scope.animeComment = dataList.animeComment;
     }
 
-//    showAnime(dataList);
+    showAnime(dataList);
 
     /* display the staffs list in page */
     $scope.staffs = staResult;
@@ -361,6 +361,13 @@ function animeBox($scope) {
     $scope.showAll = function() {
         var dataList = buildDataList(animeDataBase, 0);
         showAnime(dataList);
+    }
+
+    $scope.staffCount = function(num) {
+        var number = $scope.staffCountNumber ? $scope.staffCountNumber : num;
+        console.log(number + "\n" + num);
+        $scope.staffs = meaningfulMembers(dataCount, number);
+        $scope.staffCountNumber = "";
     }
 
 }
