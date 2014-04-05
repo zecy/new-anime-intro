@@ -90,7 +90,7 @@ function hideItem(items) {
 
 }
 
-function buildDataList(dataItem) {
+function buildDataList(dataBase, itemHidden) {
 
     var itemHidden = arguments[1] ? arguments[1] : 0;
 
@@ -102,8 +102,10 @@ function buildDataList(dataItem) {
     var animeCast = [];
     var animeComment = [];
 
-    //for ( var i = 0; i< dataItem.length; i++) {
-    for ( var i = 43; i < 66; i++ ) {
+    var dataItem = dataBase.slice(0);
+
+    for ( var i = 0; i< dataItem.length; i++) {
+//    for ( var i = 43; i < 66; i++ ) {
 
         var name = dataItem[i].name;
         var info = dataItem[i].info;
@@ -187,6 +189,7 @@ function buildDataList(dataItem) {
 //        }
 //    }
 
+
     var dataList = {
         'animeName'   : animeName,
         'animeInfo'   : animeInfo,
@@ -250,7 +253,7 @@ function staList(dataItem) {
 
 function dataCount(arr) {
     var result = [], hash = {};
-    console.log(arr);
+//    console.log(arr);
 //    for ( var i = 0, elem; (elem = Object.keys( staList[i] ) ) != null; i++ ) {
     for ( var i = 0; i < arr.length ; i++ ) {
 //        console.log('hash: ' + hash);
@@ -265,12 +268,11 @@ function dataCount(arr) {
             hash[elem] += 1;
         }
     };
-    console.log(hash);
+//    console.log(hash);
 //    return result;
     return hash;
 
 }
-
 
 function meaningfulMembers(obj) {
     var meaningList = [];
@@ -293,7 +295,36 @@ function meaningfulMembers(obj) {
     return meaningList;
 }
 
-var dataList = buildDataList(animeDataBase, 1);
+function searchAnime(str, staList, dataBase) {
+    /*
+    *  Search the Anime with 'str'
+    *  and returen a list with the index numbers
+    *  so you can get the Anime datas from the database using the this index numbers list
+    *
+    *  the data is from staList
+    *
+    *  staList stuture
+    *  {member : [position, animeDatabseIndex]}
+    *  {新房昭之: [总监督,  14]}
+    *
+    *
+    * */
+
+    var newDataBase = [];
+    for ( var i = 0; i < staList.length; i++ ) {
+        var staff = staList[i];
+        var staffMember = Object.keys(staList[i]);
+        if( staffMember == str ) {
+//            console.log(staff[staffMember][1]);
+            var index = staff[staffMember][1];
+            newDataBase.push(dataBase[index]);
+        }
+    }
+//    console.log(newDataBase);
+    return newDataBase;
+}
+
+//var dataList = buildDataList(animeDataBase, 0);
 
 /* list all the staff members for the statitcs */
 var staList = staList(animeDataBase);
@@ -306,15 +337,30 @@ var staResult = meaningfulMembers(dataCount);
 
 function animeBox($scope) {
 
-    $scope.animeName = dataList.animeName;
-    $scope.animeInfo = dataList.animeInfo;
-    $scope.animeOnair = dataList.animeOnair;
-    $scope.animeHp = dataList.animeHp;
-    $scope.animeStaff = dataList.animeStaff;
-    $scope.animeCast = dataList.animeCast;
-    $scope.animeComment = dataList.animeComment;
+    function showAnime(dataList) {
+        $scope.animeName = dataList.animeName;
+        $scope.animeInfo = dataList.animeInfo;
+        $scope.animeOnair = dataList.animeOnair;
+        $scope.animeHp = dataList.animeHp;
+        $scope.animeStaff = dataList.animeStaff;
+        $scope.animeCast = dataList.animeCast;
+        $scope.animeComment = dataList.animeComment;
+    }
+
+//    showAnime(dataList);
 
     /* display the staffs list in page */
     $scope.staffs = staResult;
+
+    $scope.searchMember = function(memberName) {
+        var newDataBase = searchAnime(memberName, staList, animeDataBase);
+        var newDataList = buildDataList(newDataBase, 0);
+        showAnime(newDataList);
+    }
+
+    $scope.showAll = function() {
+        var dataList = buildDataList(animeDataBase, 0);
+        showAnime(dataList);
+    }
 
 }
