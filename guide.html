@@ -123,11 +123,20 @@
 
 -->
 
+<div class="pages">
+    <h3>输入显示的动画数目：第N部到第M部</h3>
+    <input type="text" ng-model="pageStart"/> - <input type="text" ng-model="pageEnd"/>
+    <button ng-click="animeNumberInOnePage()">确定</button>
+
+</div>
+
 <div class="selector">
     <h3>Staff</h3>
-    <input type="text" ng-model="staffCountNumber" ui-mask="清空后按确定可还原"/><button ng-click="staffCount()">确定</button><button ng-click="staffCount(2)">恢复</button>
+    <input type="text" ng-model="staffCountNumber" ui-mask="清空后按确定可还原"/>
+    <button ng-click="staffCount()">确定</button>
+    <button ng-click="staffCount(2)">恢复</button>
     <ul class="staff-list clearfix">
-        <li ng-click="showAll()">显示全部</li>
+        <li ng-click="staffsUndo()">恢复</li>
         <li ng-repeat="staff in staffs" ng-click="searchMember(staff.name)">
             {{ staff.name }}
             <span>{{ staff.number }}</span>
@@ -136,17 +145,9 @@
 </div>
 
 
-<div class="pages">
-    <h3>输入显示的动画数目：第N部到第M部</h3>
-    <input type="text" ng-model="pageStart"/> - <input type="text" ng-model="pageEnd"/>
-    <button ng-click="animeNumberInOnePage">确定</button>
-
-</div>
-
-
 <div class="guide clearfix">
 
-    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览（下）</h1>
+    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览（{{ pageStart }} - {{ pageEnd }}）</h1>
 
     <div ng-repeat="name in animeName" class="animebox">
         <a ng-href="#{{ name[0] }}"><img ng-src="img/{{ name[0] }}.png" /></a>

@@ -206,7 +206,7 @@ function buildDataList(dataBase, itemHidden, startNum, endNum) {
 
 }
 
-function staList(dataItem) {
+function buildStaList(dataItem, startNum, endNum) {
     /*
      *
      *  The List Struture:
@@ -225,10 +225,14 @@ function staList(dataItem) {
      *
      * */
 
+    var starNum = arguments[1] ? arguments[1] : 0;
+    var endNum  = arguments[2] ? arguments[2] : dataItem.length;
+
     var staList = [];
 //    console.log(dataItem[1].info);
 
-    for ( var i = 0; i < dataItem.length; i++ ) {
+//    for ( var i = 0; i < dataItem.length; i++ ) {
+    for ( var i = starNum; i < endNum; i++ ) {
 //    for ( var i = 0; i < 1; i++ ) {
 //        var staItem = [];
         var staffItem = arrCompact( dataItem[i].staff, 1);
@@ -269,7 +273,7 @@ function dataCount(arr) {
         } else if ( hash[elem] ) {
             hash[elem] += 1;
         }
-    };
+    }
 //    console.log(hash);
 //    return result;
     return hash;
@@ -329,15 +333,13 @@ function searchAnime(str, staList, dataBase) {
 var dataList = buildDataList(animeDataBase, 0);
 
 /* list all the staff members for the statitcs */
-var staList = staList(animeDataBase);
+var staList = buildStaList(animeDataBase);
 
 /* count every staff member  */
-var dataCount = dataCount(staList);
-
-/* select the members join more then 'number' animes, return that list */
-var staResult = meaningfulMembers(dataCount);
+var dataCounted = dataCount(staList);
 
 function animeBox($scope) {
+
 
     function showAnime(dataList) {
 
@@ -361,8 +363,27 @@ function animeBox($scope) {
 
 
     /* --------------------------------------------------------------
+     *
+     * SHOW ANIME IN SPECITIFY NUMBERS
+     *
+     * --------------------------------------------------------------*/
+
+    $scope.animeNumberInOnePage = function() {
+
+        var sN = $scope.pageStart;
+        var eN = $scope.pageEnd;
+
+        var newDataList    = buildDataList(animeDataBase, 0, sN, eN);
+        staList            = buildStaList(animeDataBase, sN, eN);
+        dataCounted        = dataCount(staList);
+
+        showAnime(newDataList);
+        $scope.staffs = meaningfulMembers(dataCounted);
+    }
+
+    /* --------------------------------------------------------------
     *
-    *  SELECT THE ANIME BY DIFFERENT PROPERTYPE
+    *  SELECT THE ANIME BY DIFFERENT PROPERTIES
     *
     * --------------------------------------------------------------*/
 
@@ -374,7 +395,7 @@ function animeBox($scope) {
     * */
 
     /* display the staffs list in page */
-    $scope.staffs = staResult;
+    $scope.staffs = meaningfulMembers(dataCounted);
 
     $scope.searchMember = function(memberName) {
 
@@ -393,7 +414,7 @@ function animeBox($scope) {
         showAnime(newDataList);
     }
 
-    $scope.showAll = function() {
+    $scope.staffsUndo = function() {
 
         /*
         *
@@ -401,13 +422,17 @@ function animeBox($scope) {
         *
         * */
 
-        var dataList = buildDataList(animeDataBase, 0);
+        var sN = $scope.pageStart;
+        var eN = $scope.pageEnd;
+
+        var dataList = buildDataList(animeDataBase, 0, sN, eN);
+        console.log(sN);
         showAnime(dataList);
     }
 
     $scope.staffCount = function(num) {
         var number = $scope.staffCountNumber ? $scope.staffCountNumber : num;
-        $scope.staffs = meaningfulMembers(dataCount, number);
+        $scope.staffs = meaningfulMembers(dataCounted, number);
         $scope.staffCountNumber = "";
     }
 
