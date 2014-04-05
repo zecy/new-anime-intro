@@ -124,11 +124,11 @@
 -->
 
 <div class="selector">
-    <h3 class="staff"></h3>
-    <ul class="staff-list">
-        <li ng-repeat="staff in staffs">
+    <h3>Staff</h3>
+    <ul class="staff-list clearfix">
+        <li ng-repeat="staff in staffs" ng-click="getMember">
             {{ staff.name }}
-            <span>{{ number.number }}</span>
+            <span>{{ staff.number }}</span>
         </li>
     </ul>
 </div>

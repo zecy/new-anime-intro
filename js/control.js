@@ -146,7 +146,7 @@ function buildDataList(dataItem) {
 //        console.log("没有官网的信息列表 " + animeInfo[i]);
     }
 
-    console.log(itemHidden);
+//    console.log(itemHidden);
 
     if( itemHidden === 1 ) {
 
@@ -201,7 +201,7 @@ function buildDataList(dataItem) {
 
 }
 
-function staList() {
+function staList(dataItem) {
     /*
      *
      *  The List Struture:
@@ -223,10 +223,10 @@ function staList() {
     var staList = [];
 //    console.log(dataItem[1].info);
 
-    for ( var i = 0; i < animeDataBase.length; i++ ) {
+    for ( var i = 0; i < dataItem.length; i++ ) {
 //    for ( var i = 0; i < 1; i++ ) {
-        var staItem = [];
-        var staffItem = arrCompact( animeDataBase[i].staff, 1);
+//        var staItem = [];
+        var staffItem = arrCompact( dataItem[i].staff, 1);
 //        staItem["dbid"] = i;
 //        staItem["title"] = item.name[1];
         for ( var j = 0; j < staffItem.length; j++ ) {
@@ -248,10 +248,9 @@ function staList() {
     return staList;
 }
 
-var staList = staList();
-
 function dataCount(arr) {
     var result = [], hash = {};
+    console.log(arr);
 //    for ( var i = 0, elem; (elem = Object.keys( staList[i] ) ) != null; i++ ) {
     for ( var i = 0; i < arr.length ; i++ ) {
 //        console.log('hash: ' + hash);
@@ -266,7 +265,7 @@ function dataCount(arr) {
             hash[elem] += 1;
         }
     };
-//    console.log(hash);
+    console.log(hash);
 //    return result;
     return hash;
 
@@ -294,13 +293,18 @@ function meaningfulMembers(obj) {
     return meaningList;
 }
 
-var result = dataCount(staList);
+var dataList = buildDataList(animeDataBase, 1);
 
-var mfm = meaningfulMembers(result);
+/* list all the staff members for the statitcs */
+var staList = staList(animeDataBase);
+
+/* count every staff member  */
+var dataCount = dataCount(staList);
+
+/* select the members join more then 'number' animes, return that list */
+var staResult = meaningfulMembers(dataCount);
 
 function animeBox($scope) {
-
-    var dataList = buildDataList(animeDataBase, 1);
 
     $scope.animeName = dataList.animeName;
     $scope.animeInfo = dataList.animeInfo;
@@ -310,6 +314,7 @@ function animeBox($scope) {
     $scope.animeCast = dataList.animeCast;
     $scope.animeComment = dataList.animeComment;
 
-    $scope.meaningList = mfm;
+    /* display the staffs list in page */
+    $scope.staffs = staResult;
 
 }
