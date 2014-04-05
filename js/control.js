@@ -90,22 +90,24 @@ function hideItem(items) {
 
 }
 
-function buildDataList(dataBase, itemHidden) {
+function buildDataList(dataBase, itemHidden, startNum, endNum) {
 
-    var itemHidden = arguments[1] ? arguments[1] : 0;
+    var itemHidden  = arguments[1] ? arguments[1] : 0;
+    var starNum     = arguments[2] ? arguments[2] : 0;
+    var endNum      = arguments[3] ? arguments[3] : dataBase.length;
 
-    var animeName = [];
-    var animeInfo = [];
-    var animeOnair = [];
-    var animeHp = [];
-    var animeStaff = [];
-    var animeCast = [];
+    var animeName    = [];
+    var animeInfo    = [];
+    var animeOnair   = [];
+    var animeHp      = [];
+    var animeStaff   = [];
+    var animeCast    = [];
     var animeComment = [];
 
     var dataItem = angular.copy(dataBase);
 
-    for ( var i = 0; i< dataItem.length; i++) {
-//    for ( var i = 43; i < 66; i++ ) {
+//    for ( var i = 0; i< dataItem.length; i++) {
+    for ( var i = starNum; i < endNum; i++ ) {
 
         var name = dataItem[i].name;
         var info = dataItem[i].info;
@@ -338,6 +340,13 @@ var staResult = meaningfulMembers(dataCount);
 function animeBox($scope) {
 
     function showAnime(dataList) {
+
+        /*
+        *
+        * For showing the Anime List. Including the guiding image and the detail.
+        *
+        * */
+
         $scope.animeName = dataList.animeName;
         $scope.animeInfo = dataList.animeInfo;
         $scope.animeOnair = dataList.animeOnair;
@@ -347,27 +356,61 @@ function animeBox($scope) {
         $scope.animeComment = dataList.animeComment;
     }
 
+    /* default : show the Animes  */
     showAnime(dataList);
+
+
+    /* --------------------------------------------------------------
+    *
+    *  SELECT THE ANIME BY DIFFERENT PROPERTYPE
+    *
+    * --------------------------------------------------------------*/
+
+
+    /*
+    *
+    *  STAFF
+    *
+    * */
 
     /* display the staffs list in page */
     $scope.staffs = staResult;
 
     $scope.searchMember = function(memberName) {
+
+        /*
+        *
+        * Search the Members like this :
+        *
+        * buttons : | MAD HOUSE ( 2 ) |  | BONES ( 4 ) |  | 新房昭之 ( 3 ) |
+        *
+        * click one of the buttons , and then the Anime with that member will be selected.
+        *
+        * */
+
         var newDataBase = searchAnime(memberName, staList, animeDataBase);
         var newDataList = buildDataList(newDataBase, 0);
         showAnime(newDataList);
     }
 
     $scope.showAll = function() {
+
+        /*
+        *
+        * The GoBack function for he searchMember(). Once click this , the member list will come back.
+        *
+        * */
+
         var dataList = buildDataList(animeDataBase, 0);
         showAnime(dataList);
     }
 
     $scope.staffCount = function(num) {
         var number = $scope.staffCountNumber ? $scope.staffCountNumber : num;
-        console.log(number + "\n" + num);
         $scope.staffs = meaningfulMembers(dataCount, number);
         $scope.staffCountNumber = "";
     }
+
+
 
 }
