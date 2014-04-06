@@ -132,12 +132,12 @@
 
 <div class="selector">
     <h3>Staff</h3>
-    <input type="text" ng-model="staffCountNumber" ui-mask="清空后按确定可还原"/>
+    <input type="text" ng-model="searchText" ui-mask="清空后按确定可还原"/>
     <button ng-click="staffCount()">确定</button>
     <button ng-click="staffCount(2)">恢复</button>
     <ul class="staff-list clearfix">
         <li ng-click="staffsUndo()">恢复</li>
-        <li ng-repeat="staff in staffs" ng-click="searchMember(staff.name)">
+        <li ng-repeat="staff in countedStaffs | filter: searchText" ng-click="searchProperty(staff.name)">
             {{ staff.name }}
             <span>{{ staff.number }}</span>
         </li>
@@ -147,11 +147,12 @@
 
 <div class="guide clearfix">
 
-    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览（{{ pageStart }} - {{ pageEnd }}）</h1>
+    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览（）</h1>
 
-    <div ng-repeat="name in animeName" class="animebox">
-        <a ng-href="#{{ name[0] }}"><img ng-src="img/{{ name[0] }}.png" /></a>
-        <h2>{{ name[1] }}</h2>
+    <!--<div ng-repeat="name in animeName " class="animebox">-->
+    <div ng-repeat="anime in animeDataBase | filter: searchText " class="animebox">
+        <a ng-href="#{{ anime.name[0] }}"><img ng-src="img/{{ anime.name[0] }}.png" /></a>
+        <h2>{{ anime.name[1] }}</h2>
     </div>
 
 </div>
@@ -173,12 +174,12 @@
 
 <!-- For WebSite :: -->
 
-<div ng-repeat="name in animeName" class="animedetail">
-    <h2 id="{{ name[0] }}" class="name">《{{ name[1] }}》</h2>
-    <img ng-src="image/{{ name[0] }}/poster.jpg" alt=""/>
+<div ng-repeat="anime in animeDataBase | filter: searchText" class="animedetail">
+    <h2 id="{{ anime.name[0] }}" class="name">《{{ anime.name[1] }}》</h2>
+    <img ng-src="image/{{ anime.name[0] }}/poster.jpg" alt=""/>
     <h3>基本信息</h3>
     <ul class="infobox">
-        <li ng-repeat="info in animeInfo[$index]">
+        <li ng-repeat="info in animeDataBase[$index].info">
             <b>{{ info[0] }}:</b>
             {{ info[1] }}
         </li>
@@ -190,7 +191,7 @@
 
     <h3>Staff</h3>
     <ul class="infobox">
-        <li ng-repeat="staff in animeStaff[$index] ">
+        <li ng-repeat="staff in animeDataBase[$index].staff ">
             <b>{{ staff[0] }}:</b>
             {{ staff[1] }}
         </li>
@@ -198,7 +199,7 @@
 
     <h3>Cast</h3>
     <ul class="infobox">
-        <li ng-repeat="cast in animeCast[$index]">
+        <li ng-repeat="cast in animeDataBase[$index].cast">
             <b>{{ cast[0] }}:</b>
             {{ cast[1] }}
         </li>
@@ -206,7 +207,7 @@
 
     <h3>简介</h3>
     <div class="dialog">
-        <p ng-repeat="comment in animeComment[$index]">{{ comment }}</p>
+        <p ng-repeat="comment in animeDataBase[$index].comment">{{ comment }}</p>
     </div>
 
 </div>

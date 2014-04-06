@@ -2,7 +2,31 @@
  * Created by zecy on 14-3-29.
  */
 
+/* ----------------------------------------
+ *
+ *        THE METHOD FUNCTIONS
+ *
+ * ----------------------------------------*/
+
+
 function arrCompact(arr, style) {
+
+    /*
+    *
+    *  compact the items
+    *
+    *  style = 1: positon1/positon2... : member
+    *
+    *  or
+    *
+    *  style = 2: position: member1、member2...
+    *
+    *  or
+    *
+    *  style = 3: both of these.
+    *
+    * */
+
 
     var style = arguments[1] ? arguments[1] : 3;
 
@@ -66,143 +90,40 @@ function arrCompact(arr, style) {
 
 function hideItem(items) {
 
-    var list = items;
+    /*
+    *
+    * for the BBS or other website, I don't want so many items, so i want to hide sth
+    * the items won't show have a target number
+    * when that number is '0', the item won't be shown.
+    *
+    * use this function on a items array, then it would return a new array without those 0 items
+    *
+    * ATTENTION: this fuction SPLICE the array without a deep copy.
+    *
+    * the item should like this:
+    *
+    *   this would be shown at any time             : ['原作', '伊藤彰', '1'],
+    *   this would be hidden when use this function : ['连载', '月刊ブシロード', '0'],
+    *
+    * */
 
 
-    for ( var i = 0; i < list.length; i++ ) {
+    for ( var i = 0; i < items.length; i++ ) {
 
-        for ( var j = 0; j < list[i].length; j++ ) {
+        for ( var j = 0; j < items[i].length; j++ ) {
 
-            if ( list[i][j][2] === '0' ) {
+            if ( items[i][j][2] === '0' ) {
 
-                list[i].splice(j, 1);
+                items[i].splice(j, 1);
 
-                j -= 1
-
-                continue
+                j -= 1;
 
             }
         }
 
     }
 
-    return list;
-
-}
-
-function buildDataList(dataBase, itemHidden, startNum, endNum) {
-
-    var itemHidden  = arguments[1] ? arguments[1] : 0;
-    var starNum     = arguments[2] ? arguments[2] : 0;
-    var endNum      = arguments[3] ? arguments[3] : dataBase.length;
-
-    var animeName    = [];
-    var animeInfo    = [];
-    var animeOnair   = [];
-    var animeHp      = [];
-    var animeStaff   = [];
-    var animeCast    = [];
-    var animeComment = [];
-
-    var dataItem = angular.copy(dataBase);
-
-//    for ( var i = 0; i< dataItem.length; i++) {
-    for ( var i = starNum; i < endNum; i++ ) {
-
-        var name = dataItem[i].name;
-        var info = dataItem[i].info;
-        var staff = arrCompact(dataItem[i].staff);
-        var cast = arrCompact(dataItem[i].cast);
-        var comment = dataItem[i].comment;
-
-        animeName.push(name);
-        animeInfo.push(info);
-        animeStaff.push(staff);
-        animeCast.push(cast);
-        animeComment.push(comment);
-    }
-
-//    console.log(animeName);
-//    console.log(animeInfo);
-//    console.log(animeCast);
-//    console.log(animeStaff);
-
-    for ( var i = 0; i < animeInfo.length; i++ ) {
-
-        for ( var j = 0; j < animeInfo[i].length; j++ ) {
-
-            if ( animeInfo[i][j][0] === '官方网站' ) {
-
-                animeHp.push(animeInfo[i][j]);
-
-                animeInfo[i].splice(j, 1);
-
-            } else if ( animeInfo[i][j][0] === '时间' ) {
-
-                animeOnair.push(animeInfo[i][j]);
-
-            }
-
-        }
-
-//        console.log("抽出的官网 " + animeHp);
-//        console.log("抽出的官网列表 " + animeHp);
-//        console.log("没有官网的信息列表 " + animeInfo[i]);
-    }
-
-//    console.log(itemHidden);
-
-    if( itemHidden === 1 ) {
-
-        animeStaff = hideItem(animeStaff);
-        animeCast = hideItem(animeCast);
-
-    }
-
-//    for ( var i = 0; i < animeStaff.length; i++ ) {
-//
-//        for ( var j = 0; j < animeStaff[i].length; j++ ) {
-//
-//            if ( animeStaff[i][j][2] === '0' ) {
-//
-//                animeStaff[i].splice(j - 1, 1);
-//
-//                j = j - 1;
-//
-//                continue
-//
-//            }
-//        }
-//    }
-//
-//    for ( var i = 0; i < animeCast.length; i++ ) {
-//
-//        for ( var j = 0; j < animeCast[i].length; j++ ) {
-//
-//            if ( animeCast[i][j][2] === '0' ) {
-//
-//                animeCast[i].splice(j - 1, 1);
-//
-//                j = j - 1;
-//
-//                continue
-//
-//            }
-//        }
-//    }
-
-
-    var dataList = {
-        'animeName'   : animeName,
-        'animeInfo'   : animeInfo,
-        'animeOnair'  : animeOnair,
-        'animeHp'     : animeHp,
-        'animeStaff'  : animeStaff,
-        'animeCast'   : animeCast,
-        'animeComment': animeComment
-    };
-
-    return dataList
+    return items;
 
 }
 
@@ -280,9 +201,12 @@ function dataCount(arr) {
 
 }
 
-function meaningfulMembers(obj) {
+function meaningfulData(obj, number) {
     var meaningList = [];
+
+    // set the default value, just show a member take part in more than one anime
     var number = arguments[1] ? arguments[1] : 2;
+
     for ( var i in obj ) {
 //        console.log(obj[i]);
         if( obj[i] >= number) {
@@ -330,36 +254,38 @@ function searchAnime(str, staList, dataBase) {
     return newDataBase;
 }
 
-var dataList = buildDataList(animeDataBase, 0);
+//var dataList = buildDataList(animeDataBase, 0);
 
 /* list all the staff members for the statitcs */
-var staList = buildStaList(animeDataBase);
+//var staList = buildStaList(animeDataBase);
 
 /* count every staff member  */
-var dataCounted = dataCount(staList);
+//var dataCounted = dataCount(staList);
 
 function animeBox($scope) {
 
 
-    function showAnime(dataList) {
+//    function showAnime(dataList) {
+//
+//        /*
+//        *
+//        * For showing the Anime List. Including the guiding image and the detail.
+//        *
+//        * */
+//
+//        $scope.animeName = dataList.animeName;
+//        $scope.animeInfo = dataList.animeInfo;
+//        $scope.animeOnair = dataList.animeOnair;
+//        $scope.animeHp = dataList.animeHp;
+//        $scope.animeStaff = dataList.animeStaff;
+//        $scope.animeCast = dataList.animeCast;
+//        $scope.animeComment = dataList.animeComment;
+//    }
 
-        /*
-        *
-        * For showing the Anime List. Including the guiding image and the detail.
-        *
-        * */
-
-        $scope.animeName = dataList.animeName;
-        $scope.animeInfo = dataList.animeInfo;
-        $scope.animeOnair = dataList.animeOnair;
-        $scope.animeHp = dataList.animeHp;
-        $scope.animeStaff = dataList.animeStaff;
-        $scope.animeCast = dataList.animeCast;
-        $scope.animeComment = dataList.animeComment;
-    }
+    $scope.animeDataBase = animeDataBase;
 
     /* default : show the Animes  */
-    showAnime(dataList);
+//    showAnime(dataList);
 
 
     /* --------------------------------------------------------------
@@ -368,18 +294,21 @@ function animeBox($scope) {
      *
      * --------------------------------------------------------------*/
 
-    $scope.animeNumberInOnePage = function() {
-
-        var sN = $scope.pageStart;
-        var eN = $scope.pageEnd;
-
-        var newDataList    = buildDataList(animeDataBase, 0, sN, eN);
-        staList            = buildStaList(animeDataBase, sN, eN);
-        dataCounted        = dataCount(staList);
-
-        showAnime(newDataList);
-        $scope.staffs = meaningfulMembers(dataCounted);
-    }
+//    $scope.animeNumberInOnePage = function() {
+//
+//        var sN = $scope.pageStart;
+//        var eN = $scope.pageEnd;
+//
+//        var newDataList    = buildDataList(animeDataBase, 0, sN, eN);
+//        staList            = buildStaList(animeDataBase, sN, eN);
+//        dataCounted        = dataCount(staList);
+//
+//        // show the new anime list
+//        showAnime(newDataList);
+//
+//        // update the selectors at the same time
+//        $scope.staffs = meaningfulData(dataCounted);
+//    };
 
     /* --------------------------------------------------------------
     *
@@ -387,6 +316,22 @@ function animeBox($scope) {
     *
     * --------------------------------------------------------------*/
 
+    $scope.searchProperty = function (property) {
+
+        /*
+         *
+         * Search the Members like this :
+         *
+         * buttons : [ MAD HOUSE ( 2 ) ]  [ BONES ( 4 ) ]  [ 新房昭之 ( 3 ) ]
+         *
+         * click one of the buttons , and then the Anime with that member will be selected.
+         *
+         * */
+
+        var newDataBase = searchAnime(property, staList, animeDataBase);
+        var newDataList = buildDataList(newDataBase, 0);
+        showAnime(newDataList);
+    };
 
     /*
     *
@@ -395,30 +340,14 @@ function animeBox($scope) {
     * */
 
     /* display the staffs list in page */
-    $scope.staffs = meaningfulMembers(dataCounted);
+//    $scope.countedStaffs = meaningfulData(dataCounted);
 
-    $scope.searchMember = function(memberName) {
-
-        /*
-        *
-        * Search the Members like this :
-        *
-        * buttons : | MAD HOUSE ( 2 ) |  | BONES ( 4 ) |  | 新房昭之 ( 3 ) |
-        *
-        * click one of the buttons , and then the Anime with that member will be selected.
-        *
-        * */
-
-        var newDataBase = searchAnime(memberName, staList, animeDataBase);
-        var newDataList = buildDataList(newDataBase, 0);
-        showAnime(newDataList);
-    }
 
     $scope.staffsUndo = function() {
 
         /*
         *
-        * The GoBack function for he searchMember(). Once click this , the member list will come back.
+        * The GoBack function for he searchProperty(). Once click this , the member list will come back.
         *
         * */
 
@@ -428,11 +357,11 @@ function animeBox($scope) {
         var dataList = buildDataList(animeDataBase, 0, sN, eN);
         console.log(sN);
         showAnime(dataList);
-    }
+    };
 
     $scope.staffCount = function(num) {
         var number = $scope.staffCountNumber ? $scope.staffCountNumber : num;
-        $scope.staffs = meaningfulMembers(dataCounted, number);
+        $scope.staffs = meaningfulData(dataCounted, number);
         $scope.staffCountNumber = "";
     }
 
