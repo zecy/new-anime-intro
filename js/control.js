@@ -88,45 +88,6 @@ function arrCompact(arr, style) {
 
 }
 
-function hideItem(items) {
-
-    /*
-    *
-    * for the BBS or other website, I don't want so many items, so i want to hide sth
-    * the items won't show have a target number
-    * when that number is '0', the item won't be shown.
-    *
-    * use this function on a items array, then it would return a new array without those 0 items
-    *
-    * ATTENTION: this fuction SPLICE the array without a deep copy.
-    *
-    * the item should like this:
-    *
-    *   this would be shown at any time             : ['原作', '伊藤彰', '1'],
-    *   this would be hidden when use this function : ['连载', '月刊ブシロード', '0'],
-    *
-    * */
-
-
-    for ( var i = 0; i < items.length; i++ ) {
-
-        for ( var j = 0; j < items[i].length; j++ ) {
-
-            if ( items[i][j][2] === '0' ) {
-
-                items[i].splice(j, 1);
-
-                j -= 1;
-
-            }
-        }
-
-    }
-
-    return items;
-
-}
-
 function buildStaList(dataItem, startNum, endNum) {
     /*
      *
@@ -254,70 +215,80 @@ function searchAnime(str, staList, dataBase) {
     return newDataBase;
 }
 
-//var dataList = buildDataList(animeDataBase, 0);
+/*------------------------------------------------------------
+*
+*  THE FILTERS
+*
+* ------------------------------------------------------------*/
 
-/* list all the staff members for the statitcs */
-//var staList = buildStaList(animeDataBase);
+var animeIntro = angular.module('AnimeIntro', []);
+animeIntro.filter('hideItem', function(){
+    var hideItemFilter = function(input) {
+        var output = [];
+        for ( var i = 0; i < input.length; i++ ) {
+            var item = input[i];
+            if(item[2] == 1) {
+                output.push(item)
+            }
+        }
+        return output;
+    }
+    return hideItemFilter;
+})
 
-/* count every staff member  */
-//var dataCounted = dataCount(staList);
 
+/*------------------------------------------------------------
+*
+*                   MAIN FUNCTION
+*
+* ------------------------------------------------------------*/
 
-/**/
+/* STATICS THE PROPERTIES */
+
+function countedProperties(dataBase) {
+    /*
+    *
+    * return the counted proterty lists,
+    *
+    * include original type, staffs, casts, onair etc.
+    *
+    * */
+
+    var waitToCountOriginType   = [];
+    var waitToCountGenre        = [];
+    var waitToCountStaff        = [];
+    var waitToCountCast         = [];
+
+    var countedOriginType       = [];
+    var countedGenre            = [];
+    var countedStaff            = [];
+    var countedCast             = [];
+
+    for ( var i = 0; i < dataBase.length; i++ ) {
+        var anAnime = dataBase[i];
+
+        var genre = anAnime.genre.
+
+        waitToCountStaff.push(buildStaList(anAnime.staff));
+        waitToCountCast.push(buildStaList(anAnime.staff));
+    }
+
+ }
+
+/* SHOW ANIMES */
+var newDataBase = angular.copy(animeDataBase);
+
+for ( var i = 0; i < newDataBase.length; i++ ) {
+    var obj = newDataBase[i];
+    obj.staff = arrCompact(obj.staff,3);
+    obj.cast = arrCompact(obj.cast,3);
+}
 
 function animeBox($scope) {
 
 
-//    function showAnime(dataList) {
-//
-//        /*
-//        *
-//        * For showing the Anime List. Including the guiding image and the detail.
-//        *
-//        * */
-//
-//        $scope.animeName = dataList.animeName;
-//        $scope.animeInfo = dataList.animeInfo;
-//        $scope.animeOnair = dataList.animeOnair;
-//        $scope.animeHp = dataList.animeHp;
-//        $scope.animeStaff = dataList.animeStaff;
-//        $scope.animeCast = dataList.animeCast;
-//        $scope.animeComment = dataList.animeComment;
-//    }
+    $scope.animeDataBase = newDataBase;
 
-    $scope.animeDataBase = animeDataBase;
-
-    /* default : show the Animes  */
-//    showAnime(dataList);
-
-
-    /* --------------------------------------------------------------
-     *
-     * SHOW ANIME IN SPECITIFY NUMBERS
-     *
-     * --------------------------------------------------------------*/
-
-//    $scope.animeNumberInOnePage = function() {
-//
-//        var sN = $scope.pageStart;
-//        var eN = $scope.pageEnd;
-//
-//        var newDataList    = buildDataList(animeDataBase, 0, sN, eN);
-//        staList            = buildStaList(animeDataBase, sN, eN);
-//        dataCounted        = dataCount(staList);
-//
-//        // show the new anime list
-//        showAnime(newDataList);
-//
-//        // update the selectors at the same time
-//        $scope.staffs = meaningfulData(dataCounted);
-//    };
-
-    /* --------------------------------------------------------------
-    *
-    *  SELECT THE ANIME BY DIFFERENT PROPERTIES
-    *
-    * --------------------------------------------------------------*/
 
     $scope.searchProperty = function (property) {
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="AnimeIntro">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css" />
@@ -201,7 +201,7 @@
 
     <h3>Staff</h3>
     <ul class="infobox">
-        <li ng-repeat="staff in animeDataBase[$index].staff ">
+        <li ng-repeat="staff in animeDataBase[$index].staff | hideItem">
             <b>{{ staff[0] }}:</b>
             {{ staff[1] }}
         </li>
@@ -209,7 +209,7 @@
 
     <h3>Cast</h3>
     <ul class="infobox">
-        <li ng-repeat="cast in animeDataBase[$index].cast">
+        <li ng-repeat="cast in animeDataBase[$index].cast | hideItem">
             <b>{{ cast[0] }}:</b>
             {{ cast[1] }}
         </li>
