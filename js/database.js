@@ -2,12 +2,13 @@
 var animeDataBase;
 
 animeDataBase = [
+    /* 2014/3/9 星期日 10:00:00 卡片战斗先导者 Legion Mate篇（第四期） {{{1 */
     {'name':['vanguard4th', '卡片战斗先导者 Legion Mate篇（第四期）'],
         'info':{
 
             'origintitle':['カードファイト!! ヴァンガード レギオンメイト編', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/3/9', '1'],
+            'onair':['2014/3/9 星期日 10:00~10:30', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/cf-vanguard-lm/', '1'],
             'genre':['卡牌', '1']
@@ -51,16 +52,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/3/10 星期一 6:00:00 WASIMO {{{1 */
     {'name':['wasimo', 'WASIMO'],
         'info':{
 
             'origintitle':['わしも WASIMO', '1'],
             'origintype':['图画书', '1'],
-            'onair':['2014/3/10', '1'],
+            'onair':['2014/3/10 星期一 06:00~06:10', '1'],
             'episodes':['10', '1'],
             'sequel':['0', '1'],
             'hp':['http://www9.nhk.or.jp/anime/wasimo/', '1'],
-            'genre':['', '1']
+            'genre':['短片,少儿向', '1']
         },
 
         'staff':[
@@ -85,16 +87,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/3/10 星期一  Nandaka维罗妮卡 {{{1 */
     {'name':['velonica', 'Nandaka维罗妮卡'],
         'info':{
 
             'origintitle':['ナンダカベロニカ', '1'],
             'origintype':['TV原创', '1'],
-            'onair':['2014/3/10', '1'],
+            'onair':['2014/3/10 星期一 ', '1'],
             'episodes':['10', '1'],
             'sequel':['0', '1'],
             'hp':['http://www9.nhk.or.jp/anime/velonica/', '1'],
-            'genre':['', '1']
+            'genre':['短片,少儿向', '1']
         },
 
         'staff':[
@@ -131,16 +134,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/3/21 星期五 12:00:00 战国无双SP~真田之章~ {{{1 */
     {'name':['sengokumusousp', '战国无双SP~真田之章~'],
         'info':{
 
             'origintitle':['戦国無双SP ～真田の章～', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/3/21', '1'],
+            'onair':['2014/3/21 星期五 12:00~13:00', '1'],
             'episodes':['1', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/sengokumusou/index.html', '1'],
-            'genre':['', '1']
+            'genre':['战国', '1']
         },
 
         'staff':[
@@ -174,15 +178,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/3/22 星期六 7:00:00 Keroro {{{1 */
     {'name':['keroro-flash', 'Keroro'],
         'info':{
 
             'origintitle':['ケロロ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/3/22', '1'],
+            'onair':['2014/3/22 星期六 07:00~07:05', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.keroro.com/flashanime/', '1'],
-            'genre':['', '1']
+            'genre':['短片,搞笑', '1']
         },
 
         'staff':[
@@ -210,15 +215,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/1 星期二  迷你偶像！！ 第二季 {{{1 */
     {'name':['puchimas2nd', '迷你偶像！！ 第二季'],
         'info':{
 
             'origintitle':['ぷちます！！プチプチ·アイドルマスター', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/1', '1'],
+            'onair':['2014/4/1 星期二 ', '1'],
             'sequel':['-1', '1'],
             'hp':['http://puchimas.com/', '1'],
-            'genre':['', '1']
+            'genre':['短片,搞笑,偶像,日常', '1']
         },
 
         'staff':[
@@ -270,15 +276,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/1 星期二 18:30:00 魔神之骸 {{{1 */
     {'name':['majinbone', '魔神之骸'],
         'info':{
 
             'origintitle':['マジンボーン', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/1', '1'],
+            'onair':['2014/4/1 星期二 18:30~19:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.toei-anim.co.jp/tv/majinbone/', '1'],
-            'genre':['', '1']
+            'genre':['卡牌,科幻,少儿向,战斗', '1']
         },
 
         'staff':[
@@ -323,15 +330,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/2 星期三 18:30:00 Disk Wars：复仇者联盟 {{{1 */
     {'name':['diskwars', 'Disk Wars：复仇者联盟'],
         'info':{
 
             'origintitle':['ディスク·ウォーズ：アベンジャーズ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/2', '1'],
+            'onair':['2014/4/2 星期三 18:30~18:57', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.disney.co.jp/diskwars/', '1'],
-            'genre':['', '1']
+            'genre':['科幻,少儿向,战斗', '1']
         },
 
         'staff':[
@@ -371,15 +379,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/2 星期三 18:45:00 袜子耷拉 {{{1 */
     {'name':['kutsudaru', '袜子耷拉'],
         'info':{
 
             'origintitle':['くつだる。', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/2', '1'],
+            'onair':['2014/4/2 星期三 18:45~18:55', '1'],
             'sequel':['0', '1'],
             'hp':['http://morning.moae.jp/news/967', '1'],
-            'genre':['', '1']
+            'genre':['短片', '1']
         },
 
         'staff':[
@@ -403,15 +412,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/2 星期三 1:35:00 可爱的可尼 {{{1 */
     {'name':['carinoconi', '可爱的可尼'],
         'info':{
 
             'origintitle':['カリーノ·コニ', '1'],
             'origintype':['图画书', '1'],
-            'onair':['2014/4/2', '1'],
+            'onair':['2014/4/2 星期三 01:35~01:40', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/carinoconi/index.html', '1'],
-            'genre':['', '1']
+            'genre':['少儿向', '1']
         },
 
         'staff':[
@@ -433,15 +443,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/3 星期四 18:30:00 GO-GO 拓麻歌子！（第4作） {{{1 */
     {'name':['tamagotchi4th', 'GO-GO 拓麻歌子！（第4作）'],
         'info':{
 
             'origintitle':['GO-GO たまごっち！', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/3', '1'],
+            'onair':['2014/4/3 星期四 18:30~19:00', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/tamagotchi/', '1'],
-            'genre':['', '1']
+            'genre':['短片,少儿向', '1']
         },
 
         'staff':[
@@ -468,16 +479,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/4 星期五 2:05:00 监督不行届 {{{1 */
     {'name':['kantoku', '监督不行届'],
         'info':{
 
             'origintitle':['監督不行届', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/4', '1'],
+            'onair':['2014/4/4 星期五 02:05~02:10', '1'],
             'episodes':['13', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.dle.jp/kantoku/', '1'],
-            'genre':['', '1']
+            'genre':['短片,搞笑', '1']
         },
 
         'staff':[
@@ -501,15 +513,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/4 星期五 1:46:00 剑灵 {{{1 */
     {'name':['bladesoul', '剑灵'],
         'info':{
 
             'origintitle':['Blade & Soul', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/4', '1'],
+            'onair':['2014/4/4 星期五 01:46~02:16', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.tbs.co.jp/anime/blade/', '1'],
-            'genre':['', '1']
+            'genre':['奇幻,战斗', '1']
         },
 
         'staff':[
@@ -544,15 +557,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/4 星期五 2:16:00 我们大家的河合庄 {{{1 */
     {'name':['kawaisou', '我们大家的河合庄'],
         'info':{
 
             'origintitle':['僕らはみんな河合荘', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/4', '1'],
+            'onair':['2014/4/4 星期五 02:16~02:46', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.tbs.co.jp/anime/kawaisou/', '1'],
-            'genre':['', '1']
+            'genre':['恋爱,校园', '1']
         },
 
         'staff':[
@@ -586,15 +600,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/4 星期五 2:19:00 恶魔之谜 {{{1 */
     {'name':['akuma-riddle', '恶魔之谜'],
         'info':{
 
             'origintitle':['悪魔のリドル', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/4', '1'],
+            'onair':['2014/4/4 星期五 02:19~02:49', '1'],
             'sequel':['0', '1'],
             'hp':['http://akuma-riddle.com/', '1'],
-            'genre':['', '1']
+            'genre':['百合,生存游戏,校园,战斗', '1']
         },
 
         'staff':[
@@ -650,16 +665,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/4 星期五 7:30:00 忍者神龟 新系列 {{{1 */
     {'name':['tmnt', '忍者神龟 新系列'],
         'info':{
 
             'origintitle':['ミュータント·タートルズ 新シリーズ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/4', '1'],
+            'onair':['2014/4/4 星期五 07:30~08:00', '1'],
             'episodes':['26', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.nickjapan.com/character/tmnt/', '1'],
-            'genre':['', '1']
+            'genre':['忍者,少儿向,战斗', '1']
         },
 
         'staff':[
@@ -683,16 +699,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/4 星期五 1:00:00 犬神同学和猫山同学 {{{1 */
     {'name':['inuneko', '犬神同学和猫山同学'],
         'info':{
 
             'origintitle':['犬神さんと猫山さん', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/4', '1'],
+            'onair':['2014/4/4 星期五 01:00~01:05', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.dreamcreation.co.jp/inuneko/', '1'],
-            'genre':['', '1']
+            'genre':['百合,短片,校园', '1']
         },
 
         'staff':[
@@ -729,16 +746,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 9:00:00 展开骑士 {{{1 */
     {'name':['tenkaiknight', '展开骑士'],
         'info':{
 
             'origintitle':['テンカイナイト', '1'],
             'origintype':['玩具', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 09:00~09:30', '1'],
             'episodes':['25', '1'],
             'sequel':['0', '1'],
             'hp':['http://tenkaiknight.jp/', '1'],
-            'genre':['', '1']
+            'genre':['热血,少儿向,战斗', '1']
         },
 
         'staff':[
@@ -779,15 +797,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 18:30:00 健全机斗士Daimidaler {{{1 */
     {'name':['penguin-empire', '健全机斗士Daimidaler'],
         'info':{
 
             'origintitle':['健全ロボ ダイミダラー', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 18:30~19:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://penguin-empire.com/', '1'],
-            'genre':['', '1']
+            'genre':['搞笑,机器人,杀必死,战斗', '1']
         },
 
         'staff':[
@@ -829,15 +848,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六  妖精的尾巴 第二季 {{{1 */
     {'name':['fairytail2nd', '妖精的尾巴 第二季'],
         'info':{
 
             'origintitle':['FAIRY TAIL 新シリーズ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 ', '1'],
             'sequel':['-1', '1'],
             'hp':['http://fairytail-tv.com/', '1'],
-            'genre':['', '1']
+            'genre':['奇幻,热血,战斗', '1']
         },
 
         'staff':[
@@ -902,15 +922,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 1:25:00 selector infected WIXOSS {{{1 */
     {'name':['selector-wixoss', 'selector infected WIXOSS'],
         'info':{
 
             'origintitle':['selector infected WIXOSS', '1'],
             'origintype':['TV原创', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 01:25~01:55', '1'],
             'sequel':['0', '1'],
             'hp':['http://selector-wixoss.com/', '1'],
-            'genre':['', '1']
+            'genre':['卡牌,异能,生存游戏', '1']
         },
 
         'staff':[
@@ -949,16 +970,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 20:30:00 星刻的龙骑士 {{{1 */
     {'name':['seikokutv', '星刻的龙骑士'],
         'info':{
 
             'origintitle':['星刻の竜騎士', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 20:30~21:00', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.seikokutv.com/', '1'],
-            'genre':['', '1']
+            'genre':['后宫,萌,奇幻,杀必死,校园,战斗', '1']
         },
 
         'staff':[
@@ -1009,16 +1031,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 0:00:00 虫师 续章（第二季） {{{1 */
     {'name':['mushishi2nd', '虫师 续章（第二季）'],
         'info':{
 
             'origintitle':['蟲師 続章', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 00:00~00:30', '1'],
             'episodes':['12', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.mushishi-anime.com/', '1'],
-            'genre':['', '1']
+            'genre':['剧情,奇幻', '1']
         },
 
         'staff':[
@@ -1050,16 +1073,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 17:30:00 金田一少年事件簿R {{{1 */
     {'name':['kindaichi-r', '金田一少年事件簿R'],
         'info':{
 
             'origintitle':['金田一少年の事件簿R', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 17:30~18:00', '1'],
             'episodes':['26', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.ytv.co.jp/kindaichi_r/', '1'],
-            'genre':['', '1']
+            'genre':['推理', '1']
         },
 
         'staff':[
@@ -1094,16 +1118,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 10:00:00 美妙旋律 All Star Selection {{{1 */
     {'name':['prettyrhythm4th', '美妙旋律 All Star Selection'],
         'info':{
 
             'origintitle':['プリティーリズム·オールスターセレクション', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 10:00~10:30', '1'],
             'episodes':['13', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/prettyrhythm/index.html', '1'],
-            'genre':['', '1']
+            'genre':['偶像,少儿向,少女向', '1']
         },
 
         'staff':[
@@ -1128,15 +1153,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 9:30:00 Lady宝石宠物 {{{1 */
     {'name':['jewelpet6th', 'Lady宝石宠物'],
         'info':{
 
             'origintitle':['レディ ジュエルペット', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 09:30~10:00', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/jewelpet6/', '1'],
-            'genre':['', '1']
+            'genre':['少儿向', '1']
         },
 
         'staff':[
@@ -1180,15 +1206,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 0:30:00 JOJO的奇妙冒险 星尘斗士 {{{1 */
     {'name':['jojo3rd', 'JOJO的奇妙冒险 星尘斗士'],
         'info':{
 
             'origintitle':['ジョジョの奇妙な冒険 スターダストクルセイダース', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 00:30~01:00', '1'],
             'sequel':['-1', '1'],
             'hp':['http://jojo-animation.com/', '1'],
-            'genre':['', '1']
+            'genre':['剧情,异能,战斗', '1']
         },
 
         'staff':[
@@ -1219,15 +1246,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 8:30:00 Duel Master VS（第11作） {{{1 */
     {'name':['duelmasters11th', 'Duel Master VS（第11作）'],
         'info':{
 
             'origintitle':['デュエル·マスターズVS', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 08:30~08:45', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.shopro.co.jp/tv/duelmastersvs/', '1'],
-            'genre':['', '1']
+            'genre':['卡牌,少儿向,战斗,短片', '1']
         },
 
         'staff':[
@@ -1272,15 +1300,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/5 星期六 18:30:00 吃豆人世界 {{{1 */
     {'name':['pacworld', '吃豆人世界'],
         'info':{
 
             'origintitle':['パックワールド', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/5', '1'],
+            'onair':['2014/4/5 星期六 18:30~19:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://pacworld.channel.or.jp/', '1'],
-            'genre':['', '1']
+            'genre':['少儿向', '1']
         },
 
         'staff':[
@@ -1314,15 +1343,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 1:50:00 金色的琴弦 蓝♪天（第二季） {{{1 */
     {'name':['corda2nd', '金色的琴弦 蓝♪天（第二季）'],
         'info':{
 
             'origintitle':['金色のコルダ　Blue♪Sky', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 01:50~02:20', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.ntv.co.jp/corda/', '1'],
-            'genre':['', '1']
+            'genre':['少女向,音乐,恋爱', '1']
         },
 
         'staff':[
@@ -1361,16 +1391,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 22:00:00 极黑的布伦希尔德 {{{1 */
     {'name':['gokukoku', '极黑的布伦希尔德'],
         'info':{
 
             'origintitle':['極黒のブリュンヒルデ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 22:00~23:30', '1'],
             'episodes':['13', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.vap.co.jp/gokukoku/', '1'],
-            'genre':['', '1']
+            'genre':['剧情,科幻,校园,异能', '1']
         },
 
         'staff':[
@@ -1404,16 +1435,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 23:00:00 破刃之剑 {{{1 */
     {'name':['breakblade', '破刃之剑'],
         'info':{
 
             'origintitle':['ブレイクブレイド', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 23:00~23:30', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://breakblade.jp/', '1'],
-            'genre':['', '1']
+            'genre':['机器人,科幻,战争', '1']
         },
 
         'staff':[
@@ -1480,15 +1512,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 17:30:00 游戏王 ARC-V {{{1 */
     {'name':['yugioh-arcv', '游戏王 ARC-V'],
         'info':{
 
             'origintitle':['遊☆戯☆王ARC-Ⅴ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 17:30~18:00', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/yugioh-arcv/', '1'],
-            'genre':['', '1']
+            'genre':['卡牌', '1']
         },
 
         'staff':[
@@ -1537,16 +1570,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 9:00:00 龙珠改 魔人布欧篇 {{{1 */
     {'name':['dragonball-kai-buu', '龙珠改 魔人布欧篇'],
         'info':{
 
             'origintitle':['ドラゴンボール改 魔人ブウ編', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 09:00~09:30', '1'],
             'episodes':['66', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.toei-anim.co.jp/tv/dragon_kai/', '1'],
-            'genre':['', '1']
+            'genre':['热血,战斗', '1']
         },
 
         'staff':[
@@ -1589,15 +1623,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 17:30:00 网球优等生 {{{1 */
     {'name':['babysteps', '网球优等生'],
         'info':{
 
             'origintitle':['ベイビーステップ', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 17:30~17:55', '1'],
             'sequel':['0', '1'],
             'hp':['http://www9.nhk.or.jp/anime/babysteps/', '1'],
-            'genre':['', '1']
+            'genre':['体育,校园', '1']
         },
 
         'staff':[
@@ -1624,15 +1659,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 17:00:00 排球少年 {{{1 */
     {'name':['haikyu', '排球少年'],
         'info':{
 
             'origintitle':['ハイキュー!!', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 17:00~17:30', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.j-haikyu.com/anime/index.html', '1'],
-            'genre':['', '1']
+            'genre':['体育', '1']
         },
 
         'staff':[
@@ -1680,15 +1716,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 22:27:00 请试试罗德斯岛战记~觉得美味吗~ {{{1 */
     {'name':['meshi-lodoss', '请试试罗德斯岛战记~觉得美味吗~'],
         'info':{
 
             'origintitle':['召しませロードス島戦記それっておいしいの？', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 22:27~22:30', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.meshi-lodoss.com/', '1'],
-            'genre':['', '1']
+            'genre':['短片,搞笑', '1']
         },
 
         'staff':[
@@ -1717,16 +1754,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 0:30:00 魔法科高中的劣等生 {{{1 */
     {'name':['mahouka', '魔法科高中的劣等生'],
         'info':{
 
             'origintitle':['魔法科高校の劣等生', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 00:30~01:00', '1'],
             'episodes':['26', '1'],
             'sequel':['0', '1'],
             'hp':['http://mahouka.jp/', '1'],
-            'genre':['', '1']
+            'genre':['奇幻,校园,战斗', '1']
         },
 
         'staff':[
@@ -1785,16 +1823,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 1:58:00 地球队长 {{{1 */
     {'name':['captain-earth', '地球队长'],
         'info':{
 
             'origintitle':['キャプテン·アース', '1'],
             'origintype':['TV原创', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 01:58~02:28', '1'],
             'episodes':['25', '1'],
             'sequel':['0', '1'],
             'hp':['http://captain-earth.net/', '1'],
-            'genre':['', '1']
+            'genre':['机器人,科幻,战斗', '1']
         },
 
         'staff':[
@@ -1848,15 +1887,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 2:20:00 尽管如此世界依然美丽 {{{1 */
     {'name':['soreseka', '尽管如此世界依然美丽'],
         'info':{
 
             'origintitle':['それでも世界は美しい', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 02:20~02:50', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.ntv.co.jp/soreseka/', '1'],
-            'genre':['', '1']
+            'genre':['恋爱,奇幻,少女向', '1']
         },
 
         'staff':[
@@ -1886,15 +1926,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 22:30:00 Love Live 2期 {{{1 */
     {'name':['lovelive2nd', 'Love Live 2期'],
         'info':{
 
             'origintitle':['ラブライブ 第2期', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 22:30~23:00', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.lovelive-anime.jp/', '1'],
-            'genre':['', '1']
+            'genre':['偶像,校园', '1']
         },
 
         'staff':[
@@ -1940,15 +1981,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 6:30:00 不良力士！！松太郎 {{{1 */
     {'name':['matsutaro', '不良力士！！松太郎'],
         'info':{
 
             'origintitle':['暴れん坊力士!!松太郎', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 06:30~07:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.toei-anim.co.jp/tv/matsutaro/', '1'],
-            'genre':['', '1']
+            'genre':['体育', '1']
         },
 
         'staff':[
@@ -1975,16 +2017,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/6 星期日 22:00:00 众神的恶作剧 {{{1 */
     {'name':['kamiaso', '众神的恶作剧'],
         'info':{
 
             'origintitle':['神々の悪戯', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/6', '1'],
+            'onair':['2014/4/6 星期日 22:00~22:30', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.kamiaso-anime.com/', '1'],
-            'genre':['', '1']
+            'genre':['恋爱,逆后宫,少女向,校园', '1']
         },
 
         'staff':[
@@ -2017,15 +2060,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/7 星期一 18:15:00 Dragon Collection {{{1 */
     {'name':['dracolle', 'Dragon Collection'],
         'info':{
 
             'origintitle':['ドラゴンコレクション', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/7', '1'],
+            'onair':['2014/4/7 星期一 18:15~18:30', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.dracolle-anime.com/', '1'],
-            'genre':['', '1']
+            'genre':['卡牌,穿越', '1']
         },
 
         'staff':[
@@ -2059,16 +2103,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/7 星期一 0:30:00 如果折断她的旗 {{{1 */
     {'name':['gaworare', '如果折断她的旗'],
         'info':{
 
             'origintitle':['彼女がフラグをおられたら', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/7', '1'],
+            'onair':['2014/4/7 星期一 00:30~01:00', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.gaworare-anime.com/', '1'],
-            'genre':['', '1']
+            'genre':['搞笑,后宫,恋爱,奇幻,校园', '1']
         },
 
         'staff':[
@@ -2114,15 +2159,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/7 星期一 18:00:00 Oreca Battle {{{1 */
     {'name':['orecabattle', 'Oreca Battle'],
         'info':{
 
             'origintitle':['オレカバトル', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/7', '1'],
+            'onair':['2014/4/7 星期一 18:00~18:15', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.oreca-anime.com/', '1'],
-            'genre':['', '1']
+            'genre':['卡牌', '1']
         },
 
         'staff':[
@@ -2159,15 +2205,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/7 星期一 18:30:00 英雄银行 {{{1 */
     {'name':['herobank', '英雄银行'],
         'info':{
 
             'origintitle':['ヒーローバンク', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/7', '1'],
+            'onair':['2014/4/7 星期一 18:30~19:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://herobank.sega.jp/anime/', '1'],
-            'genre':['', '1']
+            'genre':['战斗,少儿向', '1']
         },
 
         'staff':[
@@ -2209,15 +2256,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/7 星期一 0:00:00 一周的朋友 {{{1 */
     {'name':['oneweekfriends', '一周的朋友'],
         'info':{
 
             'origintitle':['一週間フレンズ。', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/7', '1'],
+            'onair':['2014/4/7 星期一 00:00~00:30', '1'],
             'sequel':['0', '1'],
             'hp':['http://oneweekfriends.com/', '1'],
-            'genre':['', '1']
+            'genre':['恋爱,校园', '1']
         },
 
         'staff':[
@@ -2252,15 +2300,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/8 星期二 22:30:00 漆黑的子弹 {{{1 */
     {'name':['black-bullet', '漆黑的子弹'],
         'info':{
 
             'origintitle':['ブラック·ブレット', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/8', '1'],
+            'onair':['2014/4/8 星期二 22:30~23:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.black-bullet.net/', '1'],
-            'genre':['', '1']
+            'genre':['科幻,异能,战斗', '1']
         },
 
         'staff':[
@@ -2300,16 +2349,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/8 星期二 1:05:00 漫画家和助手 {{{1 */
     {'name':['manashi', '漫画家和助手'],
         'info':{
 
             'origintitle':['マンガ家さんとアシスタントさんと', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/8', '1'],
+            'onair':['2014/4/8 星期二 01:05~01:18', '1'],
             'episodes':['12', '1'],
             'sequel':['-1', '1'],
             'hp':['http://mangakasan.tv/', '1'],
-            'genre':['', '1']
+            'genre':['搞笑,后宫,杀必死,短片', '1']
         },
 
         'staff':[
@@ -2350,16 +2400,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/8 星期二 21:55:00 魔法少女大战 {{{1 */
     {'name':['mahoushoujyotaisen', '魔法少女大战'],
         'info':{
 
             'origintitle':['魔法少女大戦', '1'],
             'origintype':['其他', '1'],
-            'onair':['2014/4/8', '1'],
+            'onair':['2014/4/8 星期二 21:55~22:00', '1'],
             'episodes':['26', '1'],
             'sequel':['0', '1'],
             'hp':['http://mahoushoujyotaisen.com/', '1'],
-            'genre':['', '1']
+            'genre':['萌,魔法少女,短片', '1']
         },
 
         'staff':[
@@ -2404,15 +2455,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/9 星期三 21:00:00 游戏人生 {{{1 */
     {'name':['ngnl', '游戏人生'],
         'info':{
 
             'origintitle':['No Game No Life', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/9', '1'],
+            'onair':['2014/4/9 星期三 21:00~21:30', '1'],
             'sequel':['0', '1'],
             'hp':['http://ngnl.jp/', '1'],
-            'genre':['', '1']
+            'genre':['策略,穿越,搞笑,后宫,萌,奇幻,杀必死', '1']
         },
 
         'staff':[
@@ -2447,15 +2499,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/9 星期三 1:40:00 噬魂师NOT {{{1 */
     {'name':['souleaternot', '噬魂师NOT'],
         'info':{
 
             'origintitle':['SOUL EATER NOT', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/9', '1'],
+            'onair':['2014/4/9 星期三 01:40~02:10', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.souleaternot.tv/', '1'],
-            'genre':['', '1']
+            'genre':['百合,日常,校园,异能,战斗', '1']
         },
 
         'staff':[
@@ -2490,16 +2543,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/9 星期三 1:00:00 史上最强弟子兼一 暗之袭击 {{{1 */
     {'name':['kenichi2nd', '史上最强弟子兼一 暗之袭击'],
         'info':{
 
             'origintitle':['史上最強の弟子ケンイチ 闇の襲撃', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/9', '1'],
+            'onair':['2014/4/9 星期三 01:00~01:30', '1'],
             'episodes':['11', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.kenichianime.com/', '1'],
-            'genre':['', '1']
+            'genre':['格斗,热血,杀必死', '1']
         },
 
         'staff':[
@@ -2575,15 +2629,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/10 星期四 22:00:00 爱丝卡&罗吉的炼金工房~黄昏天空之炼金术士~ {{{1 */
     {'name':['escha-logy', '爱丝卡&罗吉的炼金工房~黄昏天空之炼金术士~'],
         'info':{
 
             'origintitle':['エスカ＆ロジーのアトリエ ～黄昏の空の錬金術士～', '1'],
             'origintype':['游戏', '1'],
-            'onair':['2014/4/10', '1'],
+            'onair':['2014/4/10 星期四 22:00~22:30', '1'],
             'sequel':['0', '1'],
             'hp':['http://atelier-ps3.jp/escha-logy/anime/', '1'],
-            'genre':['', '1']
+            'genre':['冒险,奇幻', '1']
         },
 
         'staff':[
@@ -2633,15 +2688,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/10 星期四 22:30:00 今天要来点兔子吗？ {{{1 */
     {'name':['gochiusa', '今天要来点兔子吗？'],
         'info':{
 
             'origintitle':['ご注文はうさぎですか？', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/10', '1'],
+            'onair':['2014/4/10 星期四 22:30~23:00', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.gochiusa.com/', '1'],
-            'genre':['', '1']
+            'genre':['萌,日常', '1']
         },
 
         'staff':[
@@ -2671,16 +2727,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/10 星期四 1:35:00 风云维新 大将军 {{{1 */
     {'name':['daishogun', '风云维新 大将军'],
         'info':{
 
             'origintitle':['風雲維新ダイ☆ショーグン', '1'],
             'origintype':['其他', '1'],
-            'onair':['2014/4/10', '1'],
+            'onair':['2014/4/10 星期四 01:35~02:05', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://daishogun-anime.jp/', '1'],
-            'genre':['', '1']
+            'genre':['古装,机器人,战斗,杀必死,恋爱', '1']
         },
 
         'staff':[
@@ -2717,16 +2774,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/10 星期四 1:05:00 棺姬嘉依卡 {{{1 */
     {'name':['chaika', '棺姬嘉依卡'],
         'info':{
 
             'origintitle':['棺姫のチャイカ', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/10', '1'],
+            'onair':['2014/4/10 星期四 01:05~01:35', '1'],
             'episodes':['12', '1'],
             'sequel':['0', '1'],
             'hp':['http://chaika-anime.jp/', '1'],
-            'genre':['', '1']
+            'genre':['冒险,萌,奇幻,战斗', '1']
         },
 
         'staff':[
@@ -2787,15 +2845,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/11 星期五 1:49:00 银河骑士传 {{{1 */
     {'name':['knightsofsidonia', '银河骑士传'],
         'info':{
 
             'origintitle':['シドニアの騎士', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/11', '1'],
+            'onair':['2014/4/11 星期五 01:49~02:19', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.knightsofsidonia.com/', '1'],
-            'genre':['', '1']
+            'genre':['机器人,科幻,战斗,灾难', '1']
         },
 
         'staff':[
@@ -2846,16 +2905,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/11 星期五 0:50:00 乒乓 {{{1 */
     {'name':['pingpong', '乒乓'],
         'info':{
 
             'origintitle':['ピンポン', '1'],
             'origintype':['漫画', '1'],
-            'onair':['2014/4/11', '1'],
+            'onair':['2014/4/11 星期五 00:50~01:20', '1'],
             'episodes':['11', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.pingpong-anime.tv/', '1'],
-            'genre':['', '1']
+            'genre':['体育', '1']
         },
 
         'staff':[
@@ -2895,16 +2955,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/11 星期五 1:20:00 龙娘七七七埋藏的宝藏 {{{1 */
     {'name':['nanana', '龙娘七七七埋藏的宝藏'],
         'info':{
 
             'origintitle':['龍ヶ嬢七々々の埋蔵金', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/11', '1'],
+            'onair':['2014/4/11 星期五 01:20~01:50', '1'],
             'episodes':['11', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.nanana.tv/', '1'],
-            'genre':['', '1']
+            'genre':['冒险,校园,萌', '1']
         },
 
         'staff':[
@@ -2950,16 +3011,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/12 星期六 1:35:00 约会大作战II {{{1 */
     {'name':['datealive2nd', '约会大作战II'],
         'info':{
 
             'origintitle':['デート·ア·ライブII', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/4/12', '1'],
+            'onair':['2014/4/12 星期六 01:35~02:05', '1'],
             'episodes':['10', '1'],
             'sequel':['-1', '1'],
             'hp':['http://date-a-live-anime.com/', '1'],
-            'genre':['', '1']
+            'genre':['后宫,恋爱,异能,战斗,校园,萌', '1']
         },
 
         'staff':[
@@ -3016,15 +3078,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/13 星期日 0:00:00 目隐都市的演绎者 {{{1 */
     {'name':['mekakucityactors', '目隐都市的演绎者'],
         'info':{
 
             'origintitle':['メカクシティアクターズ', '1'],
             'origintype':['其他', '1'],
-            'onair':['2014/4/13', '1'],
+            'onair':['2014/4/13 星期日 00:00~00:30', '1'],
             'sequel':['0', '1'],
             'hp':['http://www.mekakucityactors.com/', '1'],
-            'genre':['', '1']
+            'genre':['音乐,异能,战斗', '1']
         },
 
         'staff':[
@@ -3063,15 +3126,16 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/4/22 星期二 1:35:00 M3 其为黑钢 {{{1 */
     {'name':['m3sonokurokigane', 'M3 其为黑钢'],
         'info':{
 
             'origintitle':['M3〜ソノ黒キ鋼〜', '1'],
             'origintype':['TV原创', '1'],
-            'onair':['2014/4/22', '1'],
+            'onair':['2014/4/22 星期二 01:35~02:05', '1'],
             'sequel':['0', '1'],
             'hp':['http://m3-project.com/', '1'],
-            'genre':['', '1']
+            'genre':['机器人,科幻,校园,灾难', '1']
         },
 
         'staff':[
@@ -3109,16 +3173,17 @@ animeDataBase = [
         ]
     },
 
+    /* 2014/5/31 星期六 23:30:00 花物语 {{{1 */
     {'name':['hanamonogatari', '花物语'],
         'info':{
 
             'origintitle':['〈物語〉シリーズ 花物語', '1'],
             'origintype':['轻小说', '1'],
-            'onair':['2014/5/31', '1'],
+            'onair':['2014/5/31 星期六 23:30~00:00', '1'],
             'episodes':['5', '1'],
             'sequel':['-1', '1'],
             'hp':['http://www.monogatari-series.com/2ndseason/', '1'],
-            'genre':['', '1']
+            'genre':['搞笑,后宫,萌,奇幻,吸血鬼,校园,妖怪,战斗', '1']
         },
 
         'staff':[

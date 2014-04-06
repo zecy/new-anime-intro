@@ -179,13 +179,20 @@
     <img ng-src="image/{{ anime.name[0] }}/poster.jpg" alt=""/>
     <h3>基本信息</h3>
     <ul class="infobox">
-        <li ng-repeat="info in animeDataBase[$index].info">
-            <b>{{ info[0] }}:</b>
-            {{ info[1] }}
+        <li>
+            <b>原名：</b>{{ anime.info.origintitle[0] }}
         </li>
         <li>
-            <b>{{ animeHp[$index][0] }}:</b>
-            <a ng-href=" {{ animeHp[$index][1] }}" target="_blank"> {{ animeHp[$index][1] }} </a>
+            <b>原作类型：</b>{{ anime.info.origintype[0] }}
+        </li>
+        <li>
+            <b>放送时间：</b>{{ anime.info.onair[0] }}
+        </li>
+        <li>
+            <b>原名：</b>{{ anime.info.origintitle[0] }}
+        </li>
+        <li>
+            <b>原名：</b>{{ anime.info.origintitle[0] }}
         </li>
     </ul>
 
