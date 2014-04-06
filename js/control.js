@@ -262,6 +262,9 @@ function searchAnime(str, staList, dataBase) {
 /* count every staff member  */
 //var dataCounted = dataCount(staList);
 
+
+/**/
+
 function animeBox($scope) {
 
 
