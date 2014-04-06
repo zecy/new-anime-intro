@@ -132,12 +132,12 @@
 
 <div class="selector">
     <h3>Staff</h3>
-    <input type="text" ng-model="searchText" ui-mask="清空后按确定可还原"/>
-    <button ng-click="staffCount()">确定</button>
-    <button ng-click="staffCount(2)">恢复</button>
+    <input type="text" ng-model="staffCountNum" ui-mask="清空后按确定可还原"/>
+    <button ng-click="changeCount('staff', staffCountNum)">确定</button>
+    <button ng-click="changeCount('staff', 2)">恢复</button>
     <ul class="staff-list clearfix">
-        <li ng-click="staffsUndo()">恢复</li>
-        <li ng-repeat="staff in countedStaffs | filter: searchText" ng-click="searchProperty(staff.name)">
+        <li ng-click="unFilt()">恢复</li>
+        <li ng-repeat="staff in countedStaff" ng-click="searchProperty(staff.name)">
             {{ staff.name }}
             <span>{{ staff.number }}</span>
         </li>
@@ -150,7 +150,7 @@
     <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览（）</h1>
 
     <!--<div ng-repeat="name in animeName " class="animebox">-->
-    <div ng-repeat="anime in animeDataBase | filter: searchText " class="animebox">
+    <div ng-repeat="anime in animeDataBase" class="animebox">
         <a ng-href="#{{ anime.name[0] }}"><img ng-src="img/{{ anime.name[0] }}.png" /></a>
         <h2>{{ anime.name[1] }}</h2>
     </div>

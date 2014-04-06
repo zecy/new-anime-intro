@@ -88,14 +88,24 @@ function arrCompact(arr, style) {
 
 }
 
-function buildStaList(dataItem, startNum, endNum) {
+function buildWaitToCountList(dataItem, index) {
     /*
+     *  The dataitem struture:
+     *  [
+     *      ['原作', 'くずしろ', '1'],  waitToCountData[i] = obj
+     *      ['监督', '永居慎平', '1'],
+     *      ['脚本', '永居慎平', '1'],
+     *      ['演出', '永居慎平', '1'],
+     *      ['人物设定', 'みうらたけひろ', '1'],
+     *      ['作画监督', 'みうらたけひろ', '1'],
+     *  ]
      *
      *  The List Struture:
      *
      *  staList = [
      *
-     *      { member  : [ position, animeDataBase下标] },
+     *      { member  : [ position, animeDataBase下标] },   waitToCountItem
+     *      { obj[1]  : [ obj[0], i ] => objList }
      *      { 新房昭之 : [ 总监督, 14] },
      *      { Shaft   : [ 动画制作, 14] },
      *      { 高村和宏 : [ 监督, 4] },
@@ -107,47 +117,27 @@ function buildStaList(dataItem, startNum, endNum) {
      *
      * */
 
-    var starNum = arguments[1] ? arguments[1] : 0;
-    var endNum  = arguments[2] ? arguments[2] : dataItem.length;
+    var waitToCountData = arrCompact(dataItem, 1);
 
-    var staList = [];
-//    console.log(dataItem[1].info);
+    var waitToCountList = [];
 
-//    for ( var i = 0; i < dataItem.length; i++ ) {
-    for ( var i = starNum; i < endNum; i++ ) {
-//    for ( var i = 0; i < 1; i++ ) {
-//        var staItem = [];
-        var staffItem = arrCompact( dataItem[i].staff, 1);
-//        staItem["dbid"] = i;
-//        staItem["title"] = item.name[1];
-        for ( var j = 0; j < staffItem.length; j++ ) {
-            var obj = staffItem[j];
+    for ( var i = 0; i < waitToCountData.length; i++ ) {
+            var obj = waitToCountData[i];
             var objList = [];
-            var objItem = {};
+            var waitToCountItem = {};
             objList[0] = obj[0];
-            objList[1] = i;
-            objItem[obj[1]] = objList;
-//            staItem.push(obj);
-            staList.push(objItem);
-//            console.log(objItem);
-        }
+            objList[1] = index;
+            waitToCountItem[obj[1]] = objList;
+            waitToCountList.push(waitToCountItem);
 
-//        staList.push(staItem);
     }
 
-//    console.log(staList);
-    return staList;
+    return waitToCountList;
 }
 
-function dataCount(arr) {
+function buildCountedList(arr) {
     var result = [], hash = {};
-//    console.log(arr);
-//    for ( var i = 0, elem; (elem = Object.keys( staList[i] ) ) != null; i++ ) {
     for ( var i = 0; i < arr.length ; i++ ) {
-//        console.log('hash: ' + hash);
-//        console.log('elem: ' + elem);
-//        console.log('hash[elem]: ' + hash[elem]);
-//        console.log('!hash[elem]: ' + !hash[elem]);
         var elem = Object.keys(arr[i]);
         if ( !hash[elem] ) {
             result.push(elem);
@@ -186,33 +176,33 @@ function meaningfulData(obj, number) {
     return meaningList;
 }
 
-function searchAnime(str, staList, dataBase) {
+function filtAnimeIndex(str, waittocountlist) {
     /*
     *  Search the Anime with 'str'
     *  and returen a list with the index numbers
     *  so you can get the Anime datas from the database using the this index numbers list
     *
-    *  the data is from staList
+    *  the data is from waittocountlist
     *
-    *  staList stuture
+    *  waittocountlist struture
     *  {member : [position, animeDatabseIndex]}
     *  {新房昭之: [总监督,  14]}
     *
+    *  the function return the index of animedatabse
     *
     * */
 
-    var newDataBase = [];
-    for ( var i = 0; i < staList.length; i++ ) {
-        var staff = staList[i];
-        var staffMember = Object.keys(staList[i]);
-        if( staffMember == str ) {
-//            console.log(staff[staffMember][1]);
-            var index = staff[staffMember][1];
-            newDataBase.push(dataBase[index]);
+    var indexList = [];
+    for ( var i = 0; i < waittocountlist.length; i++ ) {
+        var item = waittocountlist[i];
+        var itemStr = Object.keys(waittocountlist[i]);
+        if( itemStr == str ) {
+            var index = item[str][1];
+            indexList.push(index);
         }
     }
-//    console.log(newDataBase);
-    return newDataBase;
+
+    return indexList;
 }
 
 /*------------------------------------------------------------
@@ -222,6 +212,8 @@ function searchAnime(str, staList, dataBase) {
 * ------------------------------------------------------------*/
 
 var animeIntro = angular.module('AnimeIntro', []);
+
+// Hide Item
 animeIntro.filter('hideItem', function(){
     var hideItemFilter = function(input) {
         var output = [];
@@ -236,7 +228,6 @@ animeIntro.filter('hideItem', function(){
     return hideItemFilter;
 })
 
-
 /*------------------------------------------------------------
 *
 *                   MAIN FUNCTION
@@ -245,7 +236,53 @@ animeIntro.filter('hideItem', function(){
 
 /* STATICS THE PROPERTIES */
 
-function countedProperties(dataBase) {
+function waitToCountProperties(data) {
+    /*
+     *
+     * return the wait to count proterty lists,
+     *
+     * include original type, staffs, casts, onair etc.
+     *
+     * */
+
+     var dataBase = angular.copy(data);
+
+    var waitToCountOriginType   = [];
+    var waitToCountGenre        = [];
+    var waitToCountStaff        = [];
+    var waitToCountCast         = [];
+
+    /* BUILD THE WAIT TO COUNT LIST */
+    for ( var i = 0; i < dataBase.length; i++ ) {
+
+        var anAnime = dataBase[i];
+
+        var genre = [];
+        genre     = anAnime.info.genre[0].split(",");
+
+        var origintype = {};
+        origintype[anAnime.info.origintype[0]] = ['origintype', i];
+
+        waitToCountOriginType.push(origintype);
+        waitToCountGenre = waitToCountGenre.concat(buildWaitToCountList(genre, i));
+        waitToCountStaff = waitToCountStaff.concat(buildWaitToCountList(anAnime.staff, i));
+        waitToCountCast  = waitToCountCast.concat(buildWaitToCountList(anAnime.cast, i));
+    }
+
+    /* BUILD THE COUNTED LIST */
+
+    var waitToCountList = {
+        'origintype' : waitToCountOriginType,
+        'genre'      : waitToCountGenre,
+        'staff'      : waitToCountStaff,
+        'cast'       : waitToCountCast
+    }
+
+    return waitToCountList
+
+}
+
+function countedProperties(data) {
     /*
     *
     * return the counted proterty lists,
@@ -254,43 +291,49 @@ function countedProperties(dataBase) {
     *
     * */
 
-    var waitToCountOriginType   = [];
-    var waitToCountGenre        = [];
-    var waitToCountStaff        = [];
-    var waitToCountCast         = [];
+    /* BUILD THE COUNTED LIST */
+    var countedOriginType = buildCountedList(data.origintype);
+    var countedGenre      = buildCountedList(data.genre);
+    var countedStaff      = buildCountedList(data.staff);
+    var countedCast       = buildCountedList(data.cast);
 
-    var countedOriginType       = [];
-    var countedGenre            = [];
-    var countedStaff            = [];
-    var countedCast             = [];
+    var countedList = {
+        'origintype': countedOriginType,
+        'genre'     : countedGenre,
+        'staff'     : countedStaff,
+        'cast'      : countedCast
+    };
 
-    for ( var i = 0; i < dataBase.length; i++ ) {
-        var anAnime = dataBase[i];
+    return countedList
+}
 
-        var genre = anAnime.genre.
-
-        waitToCountStaff.push(buildStaList(anAnime.staff));
-        waitToCountCast.push(buildStaList(anAnime.staff));
-    }
-
- }
 
 /* SHOW ANIMES */
-var newDataBase = angular.copy(animeDataBase);
+var dataBase = angular.copy(animeDataBase);
 
-for ( var i = 0; i < newDataBase.length; i++ ) {
-    var obj = newDataBase[i];
+for ( var i = 0; i < dataBase.length; i++ ) {
+    var obj = dataBase[i];
     obj.staff = arrCompact(obj.staff,3);
     obj.cast = arrCompact(obj.cast,3);
 }
 
 function animeBox($scope) {
 
+    $scope.animeDataBase = dataBase;
 
-    $scope.animeDataBase = newDataBase;
+    var waitToCountItems = waitToCountProperties(animeDataBase);
 
+    var countedItems = countedProperties(waitToCountItems);
 
-    $scope.searchProperty = function (property) {
+    $scope.countedStaff = meaningfulData(countedItems.staff);
+
+    var searchedList = [];
+    searchedList = searchedList.concat(waitToCountItems.origintype);
+    searchedList = searchedList.concat(waitToCountItems.genre);
+    searchedList = searchedList.concat(waitToCountItems.staff);
+    searchedList = searchedList.concat(waitToCountItems.cast);
+
+    $scope.searchProperty = function (str) {
 
         /*
          *
@@ -302,26 +345,35 @@ function animeBox($scope) {
          *
          * */
 
-        var newDataBase = searchAnime(property, staList, animeDataBase);
-        var newDataList = buildDataList(newDataBase, 0);
-        showAnime(newDataList);
+        var indexList = filtAnimeIndex(str, searchedList);
+
+        var newDataBase = [];
+
+        for ( var i = 0; i < indexList.length; i++ ) {
+            var index = indexList[i];
+            newDataBase.push(dataBase[index]);
+        }
+
+        $scope.animeDataBase = newDataBase
     };
 
-    /*
-    *
-    *  STAFF
-    *
-    * */
+    $scope.changeCount = function(item, num) {
+        switch (item) {
+            case 'staff':
+                $scope.countedStaff = meaningfulData(countedItems.staff, num);
+                break;
 
-    /* display the staffs list in page */
-//    $scope.countedStaffs = meaningfulData(dataCounted);
+            case 'cast':
+                $scope.countedCast = meaningfulData(countedItems.cast, num);
+                break;
+        }
+    }
 
-
-    $scope.staffsUndo = function() {
+    $scope.unFilt = function() {
 
         /*
         *
-        * The GoBack function for he searchProperty(). Once click this , the member list will come back.
+        * The GoBack function for the searchProperty(). Once click this , the member list will come back.
         *
         * */
 
@@ -329,16 +381,7 @@ function animeBox($scope) {
         var eN = $scope.pageEnd;
 
         var dataList = buildDataList(animeDataBase, 0, sN, eN);
-        console.log(sN);
         showAnime(dataList);
     };
-
-    $scope.staffCount = function(num) {
-        var number = $scope.staffCountNumber ? $scope.staffCountNumber : num;
-        $scope.staffs = meaningfulData(dataCounted, number);
-        $scope.staffCountNumber = "";
-    }
-
-
 
 }
