@@ -352,7 +352,7 @@ function animeBox($scope) {
     };
 
     $scope.animeNumberInOnePage = function() {
-        $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1)
-        $scope.countedStaff = meaningfulData()
+        $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
+        $scope.countedStaff = meaningfulData();
     };
 }
