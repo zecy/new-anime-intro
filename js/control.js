@@ -55,11 +55,10 @@ function arrCompact(arr, style) {
                 arr.splice(i, 1);
                  */
 
-                arr[i][1] = arr[i][1] + "、" + arr[j][1]
+                arr[i][1] = arr[i][1] + "、" + arr[j][1];
                 arr.splice(j,1);
 
                 j -= 1;
-                continue
 
             }
         }
@@ -200,12 +199,10 @@ function buildWaitToCountList(dataItem) {
 
     }
 
-    var waitToCountLists = {
-        staff : staffList,
-        cast  : castList
-    }
-
-    return waitToCountLists;
+    return {
+        staff: staffList,
+        cast : castList
+    };
 }
 
 function buildCountedList(arr) {
@@ -250,37 +247,6 @@ function meaningfulData(obj, number) {
     return meaningList;
 }
 
-function filtAnimeIndex(str, countedlist) {
-    /*
-    *  Search the Anime with 'str'
-    *  and returen a list with the index numbers
-    *  so you can get the Anime datas from the database using the this index numbers list
-    *
-    *  the data is from waittocountlist
-    *
-    *  waittocountlist struture
-    *  {member : [position, animeDatabseIndex]}
-    *  {新房昭之: [总监督,  14]}
-    *
-    *  the function return the index of animedatabse
-    * */
-
-    var indexList = countedlist[str].list;
-
-    /*
-    for ( var i = 0; i < waittocountlist.length; i++ ) {
-        var item = waittocountlist[i];
-        var itemStr = Object.keys(waittocountlist[i]);
-        if( itemStr == str ) {
-            var index = item[str][1];
-            indexList.push(index);
-        }
-    }
-    */
-
-    return indexList;
-}
-
 /*------------------------------------------------------------
 *
 *  THE FILTERS
@@ -290,97 +256,24 @@ function filtAnimeIndex(str, countedlist) {
 var animeIntro = angular.module('AnimeIntro', []);
 
 // Hide Item
-animeIntro.filter('hideItem', function(){
-    var hideItemFilter = function(input) {
+animeIntro.filter('hideItem', function () {
+    return function (input) {
         var output = [];
         for ( var i = 0; i < input.length; i++ ) {
             var item = input[i];
-            if(item[2] == 1) {
+            if ( item[2] == 1 ) {
                 output.push(item)
             }
         }
         return output;
-    }
-    return hideItemFilter;
-})
+    };
+});
 
 /*------------------------------------------------------------
 *
 *                   MAIN FUNCTION
 *
 * ------------------------------------------------------------*/
-
-/* STATICS THE PROPERTIES */
-
-function waitToCountProperties(data) {
-    /*
-     *
-     * return the wait to count proterty lists,
-     *
-     * include original type, staffs, casts, onair etc.
-     *
-     * */
-
-    var dataBase = angular.copy(data);
-
-    var waitToCountOriginType   = [];
-    var waitToCountGenre        = [];
-    var waitToCountStaff        = [];
-    var waitToCountCast         = [];
-
-    /* BUILD THE WAIT TO COUNT LIST */
-    for ( var i = 0; i < dataBase.length; i++ ) {
-
-        var anAnime = dataBase[i];
-
-        var genre = [];
-        genre     = anAnime.info.genre[0].split(",");
-
-        var origintype = {};
-        origintype[anAnime.info.origintype[0]] = ['origintype', i];
-
-        waitToCountOriginType.push(origintype);
-        waitToCountGenre = waitToCountGenre.concat(buildWaitToCountList(genre, i));
-        waitToCountStaff = waitToCountStaff.concat(buildWaitToCountList(anAnime.staff, i));
-        waitToCountCast  = waitToCountCast.concat(buildWaitToCountList(anAnime.cast, i));
-    }
-
-    /* BUILD THE COUNTED LIST */
-
-    var waitToCountList = {
-        'origintype' : waitToCountOriginType,
-        'genre'      : waitToCountGenre,
-        'staff'      : waitToCountStaff,
-        'cast'       : waitToCountCast
-    }
-
-    return waitToCountList
-}
-
-function countedProperties(data) {
-    /*
-    *
-    * return the counted proterty lists,
-    *
-    * include original type, staffs, casts, onair etc.
-    *
-    * */
-
-    /* BUILD THE COUNTED LIST */
-    var countedOriginType = buildCountedList(data.origintype);
-    var countedGenre      = buildCountedList(data.genre);
-    var countedStaff      = buildCountedList(data.staff);
-    var countedCast       = buildCountedList(data.cast);
-
-    var countedList = {
-        'origintype': countedOriginType,
-        'genre'     : countedGenre,
-        'staff'     : countedStaff,
-        'cast'      : countedCast
-    };
-
-    return countedList
-}
 
 /*
 *
@@ -398,9 +291,7 @@ var countedCast = buildCountedList(waitToCountList.cast);
 
 function animeBox($scope) {
 
-    var shownAnimeList = buildAnimeList(shownAnimeData);
-
-    $scope.animeDataBase = shownAnimeList;
+    $scope.animeDataBase = buildAnimeList(shownAnimeData);
 
     $scope.countedStaff = meaningfulData(countedStaff);
 
@@ -423,21 +314,19 @@ function animeBox($scope) {
 
          switch (type) {
             case 'staff':
-                indexList = filtAnimeIndex(str, countedStaff);
+                indexList = countedStaff[str].list;
                 break;
             case 'cast':
-                indexList = filtAnimeIndex(str, countedCast);
+                indexList = countedCast[str].list;
                 break;
         }
 
-        var newDataBase = buildAnimeList(shownAnimeData, indexList, -1);
-
-        $scope.animeDataBase = newDataBase;
+        $scope.animeDataBase = buildAnimeList(shownAnimeData, indexList, -1);
     };
 
-    $scope.changeCount = function(item, num) {
+    $scope.changeCount = function (item, num) {
 
-        switch (item) {
+        switch ( item ) {
             case 'staff':
                 $scope.countedStaff = meaningfulData(countedStaff, num);
                 break;
@@ -446,7 +335,7 @@ function animeBox($scope) {
                 $scope.countedCast = meaningfulData(countedCast, num);
                 break;
         }
-    }
+    };
 
     var sN = $scope.pageStart ? $scope.pageStart: 0;
     var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
@@ -463,8 +352,7 @@ function animeBox($scope) {
     };
 
     $scope.animeNumberInOnePage = function() {
-        var newDataBase = buildAnimeList(dataBase,[sN,eN],1)
-        $scope.animeDataBase = newDataBase
+        $scope.animeDataBase = buildAnimeList(dataBase, [sN, eN], 1)
         $scope.countedStaff = meaningfulData()
-    }
+    };
 }
