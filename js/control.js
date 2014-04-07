@@ -8,7 +8,6 @@
  *
  * ----------------------------------------*/
 
-
 function arrCompact(arr, style) {
 
     /*
@@ -27,59 +26,42 @@ function arrCompact(arr, style) {
     *
     * */
 
-
     var style = arguments[1] ? arguments[1] : 3;
 
-    for ( var i = 1; i < arr.length; i++ ) {
+    for ( var i = 0; i < arr.length; i++ ) {
 
-//        if (arr[i + 1][1] === arr[i][1]) {
-//
-//            /*多职位同人*/
-//            arr[i][0] = arr[i].shift() + "/" + arr[i + 1][0];
-//            arr[i][1] = arr[i + 1][1];
-//
-//            /*删除下一项*/
-//            arr.splice(i + 1, 1);
-//
-//            /*倒退回前一项继续比较*/
-//            i = i - 1;
-//
-//            continue;
-//
-//        }
+        for ( var j = i + 1; j < arr.length; j++ ) {
 
-//        if (arr[i][0] === arr[i + 1][0]) {
-//
-//            /*多人同职位*/
-//            arr[i][0] = arr[i + 1][0];
-//            arr[i][1] = arr[i][1] + "、" + arr[i + 1][1];
-//            arr.splice(i + 1, 1);
-//            /*删除下一项*/
-//
-//            /*倒退回前一项继续比较*/
-//            i = i - 1;
-//
-//            continue;
-//
-//        }
+            if ( ( style == 1 || style == 3 ) && arr[i][1] === arr[j][1] ) {
 
-        if ( ( style == 1 || style == 3 ) && arr[i][1] === arr[i - 1][1] ) {
+                /*多职位同人
+                arr[i - 1][0] = arr[i - 1].shift() + "/" + arr[i][0];
+                arr[i - 1][1] = arr[i][1];
+                arr[i - 1][2] = arr[i][2]
+                arr.splice(i, 1);
+                */
+                arr[i][0] = arr[i][0] + "/" + arr[j][0];
+                arr.splice(j,1);
+                j -= 1;
+                continue
 
+            }
 
-            /*多职位同人*/
-            arr[i - 1][0] = arr[i - 1].shift() + "/" + arr[i][0];
-            arr[i - 1][1] = arr[i][1];
-            arr.splice(i, 1);
+            if ( ( style == 2 || style == 3 ) && arr[i][0] === arr[j][0] ) {
 
-        }
+                /*多人同职位
+                arr[i - 1][0] = arr[i][0];
+                arr[i - 1][1] = arr[i - 1][1] + "、" + arr[i][1];
+                arr.splice(i, 1);
+                 */
 
-        if ( ( style == 2 || style == 3 ) && arr[i][0] === arr[i - 1][0] ) {
+                arr[i][1] = arr[i][1] + "、" + arr[j][1]
+                arr.splice(j,1);
 
-            /*多人同职位*/
-            arr[i - 1][0] = arr[i][0];
-            arr[i - 1][1] = arr[i - 1][1] + "、" + arr[i][1];
-            arr.splice(i, 1);
+                j -= 1;
+                continue
 
+            }
         }
 
     }
@@ -88,7 +70,73 @@ function arrCompact(arr, style) {
 
 }
 
-function buildWaitToCountList(dataItem, index) {
+function formatDataBase(data) {
+
+    var database = angular.copy(data);
+
+    for ( var j = 0; j < database.length; j++ ) {
+        var obj = database[j];
+        obj.staff = arrCompact(obj.staff,3);
+        obj.cast = arrCompact(obj.cast,3);
+    }
+
+    return database
+}
+
+function buildAnimeList(data, indexlist, conswitch) {
+    /*
+    *
+    * Import a database
+    *
+    * for the MAIN ANIME SHOWN
+    *
+    * can build the anime list by a indexlist,
+    *
+    * or between the start number and end number
+    *
+    * when the conswitch is on( 1 by default ), and the indexlist just have 2 elements
+    *
+    * [24, 37]
+    *
+    * then the animes between 24 and 37 would output
+    *
+    * when the switch is off( -1 ), just 24 and 37 will output
+    *
+    * NOTE: the indexlist have a default value = [0, data.length]
+    *
+    * */
+
+    var outputDataBase = [];
+
+    var index = arguments[1] ? arguments[1] : [0, data.length];
+
+    var cs = arguments[2] ? arguments[2] : 1;
+
+    var sn = index[0];
+    var en = index[index.length-1];
+
+    if( cs == 1 ) {
+
+        for ( var i = sn; i < en; i++ ) {
+            var anime = data[i];
+            outputDataBase.push(anime)
+        }
+
+    } else if ( cs == -1 ) {
+
+        for ( var i = 0; i < index.length; i++ ) {
+            var anime = data[index[i]];
+            outputDataBase.push(anime)
+        }
+
+    } else {
+        console.log("ERROR: Have an error in conswitch from buildAnimeList.")
+    }
+
+    return outputDataBase
+}
+
+function buildWaitToCountList(dataItem) {
     /*
      *  The dataitem struture:
      *  [
@@ -117,39 +165,65 @@ function buildWaitToCountList(dataItem, index) {
      *
      * */
 
-    var waitToCountData = arrCompact(dataItem, 1);
+    var dataItem = angular.copy(dataItem);
 
-    var waitToCountList = [];
+    var staffList = [];
+    var castList  = [];
 
-    for ( var i = 0; i < waitToCountData.length; i++ ) {
-            var obj = waitToCountData[i];
+    function waitToCountList(arr, index) {
+
+        var waitToCountList = [];
+
+        for ( var i = 0; i < arr.length; i++ ) {
+            var obj = arr[i];
             var objList = [];
             var waitToCountItem = {};
             objList[0] = obj[0];
             objList[1] = index;
             waitToCountItem[obj[1]] = objList;
             waitToCountList.push(waitToCountItem);
+        }
+        return waitToCountList
+    }
+
+    for ( var i = 0; i < dataItem.length; i++ ) {
+        var anime = dataItem[i];
+
+        var staff = arrCompact(anime.staff,1);
+        var cast  = arrCompact(anime.cast,1);
+
+        staff = waitToCountList(staff, i);
+        cast = waitToCountList(cast, i);
+
+        staffList = staffList.concat(staff);
+        castList = castList.concat(cast);
 
     }
 
-    return waitToCountList;
+    var waitToCountLists = {
+        staff : staffList,
+        cast  : castList
+    }
+
+    return waitToCountLists;
 }
 
 function buildCountedList(arr) {
     var result = [], hash = {};
     for ( var i = 0; i < arr.length ; i++ ) {
         var elem = Object.keys(arr[i]);
+        var value = arr[i][elem];
         if ( !hash[elem] ) {
             result.push(elem);
-            hash[elem] = 1;
+            hash[elem] = {'counted': 1, 'list': [value[1]]};
         } else if ( hash[elem] ) {
-            hash[elem] += 1;
+            hash[elem].counted += 1;
+            hash[elem].list.push(value[1]);
         }
     }
 //    console.log(hash);
 //    return result;
     return hash;
-
 }
 
 function meaningfulData(obj, number) {
@@ -160,10 +234,10 @@ function meaningfulData(obj, number) {
 
     for ( var i in obj ) {
 //        console.log(obj[i]);
-        if( obj[i] >= number) {
+        if( obj[i].counted >= number) {
             var item = {};
             item['name'] = i;
-            item['number'] = obj[i];
+            item['number'] = obj[i].counted;
             meaningList.push(item);
         }
     }
@@ -176,7 +250,7 @@ function meaningfulData(obj, number) {
     return meaningList;
 }
 
-function filtAnimeIndex(str, waittocountlist) {
+function filtAnimeIndex(str, countedlist) {
     /*
     *  Search the Anime with 'str'
     *  and returen a list with the index numbers
@@ -189,10 +263,11 @@ function filtAnimeIndex(str, waittocountlist) {
     *  {新房昭之: [总监督,  14]}
     *
     *  the function return the index of animedatabse
-    *
     * */
 
-    var indexList = [];
+    var indexList = countedlist[str].list;
+
+    /*
     for ( var i = 0; i < waittocountlist.length; i++ ) {
         var item = waittocountlist[i];
         var itemStr = Object.keys(waittocountlist[i]);
@@ -201,6 +276,7 @@ function filtAnimeIndex(str, waittocountlist) {
             indexList.push(index);
         }
     }
+    */
 
     return indexList;
 }
@@ -245,7 +321,7 @@ function waitToCountProperties(data) {
      *
      * */
 
-     var dataBase = angular.copy(data);
+    var dataBase = angular.copy(data);
 
     var waitToCountOriginType   = [];
     var waitToCountGenre        = [];
@@ -279,7 +355,6 @@ function waitToCountProperties(data) {
     }
 
     return waitToCountList
-
 }
 
 function countedProperties(data) {
@@ -307,33 +382,32 @@ function countedProperties(data) {
     return countedList
 }
 
+/*
+*
+*  SHOW ANIME
+*
+* */
 
-/* SHOW ANIMES */
-var dataBase = angular.copy(animeDataBase);
+// format the staff and cast list
+var shownAnimeData = formatDataBase(animeDataBase);
 
-for ( var i = 0; i < dataBase.length; i++ ) {
-    var obj = dataBase[i];
-    obj.staff = arrCompact(obj.staff,3);
-    obj.cast = arrCompact(obj.cast,3);
-}
+var waitToCountList = buildWaitToCountList(animeDataBase);
+
+var countedStaff = buildCountedList(waitToCountList.staff);
+var countedCast = buildCountedList(waitToCountList.cast);
 
 function animeBox($scope) {
 
-    $scope.animeDataBase = dataBase;
+    var shownAnimeList = buildAnimeList(shownAnimeData);
 
-    var waitToCountItems = waitToCountProperties(animeDataBase);
+    $scope.animeDataBase = shownAnimeList;
 
-    var countedItems = countedProperties(waitToCountItems);
+    $scope.countedStaff = meaningfulData(countedStaff);
 
-    $scope.countedStaff = meaningfulData(countedItems.staff);
+    $scope.countedCast = meaningfulData(countedCast);
 
-    var searchedList = [];
-    searchedList = searchedList.concat(waitToCountItems.origintype);
-    searchedList = searchedList.concat(waitToCountItems.genre);
-    searchedList = searchedList.concat(waitToCountItems.staff);
-    searchedList = searchedList.concat(waitToCountItems.cast);
 
-    $scope.searchProperty = function (str) {
+    $scope.searchProperty = function (str, type) {
 
         /*
          *
@@ -345,29 +419,37 @@ function animeBox($scope) {
          *
          * */
 
-        var indexList = filtAnimeIndex(str, searchedList);
+         var indexList = [];
 
-        var newDataBase = [];
-
-        for ( var i = 0; i < indexList.length; i++ ) {
-            var index = indexList[i];
-            newDataBase.push(dataBase[index]);
+         switch (type) {
+            case 'staff':
+                indexList = filtAnimeIndex(str, countedStaff);
+                break;
+            case 'cast':
+                indexList = filtAnimeIndex(str, countedCast);
+                break;
         }
 
-        $scope.animeDataBase = newDataBase
+        var newDataBase = buildAnimeList(shownAnimeData, indexList, -1);
+
+        $scope.animeDataBase = newDataBase;
     };
 
     $scope.changeCount = function(item, num) {
+
         switch (item) {
             case 'staff':
-                $scope.countedStaff = meaningfulData(countedItems.staff, num);
+                $scope.countedStaff = meaningfulData(countedStaff, num);
                 break;
 
             case 'cast':
-                $scope.countedCast = meaningfulData(countedItems.cast, num);
+                $scope.countedCast = meaningfulData(countedCast, num);
                 break;
         }
     }
+
+    var sN = $scope.pageStart ? $scope.pageStart: 0;
+    var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
 
     $scope.unFilt = function() {
 
@@ -377,11 +459,12 @@ function animeBox($scope) {
         *
         * */
 
-        var sN = $scope.pageStart;
-        var eN = $scope.pageEnd;
-
-        var dataList = buildDataList(animeDataBase, 0, sN, eN);
-        showAnime(dataList);
+        $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
     };
 
+    $scope.animeNumberInOnePage = function() {
+        var newDataBase = buildAnimeList(dataBase,[sN,eN],1)
+        $scope.animeDataBase = newDataBase
+        $scope.countedStaff = meaningfulData()
+    }
 }

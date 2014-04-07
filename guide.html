@@ -137,13 +137,26 @@
     <button ng-click="changeCount('staff', 2)">恢复</button>
     <ul class="staff-list clearfix">
         <li ng-click="unFilt()">恢复</li>
-        <li ng-repeat="staff in countedStaff" ng-click="searchProperty(staff.name)">
+        <li ng-repeat="staff in countedStaff" ng-click="searchProperty(staff.name, 'staff')">
             {{ staff.name }}
             <span>{{ staff.number }}</span>
         </li>
     </ul>
 </div>
 
+<div class="selector">
+    <h3>Cast</h3>
+    <input type="text" ng-model="castCountNum" ui-mask="清空后按确定可还原"/>
+    <button ng-click="changeCount('cast', castCountNum)">确定</button>
+    <button ng-click="changeCount('cast', 2)">恢复</button>
+    <ul class="staff-list clearfix">
+        <li ng-click="unFilt()">恢复</li>
+        <li ng-repeat="cast in countedCast" ng-click="searchProperty(cast.name, 'cast')">
+            {{ cast.name }}
+            <span>{{ cast.number }}</span>
+        </li>
+    </ul>
+</div>
 
 <div class="guide clearfix">
 
