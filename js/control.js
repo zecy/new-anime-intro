@@ -301,6 +301,7 @@ function animeBox($scope) {
 
     $scope.countedCast = meaningfulData(countedCast, 3);
 
+    $scope.currentName = "";
 
     $scope.searchProperty = function (str, type) {
 
@@ -326,6 +327,7 @@ function animeBox($scope) {
         }
 
         $scope.animeDataBase = buildAnimeList(shownAnimeData, indexList, -1);
+        $scope.currentName = str;
     };
 
     $scope.changeCount = function (item, num) {
@@ -368,5 +370,6 @@ function animeBox($scope) {
         var countedCast = buildCountedList(waitToCountList.cast);
         $scope.countedStaff = meaningfulData(countedStaff);
         $scope.countedCast = meaningfulData(countedCast);
+        $scope.currentName = "";
     };
 }

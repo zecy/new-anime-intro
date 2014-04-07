@@ -137,7 +137,7 @@
     <button ng-click="changeCount('staff', 2)">恢复</button>
     <ul class="staff-list clearfix">
         <li ng-click="animeNumberInOnePage()">恢复</li>
-        <li ng-repeat="staff in countedStaff" ng-click="searchProperty(staff.name, 'staff')">
+        <li ng-class="{'staff-list-current' : staff.name === currentName }" ng-repeat="staff in countedStaff" ng-click="searchProperty(staff.name, 'staff')">
             {{ staff.name }}
             <span>{{ staff.number }}</span>
         </li>
@@ -151,7 +151,7 @@
     <button ng-click="changeCount('cast', 2)">恢复</button>
     <ul class="staff-list clearfix">
         <li ng-click="animeNumberInOnePage()">恢复</li>
-        <li ng-repeat="cast in countedCast" ng-click="searchProperty(cast.name, 'cast')">
+        <li ng-class="{'staff-list-current' : cast.name === currentName }" ng-repeat="cast in countedCast" ng-click="searchProperty(cast.name, 'cast')">
             {{ cast.name }}
             <span>{{ cast.number }}</span>
         </li>
