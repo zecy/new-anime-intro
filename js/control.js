@@ -135,7 +135,7 @@ function buildAnimeList(data, indexlist, conswitch) {
     return outputDataBase
 }
 
-function buildWaitToCountList(dataItem) {
+function buildWaitToCountList(dataItem, indexlist) {
     /*
      *  The dataitem struture:
      *  [
@@ -166,6 +166,10 @@ function buildWaitToCountList(dataItem) {
 
     var dataItem = angular.copy(dataItem);
 
+    var index = arguments[1] ? arguments[1] : [0, dataItem.length];
+    var sn = index[0];
+    var en = index[index.length-1];
+
     var staffList = [];
     var castList  = [];
 
@@ -185,7 +189,7 @@ function buildWaitToCountList(dataItem) {
         return waitToCountList
     }
 
-    for ( var i = 0; i < dataItem.length; i++ ) {
+    for ( var i = sn; i < en; i++ ) {
         var anime = dataItem[i];
 
         var staff = arrCompact(anime.staff,1);
@@ -293,9 +297,9 @@ function animeBox($scope) {
 
     $scope.animeDataBase = buildAnimeList(shownAnimeData);
 
-    $scope.countedStaff = meaningfulData(countedStaff);
+    $scope.countedStaff = meaningfulData(countedStaff, 3);
 
-    $scope.countedCast = meaningfulData(countedCast);
+    $scope.countedCast = meaningfulData(countedCast, 3);
 
 
     $scope.searchProperty = function (str, type) {
@@ -329,16 +333,15 @@ function animeBox($scope) {
         switch ( item ) {
             case 'staff':
                 $scope.countedStaff = meaningfulData(countedStaff, num);
+                $scope.staffCountNum = "";
                 break;
 
             case 'cast':
                 $scope.countedCast = meaningfulData(countedCast, num);
+                $scope.castCountNum = "";
                 break;
         }
     };
-
-    var sN = $scope.pageStart ? $scope.pageStart: 0;
-    var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
 
     $scope.unFilt = function() {
 
@@ -348,11 +351,22 @@ function animeBox($scope) {
         *
         * */
 
+        var sN = $scope.pageStart ? $scope.pageStart: 0;
+        var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
+
         $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
     };
 
     $scope.animeNumberInOnePage = function() {
+
+        var sN = $scope.pageStart ? $scope.pageStart: 0;
+        var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
+
         $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
-        $scope.countedStaff = meaningfulData();
+        var waitToCountList = buildWaitToCountList(animeDataBase, [sN, eN]);
+        var countedStaff = buildCountedList(waitToCountList.staff);
+        var countedCast = buildCountedList(waitToCountList.cast);
+        $scope.countedStaff = meaningfulData(countedStaff);
+        $scope.countedCast = meaningfulData(countedCast);
     };
 }
