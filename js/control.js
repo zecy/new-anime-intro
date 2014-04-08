@@ -149,7 +149,7 @@ function buildWaitToCountList(dataItem, indexlist) {
      *
      *  The List Struture:
      *
-     *  staList = [
+     *  waittocountlist = [
      *
      *      { member  : [ position, animeDataBase下标] },   waitToCountItem
      *      { obj[1]  : [ obj[0], i ] => objList }
@@ -170,10 +170,14 @@ function buildWaitToCountList(dataItem, indexlist) {
     var sn = index[0];
     var en = index[index.length-1];
 
-    var staffList = [];
-    var castList  = [];
+    var onairList       = [];
+    var genreList       = [];
+    var origintypeList  = [];
+    var sequelList      = [];
+    var staffList       = [];
+    var castList        = [];
 
-    function waitToCountList(arr, index) {
+    function staffAndCastConvert(arr, index) {
 
         var waitToCountList = [];
 
@@ -189,29 +193,64 @@ function buildWaitToCountList(dataItem, indexlist) {
         return waitToCountList
     }
 
+    function covert(arr, name, index) {
+
+        var waitToCountList = [];
+
+        for ( var i = 0; i < arr.length; i++ ) {
+            var obj = arr[i];
+//            console.log(arr);
+            var objList = [];
+            var waitToCountItem = {};
+            objList[0] = name;
+            objList[1] = index;
+            waitToCountItem[obj] = objList;
+            waitToCountList.push(waitToCountItem);
+        }
+        return waitToCountList
+    }
+
     for ( var i = sn; i < en; i++ ) {
         var anime = dataItem[i];
 
-        var staff = arrCompact(anime.staff,1);
-        var cast  = arrCompact(anime.cast,1);
+        var onair          = anime.info.onair[0].split(" ");
+        var genre          = anime.info.genre[0].split(",");
+        var origintype     = [];
+        origintype[0]      = anime.info.origintype[0];
+        var sequel         = [];
+        sequel[0]          = anime.info.sequel[0];
+        var staff          = arrCompact(anime.staff,1);
+        var cast           = arrCompact(anime.cast,1);
 
-        staff = waitToCountList(staff, i);
-        cast = waitToCountList(cast, i);
+        onair       = covert(onair, 'onair', i);
+        genre       = covert(genre, 'genre', i);
+        origintype  = covert(origintype, 'origintype', i);
+        sequel      = covert(sequel, 'sequel', i)
+        staff       = staffAndCastConvert(staff, i);
+        cast        = staffAndCastConvert(cast, i);
 
-        staffList = staffList.concat(staff);
-        castList = castList.concat(cast);
+        onairList       = onairList.concat(onair);
+        genreList       = genreList.concat(genre);
+        origintypeList  = origintypeList.concat(origintype);
+        sequelList      = sequelList.concat(sequel);
+        staffList       = staffList.concat(staff);
+        castList        = castList.concat(cast);
 
     }
 
     return {
-        staff: staffList,
-        cast : castList
+        onair      : onairList,
+        genre      : genreList,
+        origintype : origintypeList,
+        sequel     : sequelList,
+        staff      : staffList,
+        cast       : castList
     };
 }
 
 function buildCountedList(arr) {
     var result = [], hash = {};
-    for ( var i = 0; i < arr.length ; i++ ) {
+    for ( var i = 0; i < arr.length; i++ ) {
         var elem = Object.keys(arr[i]);
         var value = arr[i][elem];
         if ( !hash[elem] ) {
@@ -223,7 +262,6 @@ function buildCountedList(arr) {
         }
     }
 //    console.log(hash);
-//    return result;
     return hash;
 }
 
@@ -273,6 +311,40 @@ animeIntro.filter('hideItem', function () {
     };
 });
 
+//sort the weekdays
+animeIntro.filter('weekDays', function () {
+    return function (input) {
+        var output = [];
+        for ( var i = 0; i < input.length; i++ ) {
+            var item = input[i];
+            switch (item.name) {
+                case '星期一':
+                    output[0] = item;
+                    break;
+                case '星期二':
+                    output[1] = item;
+                    break;
+                case '星期三':
+                    output[2] = item;
+                    break;
+                case '星期四':
+                    output[3] = item;
+                    break;
+                case '星期五':
+                    output[4] = item;
+                    break;
+                case '星期六':
+                    output[5] = item;
+                    break;
+                case '星期日':
+                    output[6] = item;
+                    break;
+            }
+        }
+        return output;
+    };
+});
+
 /*------------------------------------------------------------
 *
 *                   MAIN FUNCTION
@@ -290,18 +362,25 @@ var shownAnimeData = formatDataBase(animeDataBase);
 
 var waitToCountList = buildWaitToCountList(animeDataBase);
 
-var countedStaff = buildCountedList(waitToCountList.staff);
-var countedCast = buildCountedList(waitToCountList.cast);
+var countedOnair      = buildCountedList(waitToCountList.onair);
+var countedGenre      = buildCountedList(waitToCountList.genre);
+var countedOrigintype = buildCountedList(waitToCountList.origintype);
+var countedSequel      = buildCountedList(waitToCountList.sequel);
+var countedStaff      = buildCountedList(waitToCountList.staff);
+var countedCast       = buildCountedList(waitToCountList.cast);
 
 function animeBox($scope) {
 
-    $scope.animeDataBase = buildAnimeList(shownAnimeData);
+    $scope.animeDataBase     = buildAnimeList(shownAnimeData);
 
-    $scope.countedStaff = meaningfulData(countedStaff, 3);
+    $scope.countedOnair      = meaningfulData(countedOnair, 3);
+    $scope.countedGenre      = meaningfulData(countedGenre, 3);
+    $scope.countedOrigintype = meaningfulData(countedOrigintype, 3);
+    $scope.countedSequel      = meaningfulData(countedSequel, 3);
+    $scope.countedStaff      = meaningfulData(countedStaff, 3);
+    $scope.countedCast       = meaningfulData(countedCast, 3);
 
-    $scope.countedCast = meaningfulData(countedCast, 3);
-
-    $scope.currentName = "";
+    $scope.currentName       = "";
 
     $scope.searchProperty = function (str, type) {
 
@@ -315,9 +394,21 @@ function animeBox($scope) {
          *
          * */
 
-         var indexList = [];
+        var indexList = [];
 
-         switch (type) {
+        switch (type) {
+            case 'onair' :
+                indexList = countedOnair[str].list;
+                break;
+            case 'genre' :
+                indexList = countedGenre[str].list;
+                break;
+            case 'origintype':
+                indexList = countedOrigintype[str].list;
+                break;
+            case 'sequel':
+                indexList = countedSequel[str].list;
+                break;
             case 'staff':
                 indexList = countedStaff[str].list;
                 break;
@@ -353,15 +444,15 @@ function animeBox($scope) {
         *
         * */
 
-        var sN = $scope.pageStart ? $scope.pageStart: 0;
-        var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
+        var sN = $scope.pageStart ? $scope.pageStart - 1 : 0;
+        var eN = $scope.pageEnd ? $scope.pageEnd : shownAnimeData.length;
 
         $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
     };
 
     $scope.animeNumberInOnePage = function() {
 
-        var sN = $scope.pageStart ? $scope.pageStart: 0;
+        var sN = $scope.pageStart ? $scope.pageStart - 1 : 0;
         var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
 
         $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);

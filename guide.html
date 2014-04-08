@@ -129,6 +129,61 @@
     <button ng-click="animeNumberInOnePage()">确定</button>
 
 </div>
+<div class="selector">
+    <h3>原作类型</h3>
+    <input type="text" ng-model="origintypeCountNum" ui-mask="清空后按确定可还原"/>
+    <button ng-click="changeCount('origintype', origintypeCountNum)">确定</button>
+    <button ng-click="changeCount('orgintype', 2)">恢复</button>
+    <ul class="staff-list clearfix">
+        <li ng-click="animeNumberInOnePage()">恢复</li>
+        <li ng-class="{'staff-list-current' : origintype.name === currentName }" ng-repeat="origintype in countedOrigintype" ng-click="searchProperty(origintype.name, 'origintype')">
+            {{ origintype.name }}
+            <span>{{ origintype.number }}</span>
+        </li>
+    </ul>
+</div>
+
+<div class="selector">
+    <h3>是否续作</h3>
+    <input type="text" ng-model="sequelCounNum" ui-mask="清空后按确定可还原"/>
+    <button ng-click="changeCount('sequel', sequelCountNum)">确定</button>
+    <button ng-click="changeCount('sequel', 2)">恢复</button>
+    <ul class="staff-list clearfix">
+        <li ng-click="animeNumberInOnePage()">恢复</li>
+        <li ng-class="{'staff-list-current' : sequel.name === currentName }" ng-repeat="sequel in countedSequel" ng-click="searchProperty(sequel.name, 'sequel')">
+            {{ sequel.name }}
+            <span>{{ sequel.number }}</span>
+        </li>
+    </ul>
+</div>
+
+<div class="selector">
+    <h3>播放时间</h3>
+    <input type="text" ng-model="onairCountNum" ui-mask="清空后按确定可还原"/>
+    <button ng-click="changeCount('onair', onairCountNum)">确定</button>
+    <button ng-click="changeCount('onair', 2)">恢复</button>
+    <ul class="staff-list clearfix">
+        <li ng-click="animeNumberInOnePage()">恢复</li>
+        <li ng-class="{'staff-list-current' : onair.name === currentName }" ng-repeat="onair in countedOnair | weekDays" ng-click="searchProperty(onair.name, 'onair')">
+            {{ onair.name }}
+            <span>{{ onair.number }}</span>
+        </li>
+    </ul>
+</div>
+
+<div class="selector">
+    <h3>类型</h3>
+    <input type="text" ng-model="genreCountNum" ui-mask="清空后按确定可还原"/>
+    <button ng-click="changeCount('genre', genreCountNum)">确定</button>
+    <button ng-click="changeCount('genre', 2)">恢复</button>
+    <ul class="staff-list clearfix">
+        <li ng-click="animeNumberInOnePage()">恢复</li>
+        <li ng-class="{'staff-list-current' : genre.name === currentName }" ng-repeat="genre in countedGenre" ng-click="searchProperty(genre.name, 'genre')">
+            {{ genre.name }}
+            <span>{{ genre.number }}</span>
+        </li>
+    </ul>
+</div>
 
 <div class="selector">
     <h3>Staff</h3>

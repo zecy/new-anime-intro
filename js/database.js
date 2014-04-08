@@ -9,7 +9,7 @@ animeDataBase = [
             'origintitle':['カードファイト!! ヴァンガード レギオンメイト編', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/3/9 星期日 10:00~10:30', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/cf-vanguard-lm/', '1'],
             'genre':['卡牌', '1']
         },
@@ -60,7 +60,7 @@ animeDataBase = [
             'origintype':['图画书', '1'],
             'onair':['2014/3/10 星期一 06:00~06:10', '1'],
             'episodes':['10', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www9.nhk.or.jp/anime/wasimo/', '1'],
             'genre':['短片,少儿向', '1']
         },
@@ -95,7 +95,7 @@ animeDataBase = [
             'origintype':['TV原创', '1'],
             'onair':['2014/3/10 星期一 ', '1'],
             'episodes':['10', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www9.nhk.or.jp/anime/velonica/', '1'],
             'genre':['短片,少儿向', '1']
         },
@@ -142,7 +142,7 @@ animeDataBase = [
             'origintype':['游戏', '1'],
             'onair':['2014/3/21 星期五 12:00~13:00', '1'],
             'episodes':['1', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/sengokumusou/index.html', '1'],
             'genre':['战国', '1']
         },
@@ -185,7 +185,7 @@ animeDataBase = [
             'origintitle':['ケロロ', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/3/22 星期六 07:00~07:05', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.keroro.com/flashanime/', '1'],
             'genre':['短片,搞笑', '1']
         },
@@ -222,7 +222,7 @@ animeDataBase = [
             'origintitle':['ぷちます！！プチプチ·アイドルマスター', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/1 星期二 ', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://puchimas.com/', '1'],
             'genre':['短片,搞笑,偶像,日常', '1']
         },
@@ -283,7 +283,7 @@ animeDataBase = [
             'origintitle':['マジンボーン', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/1 星期二 18:30~19:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.toei-anim.co.jp/tv/majinbone/', '1'],
             'genre':['卡牌,科幻,少儿向,战斗', '1']
         },
@@ -337,7 +337,7 @@ animeDataBase = [
             'origintitle':['ディスク·ウォーズ：アベンジャーズ', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/2 星期三 18:30~18:57', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.disney.co.jp/diskwars/', '1'],
             'genre':['科幻,少儿向,战斗', '1']
         },
@@ -386,7 +386,7 @@ animeDataBase = [
             'origintitle':['くつだる。', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/2 星期三 18:45~18:55', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://morning.moae.jp/news/967', '1'],
             'genre':['短片', '1']
         },
@@ -419,7 +419,7 @@ animeDataBase = [
             'origintitle':['カリーノ·コニ', '1'],
             'origintype':['图画书', '1'],
             'onair':['2014/4/2 星期三 01:35~01:40', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/carinoconi/index.html', '1'],
             'genre':['少儿向', '1']
         },
@@ -450,7 +450,7 @@ animeDataBase = [
             'origintitle':['GO-GO たまごっち！', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/3 星期四 18:30~19:00', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/tamagotchi/', '1'],
             'genre':['短片,少儿向', '1']
         },
@@ -487,7 +487,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/4 星期五 02:05~02:10', '1'],
             'episodes':['13', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.dle.jp/kantoku/', '1'],
             'genre':['短片,搞笑', '1']
         },
@@ -520,7 +520,7 @@ animeDataBase = [
             'origintitle':['Blade & Soul', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/4 星期五 01:46~02:16', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.tbs.co.jp/anime/blade/', '1'],
             'genre':['奇幻,战斗', '1']
         },
@@ -564,7 +564,7 @@ animeDataBase = [
             'origintitle':['僕らはみんな河合荘', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/4 星期五 02:16~02:46', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.tbs.co.jp/anime/kawaisou/', '1'],
             'genre':['恋爱,校园', '1']
         },
@@ -607,7 +607,7 @@ animeDataBase = [
             'origintitle':['悪魔のリドル', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/4 星期五 02:19~02:49', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://akuma-riddle.com/', '1'],
             'genre':['百合,生存游戏,校园,战斗', '1']
         },
@@ -673,7 +673,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/4 星期五 07:30~08:00', '1'],
             'episodes':['26', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.nickjapan.com/character/tmnt/', '1'],
             'genre':['忍者,少儿向,战斗', '1']
         },
@@ -707,7 +707,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/4 星期五 01:00~01:05', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.dreamcreation.co.jp/inuneko/', '1'],
             'genre':['百合,短片,校园', '1']
         },
@@ -754,7 +754,7 @@ animeDataBase = [
             'origintype':['玩具', '1'],
             'onair':['2014/4/5 星期六 09:00~09:30', '1'],
             'episodes':['25', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://tenkaiknight.jp/', '1'],
             'genre':['热血,少儿向,战斗', '1']
         },
@@ -804,7 +804,7 @@ animeDataBase = [
             'origintitle':['健全ロボ ダイミダラー', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/5 星期六 18:30~19:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://penguin-empire.com/', '1'],
             'genre':['搞笑,机器人,杀必死,战斗', '1']
         },
@@ -855,7 +855,7 @@ animeDataBase = [
             'origintitle':['FAIRY TAIL 新シリーズ', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/5 星期六 ', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://fairytail-tv.com/', '1'],
             'genre':['奇幻,热血,战斗', '1']
         },
@@ -929,7 +929,7 @@ animeDataBase = [
             'origintitle':['selector infected WIXOSS', '1'],
             'origintype':['TV原创', '1'],
             'onair':['2014/4/5 星期六 01:25~01:55', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://selector-wixoss.com/', '1'],
             'genre':['卡牌,异能,生存游戏', '1']
         },
@@ -978,7 +978,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/4/5 星期六 20:30~21:00', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.seikokutv.com/', '1'],
             'genre':['后宫,萌,奇幻,杀必死,校园,战斗', '1']
         },
@@ -1039,7 +1039,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/5 星期六 00:00~00:30', '1'],
             'episodes':['12', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.mushishi-anime.com/', '1'],
             'genre':['剧情,奇幻', '1']
         },
@@ -1081,7 +1081,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/5 星期六 17:30~18:00', '1'],
             'episodes':['26', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.ytv.co.jp/kindaichi_r/', '1'],
             'genre':['推理', '1']
         },
@@ -1126,7 +1126,7 @@ animeDataBase = [
             'origintype':['游戏', '1'],
             'onair':['2014/4/5 星期六 10:00~10:30', '1'],
             'episodes':['13', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/prettyrhythm/index.html', '1'],
             'genre':['偶像,少儿向,少女向', '1']
         },
@@ -1160,7 +1160,7 @@ animeDataBase = [
             'origintitle':['レディ ジュエルペット', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/5 星期六 09:30~10:00', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/jewelpet6/', '1'],
             'genre':['少儿向', '1']
         },
@@ -1213,7 +1213,7 @@ animeDataBase = [
             'origintitle':['ジョジョの奇妙な冒険 スターダストクルセイダース', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/5 星期六 00:30~01:00', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://jojo-animation.com/', '1'],
             'genre':['剧情,异能,战斗', '1']
         },
@@ -1253,7 +1253,7 @@ animeDataBase = [
             'origintitle':['デュエル·マスターズVS', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/5 星期六 08:30~08:45', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.shopro.co.jp/tv/duelmastersvs/', '1'],
             'genre':['卡牌,少儿向,战斗,短片', '1']
         },
@@ -1307,7 +1307,7 @@ animeDataBase = [
             'origintitle':['パックワールド', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/5 星期六 18:30~19:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://pacworld.channel.or.jp/', '1'],
             'genre':['少儿向', '1']
         },
@@ -1350,7 +1350,7 @@ animeDataBase = [
             'origintitle':['金色のコルダ　Blue♪Sky', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/6 星期日 01:50~02:20', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.ntv.co.jp/corda/', '1'],
             'genre':['少女向,音乐,恋爱', '1']
         },
@@ -1399,7 +1399,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 22:00~23:30', '1'],
             'episodes':['13', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.vap.co.jp/gokukoku/', '1'],
             'genre':['剧情,科幻,校园,异能', '1']
         },
@@ -1443,7 +1443,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 23:00~23:30', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://breakblade.jp/', '1'],
             'genre':['机器人,科幻,战争', '1']
         },
@@ -1519,7 +1519,7 @@ animeDataBase = [
             'origintitle':['遊☆戯☆王ARC-Ⅴ', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 17:30~18:00', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.tv-tokyo.co.jp/anime/yugioh-arcv/', '1'],
             'genre':['卡牌', '1']
         },
@@ -1578,7 +1578,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 09:00~09:30', '1'],
             'episodes':['66', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.toei-anim.co.jp/tv/dragon_kai/', '1'],
             'genre':['热血,战斗', '1']
         },
@@ -1630,7 +1630,7 @@ animeDataBase = [
             'origintitle':['ベイビーステップ', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 17:30~17:55', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www9.nhk.or.jp/anime/babysteps/', '1'],
             'genre':['体育,校园', '1']
         },
@@ -1666,7 +1666,7 @@ animeDataBase = [
             'origintitle':['ハイキュー!!', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 17:00~17:30', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.j-haikyu.com/anime/index.html', '1'],
             'genre':['体育', '1']
         },
@@ -1723,7 +1723,7 @@ animeDataBase = [
             'origintitle':['召しませロードス島戦記それっておいしいの？', '1'],
             'origintype':['轻小说', '1'],
             'onair':['2014/4/6 星期日 22:27~22:30', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.meshi-lodoss.com/', '1'],
             'genre':['短片,搞笑', '1']
         },
@@ -1762,7 +1762,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/4/6 星期日 00:30~01:00', '1'],
             'episodes':['26', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://mahouka.jp/', '1'],
             'genre':['奇幻,校园,战斗', '1']
         },
@@ -1831,7 +1831,7 @@ animeDataBase = [
             'origintype':['TV原创', '1'],
             'onair':['2014/4/6 星期日 01:58~02:28', '1'],
             'episodes':['25', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://captain-earth.net/', '1'],
             'genre':['机器人,科幻,战斗', '1']
         },
@@ -1894,7 +1894,7 @@ animeDataBase = [
             'origintitle':['それでも世界は美しい', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 02:20~02:50', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.ntv.co.jp/soreseka/', '1'],
             'genre':['恋爱,奇幻,少女向', '1']
         },
@@ -1933,7 +1933,7 @@ animeDataBase = [
             'origintitle':['ラブライブ 第2期', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/6 星期日 22:30~23:00', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.lovelive-anime.jp/', '1'],
             'genre':['偶像,校园', '1']
         },
@@ -1988,7 +1988,7 @@ animeDataBase = [
             'origintitle':['暴れん坊力士!!松太郎', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/6 星期日 06:30~07:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.toei-anim.co.jp/tv/matsutaro/', '1'],
             'genre':['体育', '1']
         },
@@ -2025,7 +2025,7 @@ animeDataBase = [
             'origintype':['游戏', '1'],
             'onair':['2014/4/6 星期日 22:00~22:30', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.kamiaso-anime.com/', '1'],
             'genre':['恋爱,逆后宫,少女向,校园', '1']
         },
@@ -2067,7 +2067,7 @@ animeDataBase = [
             'origintitle':['ドラゴンコレクション', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/7 星期一 18:15~18:30', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.dracolle-anime.com/', '1'],
             'genre':['卡牌,穿越', '1']
         },
@@ -2111,7 +2111,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/4/7 星期一 00:30~01:00', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.gaworare-anime.com/', '1'],
             'genre':['搞笑,后宫,恋爱,奇幻,校园', '1']
         },
@@ -2166,7 +2166,7 @@ animeDataBase = [
             'origintitle':['オレカバトル', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/7 星期一 18:00~18:15', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.oreca-anime.com/', '1'],
             'genre':['卡牌', '1']
         },
@@ -2212,7 +2212,7 @@ animeDataBase = [
             'origintitle':['ヒーローバンク', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/7 星期一 18:30~19:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://herobank.sega.jp/anime/', '1'],
             'genre':['战斗,少儿向', '1']
         },
@@ -2263,7 +2263,7 @@ animeDataBase = [
             'origintitle':['一週間フレンズ。', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/7 星期一 00:00~00:30', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://oneweekfriends.com/', '1'],
             'genre':['恋爱,校园', '1']
         },
@@ -2307,7 +2307,7 @@ animeDataBase = [
             'origintitle':['ブラック·ブレット', '1'],
             'origintype':['轻小说', '1'],
             'onair':['2014/4/8 星期二 22:30~23:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.black-bullet.net/', '1'],
             'genre':['科幻,异能,战斗', '1']
         },
@@ -2357,7 +2357,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/8 星期二 01:05~01:18', '1'],
             'episodes':['12', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://mangakasan.tv/', '1'],
             'genre':['搞笑,后宫,杀必死,短片', '1']
         },
@@ -2408,7 +2408,7 @@ animeDataBase = [
             'origintype':['其他', '1'],
             'onair':['2014/4/8 星期二 21:55~22:00', '1'],
             'episodes':['26', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://mahoushoujyotaisen.com/', '1'],
             'genre':['萌,魔法少女,短片', '1']
         },
@@ -2462,7 +2462,7 @@ animeDataBase = [
             'origintitle':['No Game No Life', '1'],
             'origintype':['轻小说', '1'],
             'onair':['2014/4/9 星期三 21:00~21:30', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://ngnl.jp/', '1'],
             'genre':['策略,穿越,搞笑,后宫,萌,奇幻,杀必死', '1']
         },
@@ -2506,7 +2506,7 @@ animeDataBase = [
             'origintitle':['SOUL EATER NOT', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/9 星期三 01:40~02:10', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.souleaternot.tv/', '1'],
             'genre':['百合,日常,校园,异能,战斗', '1']
         },
@@ -2551,7 +2551,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/9 星期三 01:00~01:30', '1'],
             'episodes':['11', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.kenichianime.com/', '1'],
             'genre':['格斗,热血,杀必死', '1']
         },
@@ -2636,7 +2636,7 @@ animeDataBase = [
             'origintitle':['エスカ＆ロジーのアトリエ ～黄昏の空の錬金術士～', '1'],
             'origintype':['游戏', '1'],
             'onair':['2014/4/10 星期四 22:00~22:30', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://atelier-ps3.jp/escha-logy/anime/', '1'],
             'genre':['冒险,奇幻', '1']
         },
@@ -2695,7 +2695,7 @@ animeDataBase = [
             'origintitle':['ご注文はうさぎですか？', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/10 星期四 22:30~23:00', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.gochiusa.com/', '1'],
             'genre':['萌,日常', '1']
         },
@@ -2735,7 +2735,7 @@ animeDataBase = [
             'origintype':['其他', '1'],
             'onair':['2014/4/10 星期四 01:35~02:05', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://daishogun-anime.jp/', '1'],
             'genre':['古装,机器人,战斗,杀必死,恋爱', '1']
         },
@@ -2782,7 +2782,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/4/10 星期四 01:05~01:35', '1'],
             'episodes':['12', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://chaika-anime.jp/', '1'],
             'genre':['冒险,萌,奇幻,战斗', '1']
         },
@@ -2852,7 +2852,7 @@ animeDataBase = [
             'origintitle':['シドニアの騎士', '1'],
             'origintype':['漫画', '1'],
             'onair':['2014/4/11 星期五 01:49~02:19', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.knightsofsidonia.com/', '1'],
             'genre':['机器人,科幻,战斗,灾难', '1']
         },
@@ -2913,7 +2913,7 @@ animeDataBase = [
             'origintype':['漫画', '1'],
             'onair':['2014/4/11 星期五 00:50~01:20', '1'],
             'episodes':['11', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.pingpong-anime.tv/', '1'],
             'genre':['体育', '1']
         },
@@ -2963,7 +2963,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/4/11 星期五 01:20~01:50', '1'],
             'episodes':['11', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.nanana.tv/', '1'],
             'genre':['冒险,校园,萌', '1']
         },
@@ -3019,7 +3019,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/4/12 星期六 01:35~02:05', '1'],
             'episodes':['10', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://date-a-live-anime.com/', '1'],
             'genre':['后宫,恋爱,异能,战斗,校园,萌', '1']
         },
@@ -3085,7 +3085,7 @@ animeDataBase = [
             'origintitle':['メカクシティアクターズ', '1'],
             'origintype':['其他', '1'],
             'onair':['2014/4/13 星期日 00:00~00:30', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://www.mekakucityactors.com/', '1'],
             'genre':['音乐,异能,战斗', '1']
         },
@@ -3113,8 +3113,8 @@ animeDataBase = [
             ['マリー（小桜茉莉）', '花澤香菜', '1'],
             ['ヒビヤ（雨宮響也）', '富樫美鈴', '1'],
             ['コノハ（九ノ瀬遥）', '宮野真守', '1']
-        ],
-
+        ]
+    ,
         'comment':[
             '蓝本是じん(自然の敵P)在2011年推动的一个多媒体企划《阳炎计划》。以じん发表的歌曲作为主体，并由じん本人撰写以这首歌曲的内容为题材的小说。音乐是用VOCALOID制作的。',
             '故事内容是拥有特殊能力的少年少女们的群像剧。',
@@ -3133,7 +3133,7 @@ animeDataBase = [
             'origintitle':['M3〜ソノ黒キ鋼〜', '1'],
             'origintype':['TV原创', '1'],
             'onair':['2014/4/22 星期二 01:35~02:05', '1'],
-            'sequel':['0', '1'],
+            'sequel':['新作', '1'],
             'hp':['http://m3-project.com/', '1'],
             'genre':['机器人,科幻,校园,灾难', '1']
         },
@@ -3181,7 +3181,7 @@ animeDataBase = [
             'origintype':['轻小说', '1'],
             'onair':['2014/5/31 星期六 23:30~00:00', '1'],
             'episodes':['5', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.monogatari-series.com/2ndseason/', '1'],
             'genre':['搞笑,后宫,萌,奇幻,吸血鬼,校园,妖怪,战斗', '1']
         },
@@ -3233,8 +3233,9 @@ animeDataBase = [
         'info':{
             'origintitle':['GJ部＠', '1'],
             'origintype':['轻小说', '1'],
+            'onair':['2014/1/1 jan 10~10',1],
             'episodes':['1', '1'],
-            'sequel':['-1', '1'],
+            'sequel':['续作', '1'],
             'hp':['http://www.ntv.co.jp/gj/', '1'],
             'genre':['搞笑,后宫,萌,日常,校园', '1']
         },
