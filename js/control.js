@@ -358,6 +358,7 @@ animeIntro.filter('weekDays', function () {
 * */
 
 // format the staff and cast list
+
 var shownAnimeData = formatDataBase(animeDataBase);
 
 var waitToCountList = buildWaitToCountList(animeDataBase);
@@ -365,7 +366,7 @@ var waitToCountList = buildWaitToCountList(animeDataBase);
 var countedOnair      = buildCountedList(waitToCountList.onair);
 var countedGenre      = buildCountedList(waitToCountList.genre);
 var countedOrigintype = buildCountedList(waitToCountList.origintype);
-var countedSequel      = buildCountedList(waitToCountList.sequel);
+var countedSequel     = buildCountedList(waitToCountList.sequel);
 var countedStaff      = buildCountedList(waitToCountList.staff);
 var countedCast       = buildCountedList(waitToCountList.cast);
 
@@ -373,10 +374,10 @@ function animeBox($scope) {
 
     $scope.animeDataBase     = buildAnimeList(shownAnimeData);
 
-    $scope.countedOnair      = meaningfulData(countedOnair, 3);
-    $scope.countedGenre      = meaningfulData(countedGenre, 3);
-    $scope.countedOrigintype = meaningfulData(countedOrigintype, 3);
-    $scope.countedSequel      = meaningfulData(countedSequel, 3);
+    $scope.countedOnair      = meaningfulData(countedOnair, 1);
+    $scope.countedGenre      = meaningfulData(countedGenre, 1);
+    $scope.countedOrigintype = meaningfulData(countedOrigintype, 1);
+    $scope.countedSequel     = meaningfulData(countedSequel, 1);
     $scope.countedStaff      = meaningfulData(countedStaff, 3);
     $scope.countedCast       = meaningfulData(countedCast, 3);
 
@@ -415,6 +416,8 @@ function animeBox($scope) {
             case 'cast':
                 indexList = countedCast[str].list;
                 break;
+            default :
+                break
         }
 
         $scope.animeDataBase = buildAnimeList(shownAnimeData, indexList, -1);
@@ -426,7 +429,7 @@ function animeBox($scope) {
         switch ( item ) {
             case 'staff':
                 $scope.countedStaff = meaningfulData(countedStaff, num);
-                $scope.staffCountNum = "";
+                $scope.staffCountNum = "10";
                 break;
 
             case 'cast':
@@ -455,12 +458,32 @@ function animeBox($scope) {
         var sN = $scope.pageStart ? $scope.pageStart - 1 : 0;
         var eN = $scope.pageEnd ? $scope.pageEnd: shownAnimeData.length;
 
-        $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
-        var waitToCountList = buildWaitToCountList(animeDataBase, [sN, eN]);
-        var countedStaff = buildCountedList(waitToCountList.staff);
-        var countedCast = buildCountedList(waitToCountList.cast);
-        $scope.countedStaff = meaningfulData(countedStaff);
-        $scope.countedCast = meaningfulData(countedCast);
+        var animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
+
+        $scope.animeDataBase = animeDataBase;
+
+        var waitToCountList = buildWaitToCountList(animeDataBase);
+
+        var countedOnair      = buildCountedList(waitToCountList.onair);
+        var countedGenre      = buildCountedList(waitToCountList.genre);
+        var countedOrigintype = buildCountedList(waitToCountList.origintype);
+        var countedSequel     = buildCountedList(waitToCountList.sequel);
+        var countedStaff      = buildCountedList(waitToCountList.staff);
+        var countedCast       = buildCountedList(waitToCountList.cast);
+
+        $scope.countedOnair      = meaningfulData(countedOnair, 1);
+        $scope.countedGenre      = meaningfulData(countedGenre, 1);
+        $scope.countedOrigintype = meaningfulData(countedOrigintype, 1);
+        $scope.countedSequel     = meaningfulData(countedSequel, 1);
+        $scope.countedStaff      = meaningfulData(countedStaff, 1);
+        $scope.countedCast       = meaningfulData(countedCast, 1);
+
         $scope.currentName = "";
     };
+
+    $scope.selector = 'pages';
+
+    $scope.tabChange = function(selector) {
+        $scope.selector = selector;
+    }
 }
