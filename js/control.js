@@ -28,9 +28,11 @@ function arrCompact(arr, style) {
 
     var style = arguments[1] ? arguments[1] : 3;
 
-    for ( var i = 0; i < arr.length; i++ ) {
+    var arrLength = arr.length;
 
-        for ( var j = i + 1; j < arr.length; j++ ) {
+    for ( var i = 0; i < arrLength; i++ ) {
+
+        for ( var j = i + 1; j < arrLength; j++ ) {
 
             if ( ( style == 1 || style == 3 ) && arr[i][1] === arr[j][1] ) {
 
@@ -43,6 +45,7 @@ function arrCompact(arr, style) {
                 arr[i][0] = arr[i][0] + "/" + arr[j][0];
                 arr.splice(j,1);
                 j -= 1;
+                arrLength -= 1;
                 continue
 
             }
@@ -58,8 +61,8 @@ function arrCompact(arr, style) {
                 arr[i][1] = arr[i][1] + "、" + arr[j][1];
                 arr.splice(j,1);
 
+                arrLength -= 1;
                 j -= 1;
-
             }
         }
 
@@ -73,7 +76,9 @@ function formatDataBase(data) {
 
     var database = angular.copy(data);
 
-    for ( var j = 0; j < database.length; j++ ) {
+    var databaseLength = database.length;
+
+    for ( var j = 0; j < databaseLength; j++ ) {
         var obj = database[j];
         obj.staff = arrCompact(obj.staff,3);
         obj.cast = arrCompact(obj.cast,3);
@@ -109,10 +114,12 @@ function buildAnimeList(data, indexlist, conswitch) {
 
     var index = arguments[1] ? arguments[1] : [0, data.length];
 
+    var indexLength = index.length;
+
     var cs = arguments[2] ? arguments[2] : 1;
 
     var sn = index[0];
-    var en = index[index.length-1];
+    var en = index[indexLength - 1];
 
     if( cs == 1 ) {
 
@@ -123,7 +130,7 @@ function buildAnimeList(data, indexlist, conswitch) {
 
     } else if ( cs == -1 ) {
 
-        for ( var i = 0; i < index.length; i++ ) {
+        for ( var i = 0; i < indexLength; i++ ) {
             var anime = data[index[i]];
             outputDataBase.push(anime)
         }
@@ -181,7 +188,9 @@ function buildWaitToCountList(dataItem, indexlist) {
 
         var waitToCountList = [];
 
-        for ( var i = 0; i < arr.length; i++ ) {
+        var arrLength = arr.length;
+
+        for ( var i = 0; i < arrLength;  i++ ) {
             var obj = arr[i];
             var objList = [];
             var waitToCountItem = {};
@@ -197,7 +206,9 @@ function buildWaitToCountList(dataItem, indexlist) {
 
         var waitToCountList = [];
 
-        for ( var i = 0; i < arr.length; i++ ) {
+        var arrLength = arr.length
+
+        for ( var i = 0; i < arrLength; i++ ) {
             var obj = arr[i];
 //            console.log(arr);
             var objList = [];
@@ -250,7 +261,10 @@ function buildWaitToCountList(dataItem, indexlist) {
 
 function buildCountedList(arr) {
     var result = [], hash = {};
-    for ( var i = 0; i < arr.length; i++ ) {
+
+    var arrLength = arr.length;
+
+    for ( var i = 0; i < arrLength; i++ ) {
         var elem = Object.keys(arr[i]);
         var value = arr[i][elem];
         if ( !hash[elem] ) {
@@ -300,8 +314,11 @@ var animeIntro = angular.module('AnimeIntro', []);
 // Hide Item
 animeIntro.filter('hideItem', function () {
     return function (input) {
+
         var output = [];
-        for ( var i = 0; i < input.length; i++ ) {
+        var inputLength = input.length;
+
+        for ( var i = 0; i < inputLength; i++ ) {
             var item = input[i];
             if ( item[2] == 1 ) {
                 output.push(item)
@@ -315,7 +332,8 @@ animeIntro.filter('hideItem', function () {
 animeIntro.filter('weekDays', function () {
     return function (input) {
         var output = [];
-        for ( var i = 0; i < input.length; i++ ) {
+        var inputLength = input.length;
+        for ( var i = 0; i < inputLength; i++ ) {
             var item = input[i];
             switch (item.name) {
                 case '星期一':
