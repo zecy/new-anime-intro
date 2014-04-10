@@ -160,18 +160,19 @@
                                                              </div>
 
         <div class="selector" ng-switch-when="sequel">
-                                                         <h3>是否续作</h3>
-                                                         <input type="text" ng-model="sequelCounNum" ui-mask="清空后按确定可还原"/>
-                                                         <button ng-click="changeCount('sequel', sequelCountNum)">确定</button>
-                                                         <button ng-click="changeCount('sequel', 2)">恢复</button>
-                                                         <ul class="property-list clearfix">
-                                                         <li ng-click="animeNumberInOnePage()">恢复</li>
-                                                         <li ng-class="{'property-list-current' : sequel.name === currentName }" ng-repeat="sequel in countedSequel" ng-click="searchProperty(sequel.name, 'sequel')">
-                                                         {{ sequel.name }}
-                                                         <span>{{ sequel.number }}</span>
-                                                         </li>
-                                                         </ul>
-                                                         </div>
+            <h3>是否续作</h3>
+            <input type="text" ng-model="sequelCounNum" ui-mask="清空后按确定可还原"/>
+            <button ng-click="changeCount('sequel', sequelCountNum)">确定</button>
+            <button ng-click="changeCount('sequel', 2)">恢复</button>
+            <ul class="property-list clearfix">
+                <li ng-click="animeNumberInOnePage()">恢复</li>
+                <li ng-class="{'property-list-current' : sequel.name === currentName }"
+                    ng-repeat="sequel in countedSequel" ng-click="searchProperty(sequel.name, 'sequel')">
+                    {{ sequel.name }}
+                    <span>{{ sequel.number }}</span>
+                </li>
+            </ul>
+        </div>
 
         <div class="selector" ng-switch-when="onair">
             <h3>播放时间</h3>
@@ -236,7 +237,7 @@
 
 <div class="guide clearfix">
 
-    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览（）</h1>
+    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览</h1>
 
     <!--<div ng-repeat="name in animeName " class="animebox">-->
     <div ng-repeat="anime in animeDataBase" class="animebox">

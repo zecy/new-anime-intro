@@ -3087,7 +3087,7 @@ animeDataBase = [
             'onair':['2014/4/13 星期日 00:00~00:30', '1'],
             'sequel':['新作', '1'],
             'hp':['http://www.mekakucityactors.com/', '1'],
-            'genre':['音乐,异能,战斗', '1']
+            'genre':['音乐,异能,校园', '1']
         },
 
         'staff':[
@@ -3183,7 +3183,7 @@ animeDataBase = [
             'episodes':['5', '1'],
             'sequel':['续作', '1'],
             'hp':['http://www.monogatari-series.com/2ndseason/', '1'],
-            'genre':['搞笑,后宫,萌,奇幻,吸血鬼,校园,妖怪,战斗', '1']
+            'genre':['后宫,萌,奇幻,吸血鬼,校园,妖怪,战斗', '1']
         },
 
         'staff':[
