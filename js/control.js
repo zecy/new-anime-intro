@@ -493,8 +493,8 @@ function animeBox($scope) {
         $scope.countedGenre      = meaningfulData(countedGenre, 1);
         $scope.countedOrigintype = meaningfulData(countedOrigintype, 1);
         $scope.countedSequel     = meaningfulData(countedSequel, 1);
-        $scope.countedStaff      = meaningfulData(countedStaff, 1);
-        $scope.countedCast       = meaningfulData(countedCast, 1);
+        $scope.countedStaff      = meaningfulData(countedStaff, 2);
+        $scope.countedCast       = meaningfulData(countedCast, 3);
 
         $scope.currentName = "";
     };
