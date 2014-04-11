@@ -146,18 +146,20 @@
         </div>
 
         <div class="selector" ng-switch-when="origintype">
-                                                             <h3>原作类型</h3>
-                                                             <input type="text" ng-model="origintypeCountNum" ui-mask="清空后按确定可还原"/>
-                                                             <button ng-click="changeCount('origintype', origintypeCountNum)">确定</button>
-                                                             <button ng-click="changeCount('orgintype', 2)">恢复</button>
-                                                             <ul class="property-list clearfix">
-                                                             <li ng-click="animeNumberInOnePage()">恢复</li>
-                                                             <li ng-class="{'property-list-current' : origintype.name === currentName }" ng-repeat="origintype in countedOrigintype" ng-click="searchProperty(origintype.name, 'origintype')">
-                                                             {{ origintype.name }}
-                                                             <span>{{ origintype.number }}</span>
-                                                             </li>
-                                                             </ul>
-                                                             </div>
+            <h3>原作类型</h3>
+            <input type="text" ng-model="origintypeCountNum" ui-mask="清空后按确定可还原"/>
+            <button ng-click="changeCount('origintype', origintypeCountNum)">确定</button>
+            <button ng-click="changeCount('orgintype', 2)">恢复</button>
+            <ul class="property-list clearfix">
+                <li ng-click="animeNumberInOnePage()">恢复</li>
+                <li ng-class="{'property-list-current' : origintype.name === currentName }"
+                    ng-repeat="origintype in countedOrigintype"
+                    ng-click="searchProperty(origintype.name, 'origintype')">
+                    {{ origintype.name }}
+                    <span>{{ origintype.number }}</span>
+                </li>
+            </ul>
+        </div>
 
         <div class="selector" ng-switch-when="sequel">
             <h3>是否续作</h3>
@@ -189,18 +191,19 @@
         </div>
 
         <div class="selector" ng-switch-when="genre">
-                                                        <h3>类型</h3>
-                                                        <input type="text" ng-model="genreCountNum" ui-mask="清空后按确定可还原"/>
-                                                        <button ng-click="changeCount('genre', genreCountNum)">确定</button>
-                                                        <button ng-click="changeCount('genre', 2)">恢复</button>
-                                                        <ul class="property-list clearfix">
-                                                        <li ng-click="animeNumberInOnePage()">恢复</li>
-                                                        <li ng-class="{'property-list-current' : genre.name === currentName }" ng-repeat="genre in countedGenre" ng-click="searchProperty(genre.name, 'genre')">
-                                                        {{ genre.name }}
-                                                        <span>{{ genre.number }}</span>
-                                                        </li>
-                                                        </ul>
-                                                        </div>
+            <h3>类型</h3>
+            <input type="text" ng-model="genreCountNum" ui-mask="清空后按确定可还原"/>
+            <button ng-click="changeCount('genre', genreCountNum)">确定</button>
+            <button ng-click="changeCount('genre', 2)">恢复</button>
+            <ul class="property-list clearfix">
+                <li ng-click="animeNumberInOnePage()">恢复</li>
+                <li ng-class="{'property-list-current' : genre.name === currentName }" ng-repeat="genre in countedGenre"
+                    ng-click="searchProperty(genre.name, 'genre')">
+                    {{ genre.name }}
+                    <span>{{ genre.number }}</span>
+                </li>
+            </ul>
+        </div>
 
         <div class="selector" ng-switch-when="staff">
             <h3>Staff</h3>
