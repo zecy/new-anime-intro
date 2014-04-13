@@ -396,7 +396,7 @@ function animeBox($scope) {
     $scope.countedGenre      = meaningfulData(countedGenre, 1);
     $scope.countedOrigintype = meaningfulData(countedOrigintype, 1);
     $scope.countedSequel     = meaningfulData(countedSequel, 1);
-    $scope.countedStaff      = meaningfulData(countedStaff, 3);
+    $scope.countedStaff      = meaningfulData(countedStaff, 2);
     $scope.countedCast       = meaningfulData(countedCast, 3);
 
     $scope.currentName       = "";
@@ -469,6 +469,7 @@ function animeBox($scope) {
         var eN = $scope.pageEnd ? $scope.pageEnd : shownAnimeData.length;
 
         $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
+
     };
 
     $scope.animeNumberInOnePage = function() {
@@ -480,6 +481,7 @@ function animeBox($scope) {
 
         $scope.animeDataBase = animeDataBase;
 
+        /*
         var waitToCountList = buildWaitToCountList(animeDataBase);
 
         var countedOnair      = buildCountedList(waitToCountList.onair);
@@ -495,8 +497,12 @@ function animeBox($scope) {
         $scope.countedSequel     = meaningfulData(countedSequel, 1);
         $scope.countedStaff      = meaningfulData(countedStaff, 2);
         $scope.countedCast       = meaningfulData(countedCast, 3);
+        */
 
         $scope.currentName = "";
+
+        $scope.pageStart = "";
+        $scope.pageEnd   = "";
     };
 
     $scope.selector = 'pages';

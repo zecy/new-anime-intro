@@ -147,7 +147,7 @@
 
         <div class="selector" ng-switch-when="origintype">
             <h3>原作类型</h3>
-            <input type="text" ng-model="origintypeCountNum" ui-mask="清空后按确定可还原"/>
+            <input type="text" ng-model="origintypeCountNum" />
             <button ng-click="changeCount('origintype', origintypeCountNum)">确定</button>
             <button ng-click="changeCount('orgintype', 2)">恢复</button>
             <ul class="property-list clearfix">
@@ -163,7 +163,7 @@
 
         <div class="selector" ng-switch-when="sequel">
             <h3>是否续作</h3>
-            <input type="text" ng-model="sequelCounNum" ui-mask="清空后按确定可还原"/>
+            <input type="text" ng-model="sequelCounNum" />
             <button ng-click="changeCount('sequel', sequelCountNum)">确定</button>
             <button ng-click="changeCount('sequel', 2)">恢复</button>
             <ul class="property-list clearfix">
@@ -178,7 +178,7 @@
 
         <div class="selector" ng-switch-when="onair">
             <h3>播放时间</h3>
-            <input type="text" ng-model="onairCountNum" ui-mask="清空后按确定可还原"/>
+            <input type="text" ng-model="onairCountNum" />
             <button ng-click="changeCount('onair', onairCountNum)">确定</button>
             <button ng-click="changeCount('onair', 2)">恢复</button>
             <ul class="property-list clearfix">
@@ -192,13 +192,12 @@
 
         <div class="selector" ng-switch-when="genre">
             <h3>类型</h3>
-            <input type="text" ng-model="genreCountNum" ui-mask="清空后按确定可还原"/>
+            <input type="text" ng-model="genreCountNum" />
             <button ng-click="changeCount('genre', genreCountNum)">确定</button>
             <button ng-click="changeCount('genre', 2)">恢复</button>
             <ul class="property-list clearfix">
                 <li ng-click="animeNumberInOnePage()">恢复</li>
-                <li ng-class="{'property-list-current' : genre.name === currentName }" ng-repeat="genre in countedGenre"
-                    ng-click="searchProperty(genre.name, 'genre')">
+                <li ng-class="{'property-list-current' : genre.name === currentName }" ng-repeat="genre in countedGenre" ng-click="searchProperty(genre.name, 'genre')">
                     {{ genre.name }}
                     <span>{{ genre.number }}</span>
                 </li>

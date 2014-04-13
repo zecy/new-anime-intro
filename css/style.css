@@ -143,7 +143,7 @@ body {
     box-shadow: inset 1px 1px 3px rgba(0,0,0,0.4);
 }
 
-.property-list li:hover, .staff-list-current {
+.property-list li:hover, .property-list-current {
     box-shadow  : inset 2px 2px 3px rgba(0, 0, 0, 0.4), 0 0 5px rgba(51,103,68,.8);
 }
 
