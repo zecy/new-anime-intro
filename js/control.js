@@ -363,6 +363,7 @@ animeIntro.filter('weekDays', function () {
     };
 });
 
+
 /*------------------------------------------------------------
 *
 *                   MAIN FUNCTION
@@ -391,6 +392,7 @@ var countedCast       = buildCountedList(waitToCountList.cast);
 function animeBox($scope) {
 
     $scope.animeDataBase     = buildAnimeList(shownAnimeData);
+    $scope.animeNumber       = animeDataBase.length;
 
     $scope.countedOnair      = meaningfulData(countedOnair, 1);
     $scope.countedGenre      = meaningfulData(countedGenre, 1);
