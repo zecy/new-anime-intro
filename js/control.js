@@ -503,8 +503,8 @@ function animeBox($scope) {
 
         $scope.currentName = "";
 
-        $scope.pageStart = "";
-        $scope.pageEnd   = "";
+        $scope.pageStart   = "";
+        $scope.pageEnd     = "";
     };
 
     $scope.selector = 'pages';

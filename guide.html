@@ -9,6 +9,16 @@
   <title></title>
 </head>
 <body ng-controller="animeBox">
+
+<header>
+    <div>
+        <h1 id="hptitle">ZC的新番手记</h1>
+    </div>
+</header>
+
+<div class="wrap">
+
+
 <!--
     <div class="intro" >
 
@@ -146,7 +156,6 @@
         </div>
 
         <div class="selector" ng-switch-when="origintype">
-            <h3>原作类型</h3>
             <ul class="property-list clearfix">
                 <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
                 <li ng-class="{'property-list-current' : origintype.name === currentName }"
@@ -159,7 +168,6 @@
         </div>
 
         <div class="selector" ng-switch-when="sequel">
-            <h3>是否续作</h3>
             <ul class="property-list clearfix">
                 <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
                 <li ng-class="{'property-list-current' : sequel.name === currentName }"
@@ -171,7 +179,6 @@
         </div>
 
         <div class="selector" ng-switch-when="onair">
-            <h3>播放时间</h3>
             <ul class="property-list clearfix">
                 <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
                 <li ng-show="onair" ng-class="{'property-list-current' : onair.name === currentName }" ng-repeat="onair in countedOnair | weekDays track by $index" ng-click="searchProperty(onair.name, 'onair')">
@@ -182,7 +189,6 @@
         </div>
 
         <div class="selector" ng-switch-when="genre">
-            <h3>类型</h3>
             <input type="text" ng-model="genreSearch.name" placeholder="查找类型"/>
             <ul class="property-list clearfix">
                 <li ng-click="animeNumberInOnePage()">
@@ -197,7 +203,6 @@
         </div>
 
         <div class="selector" ng-switch-when="staff">
-            <h3>Staff</h3>
             <input type="text" ng-model="staffSearch.name" placeholder="查找Staff名称"/>
             <input type="text"
                    ng-model="staffCountNum"
@@ -215,7 +220,6 @@
         </div>
 
         <div class="selector" ng-switch-when="cast">
-            <h3>Cast</h3>
             <input type="text" ng-model="castSearch.name" placeholder="查找Cast"/>
             <input type="text"
                    ng-model="castCountNum"
@@ -247,7 +251,7 @@
     </div>
 
 </div>
-    <p class="copyright">整理 / 制作 by ZC @ http://anipv.info　　</p>
+    <!--<p class="copyright">整理 / 制作 by ZC @ http://anipv.info　　</p>-->
 
 <!-- 
 
@@ -268,32 +272,33 @@
 <div ng-repeat="anime in animeDataBase" class="animedetail">
     <h2 id="{{ anime.name[0] }}" class="name">《{{ anime.name[1] }}》</h2>
     <img ng-src="image/{{ anime.name[0] }}/poster.jpg" alt=""/>
+
     <h3>基本信息</h3>
     <ul class="infobox">
         <li>
-            <b>原　　名：</b>{{ anime.info.origintitle[0] }}
+            <b>原　　名</b>{{ anime.info.origintitle[0] }}
         </li>
         <li>
-            <b>原作类型：</b>{{ anime.info.origintype[0] }}
+            <b>原作类型</b>{{ anime.info.origintype[0] }}
         </li>
         <li>
-            <b>放送时间：</b>{{ anime.info.onair[0] }}
+            <b>放送时间</b>{{ anime.info.onair[0] }}
         </li>
         <li ng-show="anime.info.episodes[0]">
-            <b>话　　数：</b>{{ anime.info.episodes[0] }}
+            <b>话　　数</b>{{ anime.info.episodes[0] }}
         </li>
         <li>
-            <b>作品类型：</b>{{ anime.info.genre[0] }}
+            <b>作品类型</b>{{ anime.info.genre[0] }}
         </li>
         <li>
-            <b>官方网站：</b><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a>
+            <b>官方网站</b><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a>
         </li>
     </ul>
 
     <h3>Staff</h3>
     <ul class="infobox">
         <li ng-repeat="staff in animeDataBase[$index].staff | hideItem">
-            <b>{{ staff[0] }}:</b>
+            <b>{{ staff[0] }}</b>
             {{ staff[1] }}
         </li>
     </ul>
@@ -301,7 +306,7 @@
     <h3>Cast</h3>
     <ul class="infobox">
         <li ng-repeat="cast in animeDataBase[$index].cast | hideItem">
-            <b>{{ cast[0] }}:</b>
+            <b>{{ cast[0] }}</b>
             {{ cast[1] }}
         </li>
     </ul>
@@ -365,5 +370,6 @@
 
 -->
 
+</div>
 </body>
 </html>
