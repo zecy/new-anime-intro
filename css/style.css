@@ -151,7 +151,7 @@ header a {color:#333;text-decoration:none;}
 
 .infobox b {
     display       : table-cell;
-    widows        : auto;
+    width         : auto;
     padding-right : 1em;
 }
 
