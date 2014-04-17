@@ -11,8 +11,24 @@
 <body ng-controller="animeBox">
 
 <header>
-    <div>
+    <div class="headercontent">
+
         <h1 id="hptitle">ZC的新番手记</h1>
+
+        <nav class="tab">
+
+            <ul class="tab-nav clearfix">
+                <li ng-click="tabChange('pages')">显示动画数目</li>
+                <li ng-click="tabChange('origintype')">原作类型</li>
+                <li ng-click="tabChange('sequel')">是否续作</li>
+                <li ng-click="tabChange('onair')">播放时间</li>
+                <li ng-click="tabChange('genre')">类型</li>
+                <li ng-click="tabChange('staff')">Staff</li>
+                <li ng-click="tabChange('cast')">Cast</li>
+            </ul>
+
+        </nav>
+
     </div>
 </header>
 
@@ -133,17 +149,8 @@
 
 -->
 
-<div class="tab">
+<div class="tab" style="display: none">
 
-    <ul class="tab-nav clearfix">
-        <li ng-click="tabChange('pages')">显示动画数目</li>
-        <li ng-click="tabChange('origintype')">原作类型</li>
-        <li ng-click="tabChange('sequel')">是否续作</li>
-        <li ng-click="tabChange('onair')">播放时间</li>
-        <li ng-click="tabChange('genre')">类型</li>
-        <li ng-click="tabChange('staff')">Staff</li>
-        <li ng-click="tabChange('cast')">Cast</li>
-    </ul>
 
     <div class="tab-box" ng-switch on="selector">
 
