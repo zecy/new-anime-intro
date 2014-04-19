@@ -167,7 +167,6 @@
 
 <div class="wrap">
 
-
 <!--
     <div class="intro" >
 
@@ -281,105 +280,6 @@
     </div>
 
 -->
-
-<div class="tab" style="display: none">
-
-
-    <div class="tab-box" ng-switch on="selector">
-
-        <div class="selector" ng-switch-default="pages">
-
-            <h3>共有 {{ animeNumber }} 部动画。</h3>
-            <input type="text" ng-model="$parent.pageStart" placeholder="从第N部开始显示"/> - <input type="text" ng-model="$parent.pageEnd" placeholder="到第M部结束"/>
-            <button ng-click="animeNumberInOnePage()">确定</button>
-
-        </div>
-
-        <div class="selector" ng-switch-when="origintype">
-            <ul class="property-list clearfix">
-                <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
-                <li ng-class="{'property-list-current' : origintype.name === currentName }"
-                    ng-repeat="origintype in countedOrigintype"
-                    ng-click="searchProperty(origintype.name, 'origintype')">
-                    {{ origintype.name }}
-                    <span>{{ origintype.number }}</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="selector" ng-switch-when="sequel">
-            <ul class="property-list clearfix">
-                <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
-                <li ng-class="{'property-list-current' : sequel.name === currentName }"
-                    ng-repeat="sequel in countedSequel" ng-click="searchProperty(sequel.name, 'sequel')">
-                    {{ sequel.name }}
-                    <span>{{ sequel.number }}</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="selector" ng-switch-when="onair">
-            <ul class="property-list clearfix">
-                <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
-                <li ng-show="onair" ng-class="{'property-list-current' : onair.name === currentName }" ng-repeat="onair in countedOnair | weekDays track by $index" ng-click="searchProperty(onair.name, 'onair')">
-                    {{ onair.name }}
-                    <span>{{ onair.number }}</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="selector" ng-switch-when="genre">
-            <input type="text" ng-model="genreSearch.name" placeholder="查找类型"/>
-            <ul class="property-list clearfix">
-                <li ng-click="animeNumberInOnePage()">
-                    全部 <span>{{ animeNumber }}</span>
-                </li>
-                <li ng-class="{'property-list-current' : genre.name === currentName }"
-                    ng-repeat="genre in countedGenre | filter: genreSearch"
-                    ng-click="searchProperty(genre.name, 'genre')">
-                >
-                    {{ genre.name }} <span>{{ genre.number }}</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="selector" ng-switch-when="staff">
-            <input type="text" ng-model="staffSearch.name" placeholder="查找Staff名称"/>
-            <input type="text"
-                   ng-model="staffCountNum"
-                   ng-change="changeCount('staff', staffCountNum)"
-                   placeholder="统计下限"/>
-            <ul class="property-list clearfix">
-                <li ng-click="animeNumberInOnePage()">全部 <span>{{ animeNumber }}</span></li>
-                <li ng-class="{'property-list-current' : staff.name === currentName }"
-                    ng-repeat="staff in countedStaff | filter:staffSearch"
-                    ng-click="searchProperty(staff.name, 'staff')">
-                    {{ staff.name }}
-                    <span>{{ staff.number }}</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="selector" ng-switch-when="cast">
-            <input type="text" ng-model="castSearch.name" placeholder="查找Cast"/>
-            <input type="text"
-                   ng-model="castCountNum"
-                   ng-change="changeCount('cast', castCountNum)"
-                   placeholder="统计下限"/>
-            <ul class="property-list clearfix">
-                <li ng-click="animeNumberInOnePage()">全部 <span>{{ animeNumber }}</span></li>
-                <li ng-class="{'property-list-current' : cast.name === currentName }"
-                    ng-repeat="cast in countedCast | filter: castSearch"
-                    ng-click="searchProperty(cast.name, 'cast')">
-                    {{ cast.name }}
-                    <span>{{ cast.number }}</span>
-                </li>
-            </ul>
-        </div>
-
-    </div> <!--tab box-->
-
-</div> <!--tab-->
 
 <div class="guide clearfix">
 
