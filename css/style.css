@@ -53,7 +53,7 @@ header a {
     width       : 960px;
     margin      : 0 auto;
     text-shadow : -1px -1px 0 rgba(255, 255, 255, 0.4);
-    /*     outline : 1px solid red; */
+    /*outline : 1px solid green;*/
 }
 
 .guide {
@@ -170,6 +170,67 @@ header a {
     line-height : 1.5em;
 }
 
+.selector {
+    display       : none;
+
+    /* moudle property*/
+    box-sizing    : border-box;
+
+    /* position */
+    margin-left   : -120px;
+    position      : absolute;
+    top           : 50px;
+    width         : 600px;
+    margin-top    : 13px;
+    left          : 50%;
+
+    /* display */
+    border-radius : 10px;
+    padding       : 10px;
+    text-align    : center;
+    /*outline     : 1px solid red;*/
+    /*border        : 2px solid #eee;*/
+    box-shadow    : 0 0 5px 1px rgba(0, 0, 0, 0.4);
+    background    : url("../matter/bg3.png");
+}
+
+.selector::before {
+    position : absolute;
+    content  : "";
+    height   : 20px;
+    /*outline : 1px solid brown;*/
+    width    : 100%;
+    left     : 0;
+    bottom   : 100%;
+}
+
+.trangle::before,
+.trangle::after {
+
+    content  : "";
+    position : absolute;
+    width    : 0;
+    height   : 0;
+    left     : inherit;
+    border   : 15px solid transparent;
+
+}
+
+.trangle::before {
+    /*outline      : 1px solid orangered;*/
+    top          : -30px;
+    border-color : transparent transparent #ccc transparent;
+}
+
+.trangle::after {
+    border-color : transparent transparent #fdfdfd transparent;
+    top          : -27px;
+}
+
+.pages-selector .trangle {
+    left : 3em;
+}
+
 .selector h3 {
     font-size   : 1.5em;
     font-weight : normal;
@@ -202,31 +263,36 @@ header a {
 
 .tab {
     /*margin : 20px auto 50px auto; */
-/*    outline : 1px solid blue;*/
-    float   : right;
-    height  : 40px;
-    width   : 600px;
+    /*    outline : 1px solid blue;*/
+    float  : right;
+    height : 40px;
+    width  : 600px;
 }
 
 .tab-nav li {
-    font-size     : 1.5em;
     float         : left;
+    font-size     : 1.5em;
     margin-right  : 10px;
     border-radius : 5px;
     border        : 1px solid #777;
-/*    background    : #46996a;*/
+    /*    background    : #46996a;*/
     color         : #111;
-/*    text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);*/
-    cursor        : pointer;
+    /*    text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);*/
     height        : 40px;
+    cursor        : pointer;;
     line-height   : 40px;
     padding       : 0 0.5em;
 }
 
 .tab-nav li:hover {
-    background: #aaa;
-    color     : #fff;
-    border    : 1px solid #aaa;
+    background : #aaa;
+    color      : #fff;
+    border     : 1px solid #aaa;
+}
+
+.tab-nav li:hover .selector {
+    display : block;
+    color   : #111;
 }
 
 .tab-box {
@@ -239,7 +305,7 @@ header a {
     border-radius      : 0 5px 5px 5px;
 }
 
-.tab-box button {
+.selector button {
     color         : transparent;
     text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);
     border        : none;
@@ -250,12 +316,14 @@ header a {
     background    : #3ea2ff;
 }
 
-.tab-box button:hover {
+/*.tab-box button:hover {*/
+.selector button:hover {
     /*background : #347ec6;*/
     box-shadow : inset 0 0 10px rgba(0, 0, 0, 0.4), 0 0 3px rgba(62, 162, 255, 0.5);
 }
 
-.tab-box input {
+/*.tab-box input {*/
+.selector input {
     margin        : 20px 0;
     border-radius : 5px;
     border        : 1px solid rgba(52, 126, 198, 0.3);

@@ -18,13 +18,39 @@
         <nav class="tab">
 
             <ul class="tab-nav clearfix">
-                <li ng-click="tabChange('pages')">显示动画数目</li>
-                <li ng-click="tabChange('origintype')">原作类型</li>
-                <li ng-click="tabChange('sequel')">是否续作</li>
-                <li ng-click="tabChange('onair')">播放时间</li>
-                <li ng-click="tabChange('genre')">类型</li>
-                <li ng-click="tabChange('staff')">Staff</li>
-                <li ng-click="tabChange('cast')">Cast</li>
+                <li class="pages-selector">
+                    显示动画数目
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <h3>共有 {{ animeNumber }} 部动画，显示 {{ animeCurrentNumber }} 部</h3>
+
+                        <input type="text" ng-model="pageStart" placeholder="从第N部开始显示"/> - <input type="text" ng-model="pageEnd" placeholder="到第M部结束"/>
+                        <button ng-click="animeNumberInOnePage()">确定</button>
+
+                    </div>
+
+                </li>
+                <li class="origintype-selector">
+                    原作类型
+                </li>
+                <li class="sequel-selector">
+                    是否续作
+                </li>
+                <li class="onair-selector">
+                    播放时间
+                </li>
+                <li class="genre-selector">
+                    类型
+                </li>
+                <li class="staff-selector">
+                    Staff
+                </li>
+                <li class="cast-selector">
+                    Cast
+                </li>
             </ul>
 
         </nav>
