@@ -192,6 +192,7 @@ header a {
     /*border        : 2px solid #eee;*/
     box-shadow    : 0 0 5px 1px rgba(0, 0, 0, 0.4);
     background    : url("../matter/bg3.png");
+    cursor        : default;
 }
 
 .selector::before {
@@ -231,6 +232,30 @@ header a {
     left : 3em;
 }
 
+.origintype-selector .trangle {
+    left : 10em;
+}
+
+.sequel-selector .trangle {
+    left : 15.5em;
+}
+
+.onair-selector .trangle {
+    left : 21em;
+}
+
+.genre-selector .trangle {
+    left : 26em;
+}
+
+.staff-selector .trangle {
+    left : 30em;
+}
+
+.cast-selector .trangle {
+    left : 34.5em;
+}
+
 .selector h3 {
     font-size   : 1.5em;
     font-weight : normal;
@@ -238,6 +263,7 @@ header a {
 
 .property-list li {
     float         : left;
+    font-size     : 0.75em;
     height        : 1em;
     line-height   : 1em;
     padding       : 0.5em;
@@ -269,7 +295,7 @@ header a {
     width  : 600px;
 }
 
-.tab-nav li {
+.tab-nav > li {
     float         : left;
     font-size     : 1.5em;
     margin-right  : 10px;
@@ -284,7 +310,7 @@ header a {
     padding       : 0 0.5em;
 }
 
-.tab-nav li:hover {
+.tab-nav > li:hover {
     background : #aaa;
     color      : #fff;
     border     : 1px solid #aaa;

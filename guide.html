@@ -33,23 +33,130 @@
                     </div>
 
                 </li>
+
                 <li class="origintype-selector">
                     原作类型
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
+                            <li ng-class="{'property-list-current' : origintype.name === currentName }"
+                                ng-repeat="origintype in countedOrigintype"
+                                ng-click="searchProperty(origintype.name, 'origintype')">
+                                {{ origintype.name }}
+                                <span>{{ origintype.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="sequel-selector">
                     是否续作
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
+                            <li ng-class="{'property-list-current' : sequel.name === currentName }"
+                                ng-repeat="sequel in countedSequel" ng-click="searchProperty(sequel.name, 'sequel')">
+                                {{ sequel.name }}
+                                <span>{{ sequel.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+
                 </li>
+
                 <li class="onair-selector">
                     播放时间
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
+                            <li ng-show="onair" ng-class="{'property-list-current' : onair.name === currentName }" ng-repeat="onair in countedOnair | weekDays track by $index" ng-click="searchProperty(onair.name, 'onair')">
+                                {{ onair.name }}
+                                <span>{{ onair.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="genre-selector">
                     类型
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <input type="text" ng-model="genreSearch.name" placeholder="查找类型"/>
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">
+                                全部 <span>{{ animeNumber }}</span>
+                            </li>
+                            <li ng-class="{'property-list-current' : genre.name === currentName }"
+                                ng-repeat="genre in countedGenre | filter: genreSearch"
+                                ng-click="searchProperty(genre.name, 'genre')">
+                                {{ genre.name }} <span>{{ genre.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="staff-selector">
+
                     Staff
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <input type="text" ng-model="staffSearch.name" placeholder="查找Staff名称"/>
+                        <input type="text"
+                               ng-model="staffCountNum"
+                               ng-change="changeCount('staff', staffCountNum)"
+                               placeholder="统计下限"/>
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{ animeNumber }}</span></li>
+                            <li ng-class="{'property-list-current' : staff.name === currentName }"
+                                ng-repeat="staff in countedStaff | filter:staffSearch"
+                                ng-click="searchProperty(staff.name, 'staff')">
+                                {{ staff.name }}
+                                <span>{{ staff.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="cast-selector">
                     Cast
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <input type="text" ng-model="castSearch.name" placeholder="查找Cast"/>
+                        <input type="text"
+                               ng-model="castCountNum"
+                               ng-change="changeCount('cast', castCountNum)"
+                               placeholder="统计下限"/>
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{ animeNumber }}</span></li>
+                            <li ng-class="{'property-list-current' : cast.name === currentName }"
+                                ng-repeat="cast in countedCast | filter: castSearch"
+                                ng-click="searchProperty(cast.name, 'cast')">
+                                {{ cast.name }}
+                                <span>{{ cast.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
 
@@ -229,6 +336,7 @@
                 </li>
                 <li ng-class="{'property-list-current' : genre.name === currentName }"
                     ng-repeat="genre in countedGenre | filter: genreSearch"
+                    ng-click="searchProperty(genre.name, 'genre')">
                 >
                     {{ genre.name }} <span>{{ genre.number }}</span>
                 </li>

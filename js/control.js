@@ -450,12 +450,12 @@ function animeBox($scope) {
         switch ( item ) {
             case 'staff':
                 $scope.countedStaff = meaningfulData(countedStaff, num);
-                $scope.staffCountNum = "10";
+//                $scope.staffCountNum = "";
                 break;
 
             case 'cast':
                 $scope.countedCast = meaningfulData(countedCast, num);
-                $scope.castCountNum = "";
+//                $scope.castCountNum = "";
                 break;
         }
     };
