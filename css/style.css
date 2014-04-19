@@ -357,3 +357,38 @@ header a {
     height        : 1.5em;
     text-align    : center;
 }
+
+.scrolltop {
+    position: fixed;
+    left:50%;
+    margin-left:475px;
+    bottom: 50px;
+}
+
+.scrolltop a {
+    text-decoration: none;
+    display: block;
+    width: 1em;
+    padding:1em 0.5em 0.5em 0.5em ;
+    background: #fcfcfc;
+    border-radius: 3px;
+    border:1px solid #fafafa;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.4);
+    color: inherit;
+}
+
+.scrolltop a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left:-5px;
+    top : 0px;
+    border:5px solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+.scrolltop a:hover {
+    background: #ccc;
+    border-color: #ccc;
+}
+
