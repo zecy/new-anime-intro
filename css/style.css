@@ -174,7 +174,7 @@ header a {
     position: relative;
 }
 
-.infobox li:hover span::before {
+.infobox li:hover span:before {
     content:"";
     position: absolute;
     border:5px solid;
