@@ -425,7 +425,7 @@ li.property-list-current span {
     position     : absolute;
     left         : 50%;
     margin-left  : -5px;
-    top          : 0px;
+    top          : 0;
     border       : 5px solid;
     border-color : transparent transparent #333 transparent;
 }
