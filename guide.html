@@ -318,22 +318,22 @@
     <h3>基本信息</h3>
     <ul class="infobox">
         <li>
-            <b>原　　名</b>{{ anime.info.origintitle[0] }}
+            <b>原　　名</b><span>{{ anime.info.origintitle[0] }}</span>
         </li>
         <li>
-            <b>原作类型</b>{{ anime.info.origintype[0] }}
+            <b>原作类型</b><span>{{ anime.info.origintype[0] }}</span>
         </li>
         <li>
-            <b>放送时间</b>{{ anime.info.onair[0] }}
+            <b>放送时间</b><span>{{ anime.info.onair[0] }}</span>
         </li>
         <li ng-show="anime.info.episodes[0]">
-            <b>话　　数</b>{{ anime.info.episodes[0] }}
+            <b>话　　数</b><span>{{ anime.info.episodes[0] }}</span>
         </li>
         <li>
-            <b>作品类型</b>{{ anime.info.genre[0] }}
+            <b>作品类型</b><span>{{ anime.info.genre[0] }}</span>
         </li>
         <li>
-            <b>官方网站</b><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a>
+            <b>官方网站</b><span><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a></span>
         </li>
     </ul>
 
@@ -341,7 +341,7 @@
     <ul class="infobox">
         <li ng-repeat="staff in animeDataBase[$index].staff | hideItem">
             <b>{{ staff[0] }}</b>
-            {{ staff[1] }}
+            <span>{{ staff[1] }}</span>
         </li>
     </ul>
 
@@ -349,7 +349,7 @@
     <ul class="infobox">
         <li ng-repeat="cast in animeDataBase[$index].cast | hideItem">
             <b>{{ cast[0] }}</b>
-            {{ cast[1] }}
+            <span>{{ cast[1] }}</span>
         </li>
     </ul>
 

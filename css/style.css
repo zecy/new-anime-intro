@@ -147,7 +147,8 @@ header a {
 }
 
 .animedetail ul {
-    padding : 1em 0 1em 2em;
+    /*padding : 1em 0 1em 2em;*/
+    padding : 1em 0;
 }
 
 .infobox li {
@@ -156,10 +157,30 @@ header a {
     height      : 2em;
 }
 
+.infobox li:hover {
+    background : #eee;
+}
+
 .infobox b {
     display       : table-cell;
+    padding-left  : 2em;
     width         : auto;
     padding-right : 1em;
+}
+
+.infobox span {
+    display      : table-cell;
+    padding-right : 3em;
+    position: relative;
+}
+
+.infobox li:hover span::before {
+    content:"";
+    position: absolute;
+    border:5px solid;
+    border-color:transparent transparent transparent #3ea2ff;
+    top: 6px;
+    left: -8px;
 }
 
 .dialog {
