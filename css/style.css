@@ -15,15 +15,17 @@ body {
     background : url(../matter/bg3.png) repeat;
 }
 
-button, input, textarea {
+button, input {
     font-family : sans-serif;
+    padding     : 0.5em 0.6em 0.5em 0.5em;
 }
 
 header {
     margin     : 0 auto 20px auto;
     width      : 100%;
-    height     : 45px;
-    padding    : 5px;
+    /*height     : 45px;*/
+    height     : 50px;
+    /*padding    : 5px;*/
     /* background : url(../matter/header.png) bottom repeat-x; */
     background : #fff;
     box-shadow : 0 1px 1px rgba(0, 0, 0, .1);
@@ -186,7 +188,7 @@ header a {
 
     /* display */
     border-radius : 10px;
-    padding       : 10px;
+    padding       : 10px 0;
     text-align    : center;
     /*outline     : 1px solid red;*/
     /*border        : 2px solid #eee;*/
@@ -237,23 +239,23 @@ header a {
 }
 
 .sequel-selector .trangle {
-    left : 15.5em;
+    left : 16em;
 }
 
 .onair-selector .trangle {
-    left : 21em;
+    left : 22em;
 }
 
 .genre-selector .trangle {
-    left : 26em;
+    left : 27em;
 }
 
 .staff-selector .trangle {
-    left : 30em;
+    left : 31em;
 }
 
 .cast-selector .trangle {
-    left : 34.5em;
+    left : 35.5em;
 }
 
 .selector h3 {
@@ -262,29 +264,46 @@ header a {
 }
 
 .property-list li {
-    float         : left;
-    font-size     : 0.75em;
-    height        : 1em;
-    line-height   : 1em;
-    padding       : 0.5em;
-    border-radius : 5px;
-    margin        : 0 1em 1em 0;
-    background    : #46996a;
-    color         : transparent;
-    text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);
-    cursor        : pointer;
+    float       : left;
+    /*font-size     : 0.75em;*/
+    font-size   : 0.9em;
+    height      : 2.5em;
+    line-height : 2.5em;
+    /*padding       : 0.5em;*/
+    /*border-radius : 5px;*/
+    /*margin        : 0 1em 1em 0;*/
+    /*background    : #46996a;*/
+    /*color         : transparent;*/
+    /*text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);*/
+    cursor      : pointer;
+    width       : 150px;
+}
+
+.staff-selector li {
+    width : 200px;
 }
 
 .property-list li span {
-    background    : #336744;
-    padding       : 0.2em 0.8em;
+    /*background    : #336744;*/
+    /*padding     : 0.2em 0.8em;*/
     margin-left   : 0.2em;
-    border-radius : 5px;
-    box-shadow    : inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+    /*border-radius : 5px;*/
+    /*box-shadow    : inset 1px 1px 3px rgba(0, 0, 0, 0.4);*/
+    padding       : 0.2em 0.6em;
+    /*border-radius : 5px;*/
+    background    : #eee;
+    border-radius : 1em;
 }
 
 .property-list li:hover, .property-list-current {
-    box-shadow : inset 2px 2px 3px rgba(0, 0, 0, 0.4), 0 0 5px rgba(51, 103, 68, .8);
+    /*box-shadow : inset 2px 2px 3px rgba(0, 0, 0, 0.4), 0 0 5px rgba(51, 103, 68, .8);*/
+    background    : #e0e0e0;
+    border-radius : 5px;
+}
+
+.property-list li:hover span,
+li.property-list-current span {
+    background : #ccc;
 }
 
 .tab {
@@ -296,24 +315,28 @@ header a {
 }
 
 .tab-nav > li {
-    float         : left;
-    font-size     : 1.5em;
-    margin-right  : 10px;
-    border-radius : 5px;
-    border        : 1px solid #777;
+    float       : left;
+    font-size   : 1.5em;
+    /*margin-right  : 10px;*/
+    /*border-radius : 5px;*/
+    /*border        : 1px solid #777;*/
     /*    background    : #46996a;*/
-    color         : #111;
+    color       : #111;
     /*    text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);*/
-    height        : 40px;
-    cursor        : pointer;;
-    line-height   : 40px;
-    padding       : 0 0.5em;
+    /*height        : 40px;*/
+    height      : 50px;
+    cursor      : pointer;;
+    /*line-height   : 40px;*/
+    line-height : 50px;
+    /*padding       : 0 0.5em;*/
+    padding     : 0 1em;
 }
 
 .tab-nav > li:hover {
-    background : #aaa;
-    color      : #fff;
-    border     : 1px solid #aaa;
+    /*background : #aaa;*/
+    background : #f9f9f9;
+    /*color      : #fff;*/
+    /*border     : 1px solid #aaa;*/
 }
 
 .tab-nav li:hover .selector {
@@ -332,20 +355,19 @@ header a {
 }
 
 .selector button {
-    color         : transparent;
-    text-shadow   : 1px 1px 0 #fff, 0 0 0 rgba(0, 0, 0, 0.4);
-    border        : none;
+    border        : 1px solid #ccc;
+    background    : transparent;
     cursor        : pointer;
-    line-height   : 1em;
-    padding       : 0.5em 0.6em 0.5em 0.5em;
     border-radius : 5px;
-    background    : #3ea2ff;
 }
 
 /*.tab-box button:hover {*/
 .selector button:hover {
     /*background : #347ec6;*/
-    box-shadow : inset 0 0 10px rgba(0, 0, 0, 0.4), 0 0 3px rgba(62, 162, 255, 0.5);
+    /*box-shadow : inset 0 0 10px rgba(0, 0, 0, 0.4);*/
+    background : #aaa;
+    color      : #fff;
+    border     : 1px solid #aaa;
 }
 
 /*.tab-box input {*/
@@ -353,42 +375,42 @@ header a {
     margin        : 20px 0;
     border-radius : 5px;
     border        : 1px solid rgba(52, 126, 198, 0.3);
-    box-shadow    : 0 0 3px rgba(52, 126, 198, 0.5), 0 0 5px rgba(52, 126, 198, 0.2);
-    height        : 1.5em;
+    /*box-shadow    : 0 0 3px rgba(52, 126, 198, 0.5), 0 0 5px rgba(52, 126, 198, 0.2);*/
+    /*height        : 1.5em;*/
     text-align    : center;
 }
 
 .scrolltop {
-    position: fixed;
-    left:50%;
-    margin-left:475px;
-    bottom: 50px;
+    position    : fixed;
+    left        : 50%;
+    margin-left : 475px;
+    bottom      : 50px;
 }
 
 .scrolltop a {
-    text-decoration: none;
-    display: block;
-    width: 1em;
-    padding:1em 0.5em 0.5em 0.5em ;
-    background: #fcfcfc;
-    border-radius: 3px;
-    border:1px solid #fafafa;
-    box-shadow: 0 0 3px 1px rgba(0,0,0,0.4);
-    color: inherit;
+    text-decoration : none;
+    display         : block;
+    width           : 1em;
+    padding         : 1em 0.5em 0.5em 0.5em;
+    background      : #fcfcfc;
+    border-radius   : 3px;
+    border          : 1px solid #fafafa;
+    box-shadow      : 0 0 3px 1px rgba(0, 0, 0, 0.4);
+    color           : inherit;
 }
 
 .scrolltop a::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    margin-left:-5px;
-    top : 0px;
-    border:5px solid;
-    border-color: transparent transparent #333 transparent;
+    content      : "";
+    position     : absolute;
+    left         : 50%;
+    margin-left  : -5px;
+    top          : 0px;
+    border       : 5px solid;
+    border-color : transparent transparent #333 transparent;
 }
 
 .scrolltop a:hover {
-    background: #ccc;
-    border-color: #ccc;
+    background   : #ccc;
+    border-color : #ccc;
 }
 

@@ -2,11 +2,12 @@
 <html lang="en" ng-app="AnimeIntro">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
     <script src="js/angular.js"></script>
     <script src="js/database.js"></script>
     <script src="js/control.js"></script>
-  <title></title>
+  <title>2014年4月新番介绍</title>
 </head>
 <body ng-controller="animeBox">
 
@@ -28,7 +29,7 @@
                         <h3>共有 {{ animeNumber }} 部动画，显示 {{ animeCurrentNumber }} 部</h3>
 
                         <input type="text" ng-model="pageStart" placeholder="从第N部开始显示"/> - <input type="text" ng-model="pageEnd" placeholder="到第M部结束"/>
-                        <button ng-click="animeNumberInOnePage()">确定</button>
+                        <button type="button" class="btn btn-default" ng-click="animeNumberInOnePage()">确定</button>
 
                     </div>
 
