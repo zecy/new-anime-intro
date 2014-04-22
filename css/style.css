@@ -178,12 +178,12 @@ header a {
 }
 
 .infobox li:hover span::before {
-    content      : "";
-    position     : absolute;
-    border       : 5px solid;
-    border-color : transparent transparent transparent #3ea2ff;
-    left         : -8px;
-    top          : 3px
+    content           : "";
+    position          : absolute;
+    border            : 5px solid transparent;
+    border-left-color : #3ea2ff;
+    left              : -8px;
+    top               : 3px
 }
 
 .dialog {
