@@ -318,38 +318,38 @@
     <h3>基本信息</h3>
     <ul class="infobox">
         <li>
-            <b>原　　名</b><span>{{ anime.info.origintitle[0] }}</span>
+            <dt>原　　名</dt><dd><span>{{ anime.info.origintitle[0] }}</span></dd>
         </li>
         <li>
-            <b>原作类型</b><span>{{ anime.info.origintype[0] }}</span>
+            <dt>原作类型</dt><dd><span>{{ anime.info.origintype[0] }}</span></dd>
         </li>
         <li>
-            <b>放送时间</b><span>{{ anime.info.onair[0] }}</span>
+            <dt>放送时间</dt><dd><span>{{ anime.info.onair[0] }}</span></dd>
         </li>
         <li ng-show="anime.info.episodes[0]">
-            <b>话　　数</b><span>{{ anime.info.episodes[0] }}</span>
+            <dt>话　　数</dt><dd><span>{{ anime.info.episodes[0] }}</span></dd>
         </li>
         <li>
-            <b>作品类型</b><span>{{ anime.info.genre[0] }}</span>
+            <dt>作品类型</dt><dd><span>{{ anime.info.genre[0] }}</span></dd>
         </li>
         <li>
-            <b>官方网站</b><span><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a></span>
+            <dt>官方网站</dt><dd><span><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a></span></dd>
         </li>
     </ul>
 
     <h3>Staff</h3>
     <ul class="infobox">
         <li ng-repeat="staff in animeDataBase[$index].staff | hideItem">
-            <b>{{ staff[0] }}</b>
-            <span>{{ staff[1] }}</span>
+            <dt>{{ staff[0] }}</dt>
+            <dd><span>{{ staff[1] }}</span></dd>
         </li>
     </ul>
 
     <h3>Cast</h3>
     <ul class="infobox">
         <li ng-repeat="cast in animeDataBase[$index].cast | hideItem">
-            <b>{{ cast[0] }}</b>
-            <span>{{ cast[1] }}</span>
+            <dt>{{ cast[0] }}</dt>
+            <dd><span>{{ cast[1] }}</span></dd>
         </li>
     </ul>
 

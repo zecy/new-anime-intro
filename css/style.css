@@ -161,26 +161,29 @@ header a {
     background : #eee;
 }
 
-.infobox b {
+.infobox dt {
     display       : table-cell;
     padding-left  : 2em;
     width         : auto;
     padding-right : 1em;
 }
 
-.infobox span {
-    display      : table-cell;
+.infobox dd {
+    display       : table-cell;
     padding-right : 3em;
-    position: relative;
 }
 
-.infobox li:hover span:before {
-    content:"";
-    position: absolute;
-    border:5px solid;
-    border-color:transparent transparent transparent #3ea2ff;
-    top: 6px;
-    left: -8px;
+.infobox span {
+    position : relative;
+}
+
+.infobox li:hover span::before {
+    content      : "";
+    position     : absolute;
+    border       : 5px solid;
+    border-color : transparent transparent transparent #3ea2ff;
+    left         : -8px;
+    top          : 3px
 }
 
 .dialog {
