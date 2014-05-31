@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" />
+  <title>2014年4月新番介绍</title>
+</head>
+<body ms-controller="animeIntro">
+
+<header>
+    <div class="headercontent">
+
+        <h1 id="hptitle">ZC的新番手记</h1>
+
+        <nav class="tab">
+
+            <ul class="tab-nav clearfix">
+                <li class="pages-selector">
+                    显示动画数目
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <h3>共有 {{ animeNumber }} 部动画，显示 {{ animeCurrentNumber }} 部</h3>
+
+                        <input type="text" ng-model="pageStart" placeholder="从第N部开始显示"/> - <input type="text" ng-model="pageEnd" placeholder="到第M部结束"/>
+                        <button type="button" class="btn btn-default" ng-click="animeNumberInOnePage()">确定</button>
+
+                    </div>
+
+                </li>
+
+                <li class="origintype-selector">
+                    原作类型
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
+                            <li ng-class="{'property-list-current' : origintype.name === currentName }"
+                                ng-repeat="origintype in countedOrigintype"
+                                ng-click="searchProperty(origintype.name, 'origintype')">
+                                {{ origintype.name }}
+                                <span>{{ origintype.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="sequel-selector">
+                    是否续作
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
+                            <li ng-class="{'property-list-current' : sequel.name === currentName }"
+                                ng-repeat="sequel in countedSequel" ng-click="searchProperty(sequel.name, 'sequel')">
+                                {{ sequel.name }}
+                                <span>{{ sequel.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
+
+                <li class="onair-selector">
+                    播放时间
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{animeNumber}}</span></li>
+                            <li ng-show="onair" ng-class="{'property-list-current' : onair.name === currentName }" ng-repeat="onair in countedOnair | weekDays track by $index" ng-click="searchProperty(onair.name, 'onair')">
+                                {{ onair.name }}
+                                <span>{{ onair.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="genre-selector">
+                    类型
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <input type="text" ng-model="genreSearch.name" placeholder="查找类型"/>
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">
+                                全部 <span>{{ animeNumber }}</span>
+                            </li>
+                            <li ng-class="{'property-list-current' : genre.name === currentName }"
+                                ng-repeat="genre in countedGenre | filter: genreSearch"
+                                ng-click="searchProperty(genre.name, 'genre')">
+                                {{ genre.name }} <span>{{ genre.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="staff-selector">
+
+                    Staff
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <input type="text" ng-model="staffSearch.name" placeholder="查找Staff名称"/>
+                        <input type="text"
+                               ng-model="staffCountNum"
+                               ng-change="changeCount('staff', staffCountNum)"
+                               placeholder="统计下限"/>
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{ animeNumber }}</span></li>
+                            <li ng-class="{'property-list-current' : staff.name === currentName }"
+                                ng-repeat="staff in countedStaff | filter:staffSearch"
+                                ng-click="searchProperty(staff.name, 'staff')">
+                                {{ staff.name }}
+                                <span>{{ staff.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="cast-selector">
+                    Cast
+
+                    <div class="selector">
+
+                        <span class="trangle"></span>
+
+                        <input type="text" ng-model="castSearch.name" placeholder="查找Cast"/>
+                        <input type="text"
+                               ng-model="castCountNum"
+                               ng-change="changeCount('cast', castCountNum)"
+                               placeholder="统计下限"/>
+                        <ul class="property-list clearfix">
+                            <li ng-click="animeNumberInOnePage()">全部 <span>{{ animeNumber }}</span></li>
+                            <li ng-class="{'property-list-current' : cast.name === currentName }"
+                                ng-repeat="cast in countedCast | filter: castSearch"
+                                ng-click="searchProperty(cast.name, 'cast')">
+                                {{ cast.name }}
+                                <span>{{ cast.number }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
+
+    </div>
+</header>
+
+<div class="wrap">
+
+<!--
+    <div class="intro" >
+
+        <p>大家好，我是ZC。又是每季惯例的新番介绍。因为要等《美妙旋律》第四季的信息，所以一直拖到现在才发，虽然完成的时候已经是3月29日了，发出来的时候应该已经是30日，不过总算是赶上4月前了。下一季如果时间充裕可能会换一换制作方式吧。</p>
+        <p>本次的4月档如果要我形容的话，就是群魔乱舞。包括总共有63部，算上两部一集过的特别番就有65部了，应该是没有遗漏。</p>
+        <p>这一季的作品不光数量惊人，而且类型丰富得令人发指。</p>
+        
+        <p>先从霸权预定的说起。</p>
+        <p>Shaft的《目隐都市的演绎者》，人气多媒体企划《阳炎Project》的动画化，用Vocaloid制作的音乐视频在nico上面极受欢迎，而出版的轻小说也仅仅是败给《刀剑神域》。应该是本季以初高中学生为目标的作品中的最强作。</p>
+        <p>另一部需要注目的同受众作品是《魔法科高中的劣等生》，详细情况就请留意正文吧。</p>
+        <p>然后是各类型的热门作品。</p>
+        <p>科幻+机器人的，居然有6部！曾经辉煌而又衰败的机器人动画，在最近几年又再重新活跃，这个趋势大家应该都有目共睹。手绘、手绘3D结合还有纯3D，不同形式的作品在本季都能看到。</p>
+        <p>由《Highschool DxD》原班人马制作的燃×杀必死《健全机斗士》。</p>
+        <p>由作画大厂BONE制作，《Star Driver》Staff再集结的原创作品《地球队长》。</p>
+        <p>由Production I.G领衔出品，剧场版TV播的《破刃之剑》。</p>
+        <p>由J.C.Staff制作，讲述处男救世界的历史戏说系《风云维新大将军》。</p>
+        <p>由老牌3D大厂ポリゴン·ピクチュアズ打造，全3D宇宙大戏《银河骑士传》。</p>
+        <p>由佐藤順一×岡田麿里×河森正治制作，机器人题材的青年男女群像剧《M3 其为黑钢》。</p>
+        <p>新千年以来，机器人动画阵容从来未有这么屌过。</p>
+
+        <p>卡牌动画继续大热，也有8部！</p>
+        <p>每年准点报道的《卡片战斗先导者》也玩起了新意，主角换成了櫂。</p>
+        <p>BANDAI×东映的《魔神之骸》，全3D作品，针对小朋友。</p>
+        <p>J.C.Staff的原创作品，《selector infected WIXOSS》，走猎奇黑暗路线，感觉是《幻想玩偶》《穿透幻影的太阳》这两部作品的结合体。</p>
+        <p>《游戏王》系列新章，换上新一代主角，标题是《ARC-V》。</p>
+        <p>KONAMI的两个卡牌游戏连发，《Oreca Battle》和《Dragon Collection》，都是以小朋友为目标观众，简直无情。</p>
+        <p>至于《Duel Masters》这部每年准时到来，做了11作的就不用提了。</p>
+
+        <p>纯爱类作品2连发。</p>
+        <p>《我们大家的河合庄》和《一周的朋友》，都是甜甜的纯爱类作品，特别是后者。</p>
+
+        <p>百合作品2弹。</p>
+        <p>短篇动画《犬神同学和猫山同学》，轻松愉快无下限。</p>
+        <p>生存游戏类的《恶魔之谜》，故事奇葩到了一个境界，详情还请看正文。</p>
+        <p>空气系美少女聊天番3弹。</p>
+        <p>《噬魂师NOT》，之于《噬魂师》相等于《某科学的超电磁炮》之于《魔法禁书目录》。不过制作公司是BONES，战斗部分还请期待一下。</p>
+        <p>《今天要来点兔子吗》纯粹就是软绵绵的美少女聊天动画，百合味太淡就没算到百合动画里面。</p>
+        <p>《GJ部@》，《GJ部》的特别篇动画，1集全46分钟。</p>
+
+        <p>灾难题材2部。</p>
+        <p>《进击的巨人》大成功之后大家似乎也爱搞搞这一类的。</p>
+        <p>《银河骑士传》，上面说过了。</p>
+        <p>《漆黑的子弹》，面对不明生物的大举入侵，人类躲到了高墙之后，和《进击的巨人》一样呢！（误）主角带着个Loli去刷怪拯救人类，和《Gunslinger Girl》一样呢（大误）！</p>
+
+        <p>体育类作品4部，居然有4部，而且3部是冷门题材，这你敢信？！</p>
+        <p>《排球少年》，排球题材，Production I.G制作。</p>
+        <p>《网球优等生》是NHK的，感觉受众年龄层是小学高年级到初中生。</p>
+        <p>《不良力士！！松太郎》，相扑题材动画，原作漫画是大师之作，详情请看正文。</p>
+        <p>《乒乓》，湯浅政明监督的作品，《四叠半神话大系》之后久违的电视动画新作。</p>
+
+        <p>玛丽苏作品3部。</p>
+        <p>《尽管如此世界依然美丽》，玛丽苏你好。</p>
+        <p>《众神的恶作剧》，玛丽苏你好，玛丽苏再见。</p>
+        <p>《金色琴弦 蓝天》，TV第二作，以游戏第三作为蓝本，脑洞比另2部小点。</p>
+
+        <p>按题材分值得关注的作品大致就是上面这些，接下来说说其他方面的。</p>
+
+        <p>超强炒冷饭作品，居然也有4部。</p>
+        <p>这里不是说用老题材这种炒冷饭，而是HD重制、把剧场版之类的剪一下就当新作放之类的。</p>
+        <p>《美妙旋律 All Star Selection》，把之前的3部年番重新剪成一季，美其名曰“精选集”，真是屌爆了。</p>
+        <p>《龙珠改 魔人布欧篇》。</p>
+        <p>《破刃之剑》，是之前剧场版的重新剪辑版，不过加了新内容，还卖TV版的BD-BOX，简直无情。介绍请留意正文。</p>
+        <p>《史上最强弟子兼一 暗之袭击》，之前OVA的重新剪辑，官方说了，剪辑的会比原来OVA还短，那不如去看OVA呢。</p>
+
+        <p>重量级续作也有不少。</p>
+        <p>《虫师 续章》，上季特别篇之后公布的新作，两期分割，本季先播12话。</p>
+        <p>很多人期待好久的《妖精的尾巴》第二季，故事内容紧接第一季哦，之前有追的务必关注一下。</p>
+        <p>《金田一少年事件簿R》，东京双煞之一的回归。</p>
+        <p>《JOJO的奇妙冒险 星尘斗士》，原作前两部动画化反响极好，而这次的第三部是首次引入替身这个《JOJO》系列核心元素，毫无疑问的重量级作品。</p>
+        <p>《宝石宠物》系列最新作《Lady宝石宠物》，这系列作品总有一些上级者向的梗，不知道这部还有没有。</p>
+        <p>偶像系动画标杆《Love Live》2期。</p>
+        <p>《金色的琴弦 蓝天》，上面已经提过。</p>
+        <p>还有《游戏王》，上面已经提过了。</p>
+        <p>《约会大作战II》，AIC已死，有事烧纸。这是制作人提前出走救起来的，这次有八舞姐妹和百合美九！当然，我更关心的是妹妹和士织。</p>
+        <p>《花物语》，作为特别篇在《伪恋》之后播放。</p>
+
+        <p>本季轻小说改编作品保持活跃，有10部。</p>
+        <p>《星刻的龙骑士》，人设对不起观众，连官网放出的选出图片都有作画问题，龙却花了很多心思做特效，监督一整个在自High的样子。你只能盼着触手还能给力。</p>
+        <p>《魔法科高中的劣等生》，霸权潜力股，上面已经提过。</p>
+        <p>《如果折断她的旗》，GALGAME人生化的作品，和《我的脑内恋碍选项》算是同类，不过内容更丰富些，希望比《我的脑内恋碍选项》靠谱些。</p>
+        <p>《漆黑的子弹》，上面提过了。</p>
+        <p>《游戏人生》，MAD HOUSE制作，和《问题儿童来自异世界》是同类作品，但是各人认为比《问》要优秀得多！</p>
+        <p>《棺姬嘉依卡》，BONES制作，内容无甚新鲜，还等BONES的作画吧。</p>
+        <p>《龙娘七七七埋藏的宝藏》，深夜档少见的探险寻宝题材，A-1 Pictures制作，他们花了很多心思在背景和舞台设置上面哦，看迷宫的时候要注意了。</p>
+        <p>《约会大作战II》，上面提过了。</p>
+        <p>《GJ部@》，上面提到过了。</p>
+        <p>《花物语》，上面提到过了。</p>
+
+        <p>泡面番继续凶猛，几部少儿向的就跳过了。</p>
+        <p>《Keroro》，《Keroro军曹》的Flash版，现在已经开始播了，居然是从第一集开始……</p>
+        <p>《迷你偶像》的第二季，还是和上一季一样，只够你倒水，泡面就别想了。</p>
+        <p>《请试试罗德斯岛战记》，《罗德斯岛战记》25周年企划的一部分，类似于《攻壳机动队入门ARISE的感觉。</p>
+        <p>《漫画家和助手》，黄段子NETA满载，居然是泡面番对不起观众呀！</p>
+        <p>《魔法少女大战》，GAINAX出品。</p>
+        <p>《犬神同学和猫山同学》也是泡面，上面已经提过。</p>
+        <p>《监督不行届》，大家都认识的动画监督庵野秀明和他老婆的生活……原作漫画是他老婆画的。</p>
+
+        <p>最后是其他值得关注一下的作品。</p>
+        <p>《剑灵》，GONZO制作，以棒子游戏为蓝本，这个游戏国内腾讯引进了。期待有肉。</p>
+        <p>《展开骑士》，虽然是少年向，但这是BONES制作的哦，原本是和国外合作的作品，现在出口转内销。</p>
+        <p>《极黑的布伦希尔德》，冈本伦继《妖精的旋律》之后又一部动画化的作品。从漫画来说是《妖精的旋律》的完善升级版，猛发便当是少不了的。不过动画话，因为冈本伦极力要求制作组强化乳摇和乳头，所以这方面也要加倍留意。</p>
+        <p>《爱丝卡&罗吉的炼金工房》，PS平台著名系列的首次动画化，Studio五組制作，看点当然是萌妹子！</p>
+
+        <p>最后的最后，介绍一下本季的两家劳模公司。</p>
+        <p>东映动画，5部：《魔神之骸》《Disk Wars：复仇者联盟》《金田一少年事件簿R》《龙珠改 魔人布欧篇》《不良力士！！松太郎》。</p>
+        <p>BONES，4部：《展开骑士》《地球队长》《噬魂师NOT》《棺姬嘉依卡》。</p>
+        <p>Brain's·Base，4部：《我们大家的河合庄》《众神的恶作剧》《一周的朋友》《史上最强弟子兼一 暗之袭击》。</p>
+
+        <p>大致就是这样。本季的介绍前言写得比过往多很多呢，本季确实有很多可以说的东西。早几年的动画市场同质化很严重，这一季类型这样多元化让我眼前一亮，很多方面的统计数字也能看出动画市场在回温，对于观众来说是好事。</p>
+        <p>那么，每部作品的介绍，请看正文吧。</p>
+    </div>
+
+-->
+
+<div class="guide clearfix">
+
+    <h1 class="guide-title">2014年春季（4-6月）电视动画新作一览</h1>
+
+    <!--<div ng-repeat="name in animeName " class="animebox">-->
+    <div ng-repeat="anime in animeDataBase" class="animebox">
+        <a ng-href="#{{ anime.name[0] }}"><img ng-src="guide/{{ anime.name[0] }}.png" /></a>
+        <h2>{{ anime.name[1] }}</h2>
+    </div>
+
+</div>
+    <!--<p class="copyright">整理 / 制作 by ZC @ http://anipv.info　　</p>-->
+
+<!-- 
+
+    网络发布用
+
+<div class="guide clearfix">
+
+    <div ng-repeat="name in animeName" class="animebox">
+        <a ng-href="#{{ name[0] }}"><img ng-src="http://anipv.info/blog/wp-content/themes/anipv/anime/2014apr/guide/{{ name[0] }}.jpg" /></a>
+        <h2>{{ name[1] }}</h2>
+    </div>
+
+</div>
+-->
+
+<!-- For WebSite :: -->
+
+<div ng-repeat="anime in animeDataBase" class="animedetail">
+    <h2 id="{{ anime.name[0] }}" class="name">《{{ anime.name[1] }}》</h2>
+    <img ng-src="image/{{ anime.name[0] }}/poster.jpg" alt=""/>
+
+    <h3>基本信息</h3>
+    <ul class="infobox">
+        <li>
+            <dt>原　　名</dt><dd><span>{{ anime.info.origintitle[0] }}</span></dd>
+        </li>
+        <li>
+            <dt>原作类型</dt><dd><span>{{ anime.info.origintype[0] }}</span></dd>
+        </li>
+        <li>
+            <dt>放送时间</dt><dd><span>{{ anime.info.onair[0] }}</span></dd>
+        </li>
+        <li ng-show="anime.info.episodes[0]">
+            <dt>话　　数</dt><dd><span>{{ anime.info.episodes[0] }}</span></dd>
+        </li>
+        <li>
+            <dt>作品类型</dt><dd><span>{{ anime.info.genre[0] }}</span></dd>
+        </li>
+        <li>
+            <dt>官方网站</dt><dd><span><a ng-href="{{ anime.info.hp[0] }}">{{ anime.info.hp[0] }}</a></span></dd>
+        </li>
+    </ul>
+
+    <h3>Staff</h3>
+    <ul class="infobox">
+        <li ng-repeat="staff in animeDataBase[$index].staff | hideItem">
+            <dt>{{ staff[0] }}</dt>
+            <dd><span>{{ staff[1] }}</span></dd>
+        </li>
+    </ul>
+
+    <h3>Cast</h3>
+    <ul class="infobox">
+        <li ng-repeat="cast in animeDataBase[$index].cast | hideItem">
+            <dt>{{ cast[0] }}</dt>
+            <dd><span>{{ cast[1] }}</span></dd>
+        </li>
+    </ul>
+
+    <h3>简介</h3>
+    <div class="dialog">
+        <p ng-repeat="comment in animeDataBase[$index].comment">{{ comment }}</p>
+    </div>
+
+</div>
+-->
+
+<!-- For BBCode ::
+
+<pre ng-repeat="name in animeName" class="animedetail">
+
+
+[size=5]《{{ name[1] }}》[/size]
+
+[img]http://anipv.info/blog/wp-content/themes/anipv/anime/2014apr/{{ name[0] }}/poster.jpg[/img]
+
+[size=3][color=blue]▌[/color]基本信息[/size]
+
+<p ng-repeat="info in animeInfo[$index]">　　[b]{{ info[0] }}：[/b]{{ info[1] }}</p><p>　　[b]{{ animeHp[$index][0] }}：[/b]{{ animeHp[$index][1] }}</p>
+[size=3][color=blue]▌[/color]Staff[/size]
+
+<p ng-repeat="staff in animeStaff[$index] ">　　[b]{{ staff[0] }}：[/b]{{ staff[1] }}</p>
+[size=3][color=blue]▌[/color]Cast[/size]
+
+<p ng-repeat="cast in animeCast[$index]">　　[b]{{ cast[0] }}：[/b]{{ cast[1] }}</p>
+[size=3][color=blue]▌[/color]简介[/size]
+
+<p ng-repeat="comment in animeComment[$index]">　　{{ comment }}</p>
+</pre>
+-->
+
+<!-- For Zhihu ::
+
+
+<pre ng-repeat="name in animeName" class="animedetail">
+
+
+《{{ name[1] }}》
+
+图
+
+【基本信息】
+
+<span ng-repeat="info in animeInfo[$index]">　　{{ info[0] }}：{{ info[1] }}<br /></span><span>　　{{ animeHp[$index][0] }}：{{ animeHp[$index][1] }}</span>
+
+【Staff】
+
+<span ng-repeat="staff in animeStaff[$index] ">　　{{ staff[0] }}：{{ staff[1] }}<br/></span>
+【Cast】
+
+<span ng-repeat="cast in animeCast[$index]">　　{{ cast[0] }}：{{ cast[1] }}<br/></span>
+【简介】
+
+<span ng-repeat="comment in animeComment[$index]">　　{{ comment }}<br/></span>
+</pre>
+
+-->
+
+<div class="scrolltop">
+    <a href="#top">返回顶部</a>
+</div>
+
+</div>
+</body>
+<script src="js/avalon.js"></script>
+<script src="js/database.js"></script>
+<script src="js/control_avalon.js"></script>
+</html>

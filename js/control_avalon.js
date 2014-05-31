@@ -1,5 +1,6 @@
 /**
  * Created by zecy on 14-3-29.
+ * For Avalon.js
  */
 
 /* ----------------------------------------
@@ -7,6 +8,17 @@
  *        THE METHOD FUNCTIONS
  *
  * ----------------------------------------*/
+
+function deepCopy(arr) {
+
+    var newArr = [];
+
+    for( item in arr) {
+        if(typeof(item) === 'object' ) {
+
+        }
+    }
+}
 
 function arrCompact(arr, style) {
 
@@ -65,6 +77,7 @@ function arrCompact(arr, style) {
                 j -= 1;
             }
         }
+
     }
 
     return arr;
@@ -259,19 +272,6 @@ function buildWaitToCountList(dataItem, indexlist) {
 }
 
 function buildCountedList(arr) {
-
-    /*
-    *  Input the waitToCountList and output the CountedList
-    *
-    *  countedList = {
-    *
-    *      木谷高明      : {counted:1, list:[62]},
-    *      Brain's·Base : {counted:4, list:[13,42,47,53]},
-    *      ...
-    *  }
-    *
-    * */
-
     var result = [], hash = {};
 
     var arrLength = arr.length;
@@ -321,7 +321,9 @@ function meaningfulData(obj, number) {
  *
  * ------------------------------------------------------------*/
 
-var animeIntro = angular.module('AnimeIntro', []);
+/*
+
+//var animeIntro = angular.module('AnimeIntro', []);
 
 // Hide Item
 animeIntro.filter('hideItem', function () {
@@ -375,6 +377,7 @@ animeIntro.filter('weekDays', function () {
     };
 });
 
+ */
 
 /*------------------------------------------------------------
  *
@@ -401,22 +404,22 @@ var countedSequel        = buildCountedList(waitToCountList.sequel);
 var countedStaff         = buildCountedList(waitToCountList.staff);
 var countedCast          = buildCountedList(waitToCountList.cast);
 
-function animeBox($scope) {
+var model = avalon.define('animeIntro', function(vm){
 
-    $scope.animeDataBase      = buildAnimeList(shownAnimeData);
-    $scope.animeNumber        = animeDataBase.length;
-    $scope.animeCurrentNumber = animeDataBase.length;
+    vm.animeDataBase      = buildAnimeList(shownAnimeData);
+    vm.animeNumber        = animeDataBase.length;
+    vm.animeCurrentNumber = animeDataBase.length;
 
-    $scope.countedOnair       = meaningfulData(countedOnair, 1);
-    $scope.countedGenre       = meaningfulData(countedGenre, 1);
-    $scope.countedOrigintype  = meaningfulData(countedOrigintype, 1);
-    $scope.countedSequel      = meaningfulData(countedSequel, 1);
-    $scope.countedStaff       = meaningfulData(countedStaff, 2);
-    $scope.countedCast        = meaningfulData(countedCast, 3);
+    vm.countedOnair       = meaningfulData(countedOnair, 1);
+    vm.countedGenre       = meaningfulData(countedGenre, 1);
+    vm.countedOrigintype  = meaningfulData(countedOrigintype, 1);
+    vm.countedSequel      = meaningfulData(countedSequel, 1);
+    vm.countedStaff       = meaningfulData(countedStaff, 2);
+    vm.countedCast        = meaningfulData(countedCast, 3);
 
-    $scope.currentName = "";
+    vm.currentName = "";
 
-    $scope.searchProperty = function (str, type) {
+    vm.searchProperty = function (str, type) {
 
         /*
          *
@@ -453,26 +456,26 @@ function animeBox($scope) {
                 break
         }
 
-        $scope.animeDataBase = buildAnimeList(shownAnimeData, indexList, -1);
-        $scope.currentName = str;
+        vm.animeDataBase = buildAnimeList(shownAnimeData, indexList, -1);
+        vm.currentName = str;
     };
 
-    $scope.changeCount = function (item, num) {
+    vm.changeCount = function (item, num) {
 
         switch ( item ) {
             case 'staff':
-                $scope.countedStaff = meaningfulData(countedStaff, num);
-//                $scope.staffCountNum = "";
+                vm.countedStaff = meaningfulData(countedStaff, num);
+//                vm.staffCountNum = "";
                 break;
 
             case 'cast':
-                $scope.countedCast = meaningfulData(countedCast, num);
-//                $scope.castCountNum = "";
+                vm.countedCast = meaningfulData(countedCast, num);
+//                vm.castCountNum = "";
                 break;
         }
     };
 
-    $scope.unFilt = function () {
+    vm.unFilt = function () {
 
         /*
          *
@@ -480,22 +483,22 @@ function animeBox($scope) {
          *
          * */
 
-        var sN = $scope.pageStart ? $scope.pageStart - 1 : 0;
-        var eN = $scope.pageEnd ? $scope.pageEnd : shownAnimeData.length;
+        var sN = vm.pageStart ? vm.pageStart - 1 : 0;
+        var eN = vm.pageEnd ? vm.pageEnd : shownAnimeData.length;
 
-        $scope.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
+        vm.animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
 
     };
 
-    $scope.animeNumberInOnePage = function () {
+    vm.animeNumberInOnePage = function () {
 
-        var sN = $scope.pageStart ? $scope.pageStart - 1 : 0;
-        var eN = $scope.pageEnd ? $scope.pageEnd : shownAnimeData.length;
+        var sN = vm.pageStart ? vm.pageStart - 1 : 0;
+        var eN = vm.pageEnd ? vm.pageEnd : shownAnimeData.length;
 
         var animeDataBase = buildAnimeList(shownAnimeData, [sN, eN], 1);
 
-        $scope.animeDataBase      = animeDataBase;
-        $scope.animeCurrentNumber = animeDataBase.length;
+        vm.animeDataBase      = animeDataBase;
+        vm.animeCurrentNumber = animeDataBase.length;
 
             /*
              var waitToCountList = buildWaitToCountList(animeDataBase);
@@ -507,25 +510,25 @@ function animeBox($scope) {
              var countedStaff      = buildCountedList(waitToCountList.staff);
              var countedCast       = buildCountedList(waitToCountList.cast);
 
-             $scope.countedOnair      = meaningfulData(countedOnair, 1);
-             $scope.countedGenre      = meaningfulData(countedGenre, 1);
-             $scope.countedOrigintype = meaningfulData(countedOrigintype, 1);
-             $scope.countedSequel     = meaningfulData(countedSequel, 1);
-             $scope.countedStaff      = meaningfulData(countedStaff, 2);
-             $scope.countedCast       = meaningfulData(countedCast, 3);
+             vm.countedOnair      = meaningfulData(countedOnair, 1);
+             vm.countedGenre      = meaningfulData(countedGenre, 1);
+             vm.countedOrigintype = meaningfulData(countedOrigintype, 1);
+             vm.countedSequel     = meaningfulData(countedSequel, 1);
+             vm.countedStaff      = meaningfulData(countedStaff, 2);
+             vm.countedCast       = meaningfulData(countedCast, 3);
              */
 
-        $scope.currentName = "";
+        vm.currentName = "";
 
-        $scope.pageStart   = "";
-        $scope.pageEnd     = "";
+        vm.pageStart   = "";
+        vm.pageEnd     = "";
 
         console.log(sN);
     };
 
-    $scope.selector = 'pages';
+    vm.selector = 'pages';
 
-    $scope.tabChange = function (selector) {
-        $scope.selector = selector;
+    vm.tabChange = function (selector) {
+        vm.selector = selector;
     }
-}
+});
